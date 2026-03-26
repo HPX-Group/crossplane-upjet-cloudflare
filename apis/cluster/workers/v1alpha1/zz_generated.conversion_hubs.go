@@ -13,10 +13,37 @@ func (tr *PagesDomain) Hub() {}
 func (tr *PagesProject) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *Worker) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *WorkersCronTrigger) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *WorkersCustomDomain) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *WorkersDeployment) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *WorkersForPlatformsDispatchNamespace) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *WorkersKV) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *WorkersKVNamespace) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *WorkersRoute) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *WorkersScript) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *WorkersScriptSubdomain) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *WorkerVersion) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *Workflow) Hub() {}

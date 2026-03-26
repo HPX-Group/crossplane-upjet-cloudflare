@@ -14,7 +14,330 @@ import (
 	v1 "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"
 )
 
-type AssetsConfigInitParameters struct {
+type BindingsOutboundInitParameters struct {
+
+	// (List of String) Pass information from the Dispatch Worker to the Outbound Worker through the parameters.
+	// Pass information from the Dispatch Worker to the Outbound Worker through the parameters.
+	Params []*string `json:"params,omitempty" tf:"params,omitempty"`
+
+	// (Attributes) Outbound worker. (see below for nested schema)
+	Worker *BindingsOutboundWorkerInitParameters `json:"worker,omitempty" tf:"worker,omitempty"`
+}
+
+type BindingsOutboundObservation struct {
+
+	// (List of String) Pass information from the Dispatch Worker to the Outbound Worker through the parameters.
+	// Pass information from the Dispatch Worker to the Outbound Worker through the parameters.
+	Params []*string `json:"params,omitempty" tf:"params,omitempty"`
+
+	// (Attributes) Outbound worker. (see below for nested schema)
+	Worker *BindingsOutboundWorkerObservation `json:"worker,omitempty" tf:"worker,omitempty"`
+}
+
+type BindingsOutboundParameters struct {
+
+	// (List of String) Pass information from the Dispatch Worker to the Outbound Worker through the parameters.
+	// Pass information from the Dispatch Worker to the Outbound Worker through the parameters.
+	// +kubebuilder:validation:Optional
+	Params []*string `json:"params,omitempty" tf:"params,omitempty"`
+
+	// (Attributes) Outbound worker. (see below for nested schema)
+	// +kubebuilder:validation:Optional
+	Worker *BindingsOutboundWorkerParameters `json:"worker,omitempty" tf:"worker,omitempty"`
+}
+
+type BindingsOutboundWorkerInitParameters struct {
+
+	// (String) The environment of the script_name to bind to.
+	// Environment of the outbound worker.
+	Environment *string `json:"environment,omitempty" tf:"environment,omitempty"`
+
+	// (String) Name of Worker to bind to.
+	// Name of the outbound worker.
+	Service *string `json:"service,omitempty" tf:"service,omitempty"`
+}
+
+type BindingsOutboundWorkerObservation struct {
+
+	// (String) The environment of the script_name to bind to.
+	// Environment of the outbound worker.
+	Environment *string `json:"environment,omitempty" tf:"environment,omitempty"`
+
+	// (String) Name of Worker to bind to.
+	// Name of the outbound worker.
+	Service *string `json:"service,omitempty" tf:"service,omitempty"`
+}
+
+type BindingsOutboundWorkerParameters struct {
+
+	// (String) The environment of the script_name to bind to.
+	// Environment of the outbound worker.
+	// +kubebuilder:validation:Optional
+	Environment *string `json:"environment,omitempty" tf:"environment,omitempty"`
+
+	// (String) Name of Worker to bind to.
+	// Name of the outbound worker.
+	// +kubebuilder:validation:Optional
+	Service *string `json:"service,omitempty" tf:"service,omitempty"`
+}
+
+type MigrationsRenamedClassesInitParameters struct {
+
+	// (String)
+	From *string `json:"from,omitempty" tf:"from,omitempty"`
+
+	// (String)
+	To *string `json:"to,omitempty" tf:"to,omitempty"`
+}
+
+type MigrationsRenamedClassesObservation struct {
+
+	// (String)
+	From *string `json:"from,omitempty" tf:"from,omitempty"`
+
+	// (String)
+	To *string `json:"to,omitempty" tf:"to,omitempty"`
+}
+
+type MigrationsRenamedClassesParameters struct {
+
+	// (String)
+	// +kubebuilder:validation:Optional
+	From *string `json:"from,omitempty" tf:"from,omitempty"`
+
+	// (String)
+	// +kubebuilder:validation:Optional
+	To *string `json:"to,omitempty" tf:"to,omitempty"`
+}
+
+type MigrationsStepsInitParameters struct {
+
+	// (List of String) A list of classes to delete Durable Object namespaces from.
+	// A list of classes to delete Durable Object namespaces from.
+	DeletedClasses []*string `json:"deletedClasses,omitempty" tf:"deleted_classes,omitempty"`
+
+	// (List of String) A list of classes to create Durable Object namespaces from.
+	// A list of classes to create Durable Object namespaces from.
+	NewClasses []*string `json:"newClasses,omitempty" tf:"new_classes,omitempty"`
+
+	// (List of String) A list of classes to create Durable Object namespaces with SQLite from.
+	// A list of classes to create Durable Object namespaces with SQLite from.
+	NewSqliteClasses []*string `json:"newSqliteClasses,omitempty" tf:"new_sqlite_classes,omitempty"`
+
+	// (Attributes List) A list of classes with Durable Object namespaces that were renamed. (see below for nested schema)
+	RenamedClasses []MigrationsStepsRenamedClassesInitParameters `json:"renamedClasses,omitempty" tf:"renamed_classes,omitempty"`
+
+	// (Attributes List) A list of transfers for Durable Object namespaces from a different Worker and class to a class defined in this Worker. (see below for nested schema)
+	TransferredClasses []StepsTransferredClassesInitParameters `json:"transferredClasses,omitempty" tf:"transferred_classes,omitempty"`
+}
+
+type MigrationsStepsObservation struct {
+
+	// (List of String) A list of classes to delete Durable Object namespaces from.
+	// A list of classes to delete Durable Object namespaces from.
+	DeletedClasses []*string `json:"deletedClasses,omitempty" tf:"deleted_classes,omitempty"`
+
+	// (List of String) A list of classes to create Durable Object namespaces from.
+	// A list of classes to create Durable Object namespaces from.
+	NewClasses []*string `json:"newClasses,omitempty" tf:"new_classes,omitempty"`
+
+	// (List of String) A list of classes to create Durable Object namespaces with SQLite from.
+	// A list of classes to create Durable Object namespaces with SQLite from.
+	NewSqliteClasses []*string `json:"newSqliteClasses,omitempty" tf:"new_sqlite_classes,omitempty"`
+
+	// (Attributes List) A list of classes with Durable Object namespaces that were renamed. (see below for nested schema)
+	RenamedClasses []MigrationsStepsRenamedClassesObservation `json:"renamedClasses,omitempty" tf:"renamed_classes,omitempty"`
+
+	// (Attributes List) A list of transfers for Durable Object namespaces from a different Worker and class to a class defined in this Worker. (see below for nested schema)
+	TransferredClasses []StepsTransferredClassesObservation `json:"transferredClasses,omitempty" tf:"transferred_classes,omitempty"`
+}
+
+type MigrationsStepsParameters struct {
+
+	// (List of String) A list of classes to delete Durable Object namespaces from.
+	// A list of classes to delete Durable Object namespaces from.
+	// +kubebuilder:validation:Optional
+	DeletedClasses []*string `json:"deletedClasses,omitempty" tf:"deleted_classes,omitempty"`
+
+	// (List of String) A list of classes to create Durable Object namespaces from.
+	// A list of classes to create Durable Object namespaces from.
+	// +kubebuilder:validation:Optional
+	NewClasses []*string `json:"newClasses,omitempty" tf:"new_classes,omitempty"`
+
+	// (List of String) A list of classes to create Durable Object namespaces with SQLite from.
+	// A list of classes to create Durable Object namespaces with SQLite from.
+	// +kubebuilder:validation:Optional
+	NewSqliteClasses []*string `json:"newSqliteClasses,omitempty" tf:"new_sqlite_classes,omitempty"`
+
+	// (Attributes List) A list of classes with Durable Object namespaces that were renamed. (see below for nested schema)
+	// +kubebuilder:validation:Optional
+	RenamedClasses []MigrationsStepsRenamedClassesParameters `json:"renamedClasses,omitempty" tf:"renamed_classes,omitempty"`
+
+	// (Attributes List) A list of transfers for Durable Object namespaces from a different Worker and class to a class defined in this Worker. (see below for nested schema)
+	// +kubebuilder:validation:Optional
+	TransferredClasses []StepsTransferredClassesParameters `json:"transferredClasses,omitempty" tf:"transferred_classes,omitempty"`
+}
+
+type MigrationsStepsRenamedClassesInitParameters struct {
+
+	// (String)
+	From *string `json:"from,omitempty" tf:"from,omitempty"`
+
+	// (String)
+	To *string `json:"to,omitempty" tf:"to,omitempty"`
+}
+
+type MigrationsStepsRenamedClassesObservation struct {
+
+	// (String)
+	From *string `json:"from,omitempty" tf:"from,omitempty"`
+
+	// (String)
+	To *string `json:"to,omitempty" tf:"to,omitempty"`
+}
+
+type MigrationsStepsRenamedClassesParameters struct {
+
+	// (String)
+	// +kubebuilder:validation:Optional
+	From *string `json:"from,omitempty" tf:"from,omitempty"`
+
+	// (String)
+	// +kubebuilder:validation:Optional
+	To *string `json:"to,omitempty" tf:"to,omitempty"`
+}
+
+type NamedHandlersInitParameters struct {
+}
+
+type NamedHandlersObservation struct {
+
+	// (List of String) The names of handlers exported as part of the default export.
+	// The names of handlers exported as part of the named export.
+	Handlers []*string `json:"handlers,omitempty" tf:"handlers,omitempty"`
+
+	// (String) A JavaScript variable name for the binding.
+	// The name of the export.
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+}
+
+type NamedHandlersParameters struct {
+}
+
+type ObservabilityLogsInitParameters struct {
+
+	// (List of String) A list of destinations where logs will be exported to.
+	// A list of destinations where logs will be exported to.
+	Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
+
+	// (Boolean) Whether observability is enabled for the Worker.
+	// Whether logs are enabled for the Worker.
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+
+	// (Number) The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
+	// The sampling rate for logs. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
+	HeadSamplingRate *float64 `json:"headSamplingRate,omitempty" tf:"head_sampling_rate,omitempty"`
+
+	// (Boolean) Whether invocation logs are enabled for the Worker.
+	// Whether [invocation logs](https://developers.cloudflare.com/workers/observability/logs/workers-logs/#invocation-logs) are enabled for the Worker.
+	InvocationLogs *bool `json:"invocationLogs,omitempty" tf:"invocation_logs,omitempty"`
+
+	// (Boolean) Whether log persistence is enabled for the Worker.
+	// Whether log persistence is enabled for the Worker.
+	Persist *bool `json:"persist,omitempty" tf:"persist,omitempty"`
+}
+
+type ObservabilityLogsObservation struct {
+
+	// (List of String) A list of destinations where logs will be exported to.
+	// A list of destinations where logs will be exported to.
+	Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
+
+	// (Boolean) Whether observability is enabled for the Worker.
+	// Whether logs are enabled for the Worker.
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+
+	// (Number) The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
+	// The sampling rate for logs. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
+	HeadSamplingRate *float64 `json:"headSamplingRate,omitempty" tf:"head_sampling_rate,omitempty"`
+
+	// (Boolean) Whether invocation logs are enabled for the Worker.
+	// Whether [invocation logs](https://developers.cloudflare.com/workers/observability/logs/workers-logs/#invocation-logs) are enabled for the Worker.
+	InvocationLogs *bool `json:"invocationLogs,omitempty" tf:"invocation_logs,omitempty"`
+
+	// (Boolean) Whether log persistence is enabled for the Worker.
+	// Whether log persistence is enabled for the Worker.
+	Persist *bool `json:"persist,omitempty" tf:"persist,omitempty"`
+}
+
+type ObservabilityLogsParameters struct {
+
+	// (List of String) A list of destinations where logs will be exported to.
+	// A list of destinations where logs will be exported to.
+	// +kubebuilder:validation:Optional
+	Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
+
+	// (Boolean) Whether observability is enabled for the Worker.
+	// Whether logs are enabled for the Worker.
+	// +kubebuilder:validation:Optional
+	Enabled *bool `json:"enabled" tf:"enabled,omitempty"`
+
+	// (Number) The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
+	// The sampling rate for logs. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
+	// +kubebuilder:validation:Optional
+	HeadSamplingRate *float64 `json:"headSamplingRate,omitempty" tf:"head_sampling_rate,omitempty"`
+
+	// (Boolean) Whether invocation logs are enabled for the Worker.
+	// Whether [invocation logs](https://developers.cloudflare.com/workers/observability/logs/workers-logs/#invocation-logs) are enabled for the Worker.
+	// +kubebuilder:validation:Optional
+	InvocationLogs *bool `json:"invocationLogs" tf:"invocation_logs,omitempty"`
+
+	// (Boolean) Whether log persistence is enabled for the Worker.
+	// Whether log persistence is enabled for the Worker.
+	// +kubebuilder:validation:Optional
+	Persist *bool `json:"persist,omitempty" tf:"persist,omitempty"`
+}
+
+type StepsTransferredClassesInitParameters struct {
+
+	// (String)
+	From *string `json:"from,omitempty" tf:"from,omitempty"`
+
+	// (String)
+	FromScript *string `json:"fromScript,omitempty" tf:"from_script,omitempty"`
+
+	// (String)
+	To *string `json:"to,omitempty" tf:"to,omitempty"`
+}
+
+type StepsTransferredClassesObservation struct {
+
+	// (String)
+	From *string `json:"from,omitempty" tf:"from,omitempty"`
+
+	// (String)
+	FromScript *string `json:"fromScript,omitempty" tf:"from_script,omitempty"`
+
+	// (String)
+	To *string `json:"to,omitempty" tf:"to,omitempty"`
+}
+
+type StepsTransferredClassesParameters struct {
+
+	// (String)
+	// +kubebuilder:validation:Optional
+	From *string `json:"from,omitempty" tf:"from,omitempty"`
+
+	// (String)
+	// +kubebuilder:validation:Optional
+	FromScript *string `json:"fromScript,omitempty" tf:"from_script,omitempty"`
+
+	// (String)
+	// +kubebuilder:validation:Optional
+	To *string `json:"to,omitempty" tf:"to,omitempty"`
+}
+
+type WorkersScriptAssetsConfigInitParameters struct {
 
 	// trailing-slash", "force-trailing-slash", "drop-trailing-slash", "none".
 	// Determines the redirects and rewrites of requests for HTML content.
@@ -43,7 +366,7 @@ type AssetsConfigInitParameters struct {
 	ServeDirectly *bool `json:"serveDirectly,omitempty" tf:"serve_directly,omitempty"`
 }
 
-type AssetsConfigObservation struct {
+type WorkersScriptAssetsConfigObservation struct {
 
 	// trailing-slash", "force-trailing-slash", "drop-trailing-slash", "none".
 	// Determines the redirects and rewrites of requests for HTML content.
@@ -72,7 +395,7 @@ type AssetsConfigObservation struct {
 	ServeDirectly *bool `json:"serveDirectly,omitempty" tf:"serve_directly,omitempty"`
 }
 
-type AssetsConfigParameters struct {
+type WorkersScriptAssetsConfigParameters struct {
 
 	// trailing-slash", "force-trailing-slash", "drop-trailing-slash", "none".
 	// Determines the redirects and rewrites of requests for HTML content.
@@ -107,10 +430,10 @@ type AssetsConfigParameters struct {
 	ServeDirectly *bool `json:"serveDirectly,omitempty" tf:"serve_directly,omitempty"`
 }
 
-type AssetsInitParameters struct {
+type WorkersScriptAssetsInitParameters struct {
 
 	// (Attributes) Configuration for assets within a Worker. (see below for nested schema)
-	Config *AssetsConfigInitParameters `json:"config,omitempty" tf:"config,omitempty"`
+	Config *WorkersScriptAssetsConfigInitParameters `json:"config,omitempty" tf:"config,omitempty"`
 
 	// (String) Path to the directory containing asset files to upload.
 	// Path to the directory containing asset files to upload.
@@ -121,25 +444,25 @@ type AssetsInitParameters struct {
 	JwtSecretRef *v1common.SecretKeySelector `json:"jwtSecretRef,omitempty" tf:"-"`
 }
 
-type AssetsObservation struct {
+type WorkersScriptAssetsObservation struct {
 
 	// 256 hash of the asset manifest of files to upload.
 	// The SHA-256 hash of the asset manifest of files to upload.
 	AssetManifestSha256 *string `json:"assetManifestSha256,omitempty" tf:"asset_manifest_sha256,omitempty"`
 
 	// (Attributes) Configuration for assets within a Worker. (see below for nested schema)
-	Config *AssetsConfigObservation `json:"config,omitempty" tf:"config,omitempty"`
+	Config *WorkersScriptAssetsConfigObservation `json:"config,omitempty" tf:"config,omitempty"`
 
 	// (String) Path to the directory containing asset files to upload.
 	// Path to the directory containing asset files to upload.
 	Directory *string `json:"directory,omitempty" tf:"directory,omitempty"`
 }
 
-type AssetsParameters struct {
+type WorkersScriptAssetsParameters struct {
 
 	// (Attributes) Configuration for assets within a Worker. (see below for nested schema)
 	// +kubebuilder:validation:Optional
-	Config *AssetsConfigParameters `json:"config,omitempty" tf:"config,omitempty"`
+	Config *WorkersScriptAssetsConfigParameters `json:"config,omitempty" tf:"config,omitempty"`
 
 	// (String) Path to the directory containing asset files to upload.
 	// Path to the directory containing asset files to upload.
@@ -152,7 +475,7 @@ type AssetsParameters struct {
 	JwtSecretRef *v1common.SecretKeySelector `json:"jwtSecretRef,omitempty" tf:"-"`
 }
 
-type BindingsInitParameters struct {
+type WorkersScriptBindingsInitParameters struct {
 
 	// specific key parameters. Learn more.
 	// Algorithm-specific key parameters. [Learn more](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/importKey#algorithm).
@@ -239,7 +562,7 @@ type BindingsInitParameters struct {
 	OldName *string `json:"oldName,omitempty" tf:"old_name,omitempty"`
 
 	// (Attributes) Outbound worker. (see below for nested schema)
-	Outbound *OutboundInitParameters `json:"outbound,omitempty" tf:"outbound,omitempty"`
+	Outbound *BindingsOutboundInitParameters `json:"outbound,omitempty" tf:"outbound,omitempty"`
 
 	// (String) The name of the file containing the data content. Only accepted for service worker syntax Workers.
 	// The name of the file containing the data content. Only accepted for `service worker syntax` Workers.
@@ -293,7 +616,7 @@ type BindingsInitParameters struct {
 	WorkflowName *string `json:"workflowName,omitempty" tf:"workflow_name,omitempty"`
 }
 
-type BindingsObservation struct {
+type WorkersScriptBindingsObservation struct {
 
 	// specific key parameters. Learn more.
 	// Algorithm-specific key parameters. [Learn more](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/importKey#algorithm).
@@ -372,7 +695,7 @@ type BindingsObservation struct {
 	OldName *string `json:"oldName,omitempty" tf:"old_name,omitempty"`
 
 	// (Attributes) Outbound worker. (see below for nested schema)
-	Outbound *OutboundObservation `json:"outbound,omitempty" tf:"outbound,omitempty"`
+	Outbound *BindingsOutboundObservation `json:"outbound,omitempty" tf:"outbound,omitempty"`
 
 	// (String) The name of the file containing the data content. Only accepted for service worker syntax Workers.
 	// The name of the file containing the data content. Only accepted for `service worker syntax` Workers.
@@ -422,7 +745,7 @@ type BindingsObservation struct {
 	WorkflowName *string `json:"workflowName,omitempty" tf:"workflow_name,omitempty"`
 }
 
-type BindingsParameters struct {
+type WorkersScriptBindingsParameters struct {
 
 	// specific key parameters. Learn more.
 	// Algorithm-specific key parameters. [Learn more](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/importKey#algorithm).
@@ -530,7 +853,7 @@ type BindingsParameters struct {
 
 	// (Attributes) Outbound worker. (see below for nested schema)
 	// +kubebuilder:validation:Optional
-	Outbound *OutboundParameters `json:"outbound,omitempty" tf:"outbound,omitempty"`
+	Outbound *BindingsOutboundParameters `json:"outbound,omitempty" tf:"outbound,omitempty"`
 
 	// (String) The name of the file containing the data content. Only accepted for service worker syntax Workers.
 	// The name of the file containing the data content. Only accepted for `service worker syntax` Workers.
@@ -596,565 +919,6 @@ type BindingsParameters struct {
 	WorkflowName *string `json:"workflowName,omitempty" tf:"workflow_name,omitempty"`
 }
 
-type LogsInitParameters struct {
-
-	// (List of String) A list of destinations where logs will be exported to.
-	// A list of destinations where logs will be exported to.
-	Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
-
-	// (Boolean) Whether observability is enabled for the Worker.
-	// Whether logs are enabled for the Worker.
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
-
-	// (Number) The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
-	// The sampling rate for logs. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
-	HeadSamplingRate *float64 `json:"headSamplingRate,omitempty" tf:"head_sampling_rate,omitempty"`
-
-	// (Boolean) Whether invocation logs are enabled for the Worker.
-	// Whether [invocation logs](https://developers.cloudflare.com/workers/observability/logs/workers-logs/#invocation-logs) are enabled for the Worker.
-	InvocationLogs *bool `json:"invocationLogs,omitempty" tf:"invocation_logs,omitempty"`
-
-	// (Boolean) Whether log persistence is enabled for the Worker.
-	// Whether log persistence is enabled for the Worker.
-	Persist *bool `json:"persist,omitempty" tf:"persist,omitempty"`
-}
-
-type LogsObservation struct {
-
-	// (List of String) A list of destinations where logs will be exported to.
-	// A list of destinations where logs will be exported to.
-	Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
-
-	// (Boolean) Whether observability is enabled for the Worker.
-	// Whether logs are enabled for the Worker.
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
-
-	// (Number) The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
-	// The sampling rate for logs. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
-	HeadSamplingRate *float64 `json:"headSamplingRate,omitempty" tf:"head_sampling_rate,omitempty"`
-
-	// (Boolean) Whether invocation logs are enabled for the Worker.
-	// Whether [invocation logs](https://developers.cloudflare.com/workers/observability/logs/workers-logs/#invocation-logs) are enabled for the Worker.
-	InvocationLogs *bool `json:"invocationLogs,omitempty" tf:"invocation_logs,omitempty"`
-
-	// (Boolean) Whether log persistence is enabled for the Worker.
-	// Whether log persistence is enabled for the Worker.
-	Persist *bool `json:"persist,omitempty" tf:"persist,omitempty"`
-}
-
-type LogsParameters struct {
-
-	// (List of String) A list of destinations where logs will be exported to.
-	// A list of destinations where logs will be exported to.
-	// +kubebuilder:validation:Optional
-	Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
-
-	// (Boolean) Whether observability is enabled for the Worker.
-	// Whether logs are enabled for the Worker.
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled" tf:"enabled,omitempty"`
-
-	// (Number) The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
-	// The sampling rate for logs. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
-	// +kubebuilder:validation:Optional
-	HeadSamplingRate *float64 `json:"headSamplingRate,omitempty" tf:"head_sampling_rate,omitempty"`
-
-	// (Boolean) Whether invocation logs are enabled for the Worker.
-	// Whether [invocation logs](https://developers.cloudflare.com/workers/observability/logs/workers-logs/#invocation-logs) are enabled for the Worker.
-	// +kubebuilder:validation:Optional
-	InvocationLogs *bool `json:"invocationLogs" tf:"invocation_logs,omitempty"`
-
-	// (Boolean) Whether log persistence is enabled for the Worker.
-	// Whether log persistence is enabled for the Worker.
-	// +kubebuilder:validation:Optional
-	Persist *bool `json:"persist,omitempty" tf:"persist,omitempty"`
-}
-
-type MigrationsInitParameters struct {
-
-	// (List of String) A list of classes to delete Durable Object namespaces from.
-	// A list of classes to delete Durable Object namespaces from.
-	DeletedClasses []*string `json:"deletedClasses,omitempty" tf:"deleted_classes,omitempty"`
-
-	// (List of String) A list of classes to create Durable Object namespaces from.
-	// A list of classes to create Durable Object namespaces from.
-	NewClasses []*string `json:"newClasses,omitempty" tf:"new_classes,omitempty"`
-
-	// (List of String) A list of classes to create Durable Object namespaces with SQLite from.
-	// A list of classes to create Durable Object namespaces with SQLite from.
-	NewSqliteClasses []*string `json:"newSqliteClasses,omitempty" tf:"new_sqlite_classes,omitempty"`
-
-	// (String) Tag to set as the latest migration tag.
-	// Tag to set as the latest migration tag.
-	NewTag *string `json:"newTag,omitempty" tf:"new_tag,omitempty"`
-
-	// (String) Tag used to verify against the latest migration tag for this Worker. If they don't match, the upload is rejected.
-	// Tag used to verify against the latest migration tag for this Worker. If they don't match, the upload is rejected.
-	OldTag *string `json:"oldTag,omitempty" tf:"old_tag,omitempty"`
-
-	// (Attributes List) A list of classes with Durable Object namespaces that were renamed. (see below for nested schema)
-	RenamedClasses []RenamedClassesInitParameters `json:"renamedClasses,omitempty" tf:"renamed_classes,omitempty"`
-
-	// (Attributes List) Migrations to apply in order. (see below for nested schema)
-	Steps []StepsInitParameters `json:"steps,omitempty" tf:"steps,omitempty"`
-
-	// (Attributes List) A list of transfers for Durable Object namespaces from a different Worker and class to a class defined in this Worker. (see below for nested schema)
-	TransferredClasses []MigrationsTransferredClassesInitParameters `json:"transferredClasses,omitempty" tf:"transferred_classes,omitempty"`
-}
-
-type MigrationsObservation struct {
-
-	// (List of String) A list of classes to delete Durable Object namespaces from.
-	// A list of classes to delete Durable Object namespaces from.
-	DeletedClasses []*string `json:"deletedClasses,omitempty" tf:"deleted_classes,omitempty"`
-
-	// (List of String) A list of classes to create Durable Object namespaces from.
-	// A list of classes to create Durable Object namespaces from.
-	NewClasses []*string `json:"newClasses,omitempty" tf:"new_classes,omitempty"`
-
-	// (List of String) A list of classes to create Durable Object namespaces with SQLite from.
-	// A list of classes to create Durable Object namespaces with SQLite from.
-	NewSqliteClasses []*string `json:"newSqliteClasses,omitempty" tf:"new_sqlite_classes,omitempty"`
-
-	// (String) Tag to set as the latest migration tag.
-	// Tag to set as the latest migration tag.
-	NewTag *string `json:"newTag,omitempty" tf:"new_tag,omitempty"`
-
-	// (String) Tag used to verify against the latest migration tag for this Worker. If they don't match, the upload is rejected.
-	// Tag used to verify against the latest migration tag for this Worker. If they don't match, the upload is rejected.
-	OldTag *string `json:"oldTag,omitempty" tf:"old_tag,omitempty"`
-
-	// (Attributes List) A list of classes with Durable Object namespaces that were renamed. (see below for nested schema)
-	RenamedClasses []RenamedClassesObservation `json:"renamedClasses,omitempty" tf:"renamed_classes,omitempty"`
-
-	// (Attributes List) Migrations to apply in order. (see below for nested schema)
-	Steps []StepsObservation `json:"steps,omitempty" tf:"steps,omitempty"`
-
-	// (Attributes List) A list of transfers for Durable Object namespaces from a different Worker and class to a class defined in this Worker. (see below for nested schema)
-	TransferredClasses []MigrationsTransferredClassesObservation `json:"transferredClasses,omitempty" tf:"transferred_classes,omitempty"`
-}
-
-type MigrationsParameters struct {
-
-	// (List of String) A list of classes to delete Durable Object namespaces from.
-	// A list of classes to delete Durable Object namespaces from.
-	// +kubebuilder:validation:Optional
-	DeletedClasses []*string `json:"deletedClasses,omitempty" tf:"deleted_classes,omitempty"`
-
-	// (List of String) A list of classes to create Durable Object namespaces from.
-	// A list of classes to create Durable Object namespaces from.
-	// +kubebuilder:validation:Optional
-	NewClasses []*string `json:"newClasses,omitempty" tf:"new_classes,omitempty"`
-
-	// (List of String) A list of classes to create Durable Object namespaces with SQLite from.
-	// A list of classes to create Durable Object namespaces with SQLite from.
-	// +kubebuilder:validation:Optional
-	NewSqliteClasses []*string `json:"newSqliteClasses,omitempty" tf:"new_sqlite_classes,omitempty"`
-
-	// (String) Tag to set as the latest migration tag.
-	// Tag to set as the latest migration tag.
-	// +kubebuilder:validation:Optional
-	NewTag *string `json:"newTag,omitempty" tf:"new_tag,omitempty"`
-
-	// (String) Tag used to verify against the latest migration tag for this Worker. If they don't match, the upload is rejected.
-	// Tag used to verify against the latest migration tag for this Worker. If they don't match, the upload is rejected.
-	// +kubebuilder:validation:Optional
-	OldTag *string `json:"oldTag,omitempty" tf:"old_tag,omitempty"`
-
-	// (Attributes List) A list of classes with Durable Object namespaces that were renamed. (see below for nested schema)
-	// +kubebuilder:validation:Optional
-	RenamedClasses []RenamedClassesParameters `json:"renamedClasses,omitempty" tf:"renamed_classes,omitempty"`
-
-	// (Attributes List) Migrations to apply in order. (see below for nested schema)
-	// +kubebuilder:validation:Optional
-	Steps []StepsParameters `json:"steps,omitempty" tf:"steps,omitempty"`
-
-	// (Attributes List) A list of transfers for Durable Object namespaces from a different Worker and class to a class defined in this Worker. (see below for nested schema)
-	// +kubebuilder:validation:Optional
-	TransferredClasses []MigrationsTransferredClassesParameters `json:"transferredClasses,omitempty" tf:"transferred_classes,omitempty"`
-}
-
-type MigrationsTransferredClassesInitParameters struct {
-
-	// (String)
-	From *string `json:"from,omitempty" tf:"from,omitempty"`
-
-	// (String)
-	FromScript *string `json:"fromScript,omitempty" tf:"from_script,omitempty"`
-
-	// (String)
-	To *string `json:"to,omitempty" tf:"to,omitempty"`
-}
-
-type MigrationsTransferredClassesObservation struct {
-
-	// (String)
-	From *string `json:"from,omitempty" tf:"from,omitempty"`
-
-	// (String)
-	FromScript *string `json:"fromScript,omitempty" tf:"from_script,omitempty"`
-
-	// (String)
-	To *string `json:"to,omitempty" tf:"to,omitempty"`
-}
-
-type MigrationsTransferredClassesParameters struct {
-
-	// (String)
-	// +kubebuilder:validation:Optional
-	From *string `json:"from,omitempty" tf:"from,omitempty"`
-
-	// (String)
-	// +kubebuilder:validation:Optional
-	FromScript *string `json:"fromScript,omitempty" tf:"from_script,omitempty"`
-
-	// (String)
-	// +kubebuilder:validation:Optional
-	To *string `json:"to,omitempty" tf:"to,omitempty"`
-}
-
-type NamedHandlersInitParameters struct {
-}
-
-type NamedHandlersObservation struct {
-
-	// (List of String) The names of handlers exported as part of the default export.
-	// The names of handlers exported as part of the named export.
-	Handlers []*string `json:"handlers,omitempty" tf:"handlers,omitempty"`
-
-	// (String) A JavaScript variable name for the binding.
-	// The name of the export.
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
-}
-
-type NamedHandlersParameters struct {
-}
-
-type ObservabilityInitParameters struct {
-
-	// (Boolean) Whether observability is enabled for the Worker.
-	// Whether observability is enabled for the Worker.
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
-
-	// (Number) The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
-	// The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
-	HeadSamplingRate *float64 `json:"headSamplingRate,omitempty" tf:"head_sampling_rate,omitempty"`
-
-	// (Attributes) Log settings for the Worker. (see below for nested schema)
-	Logs *LogsInitParameters `json:"logs,omitempty" tf:"logs,omitempty"`
-}
-
-type ObservabilityObservation struct {
-
-	// (Boolean) Whether observability is enabled for the Worker.
-	// Whether observability is enabled for the Worker.
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
-
-	// (Number) The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
-	// The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
-	HeadSamplingRate *float64 `json:"headSamplingRate,omitempty" tf:"head_sampling_rate,omitempty"`
-
-	// (Attributes) Log settings for the Worker. (see below for nested schema)
-	Logs *LogsObservation `json:"logs,omitempty" tf:"logs,omitempty"`
-}
-
-type ObservabilityParameters struct {
-
-	// (Boolean) Whether observability is enabled for the Worker.
-	// Whether observability is enabled for the Worker.
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled" tf:"enabled,omitempty"`
-
-	// (Number) The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
-	// The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
-	// +kubebuilder:validation:Optional
-	HeadSamplingRate *float64 `json:"headSamplingRate,omitempty" tf:"head_sampling_rate,omitempty"`
-
-	// (Attributes) Log settings for the Worker. (see below for nested schema)
-	// +kubebuilder:validation:Optional
-	Logs *LogsParameters `json:"logs,omitempty" tf:"logs,omitempty"`
-}
-
-type OutboundInitParameters struct {
-
-	// (List of String) Pass information from the Dispatch Worker to the Outbound Worker through the parameters.
-	// Pass information from the Dispatch Worker to the Outbound Worker through the parameters.
-	Params []*string `json:"params,omitempty" tf:"params,omitempty"`
-
-	// (Attributes) Outbound worker. (see below for nested schema)
-	Worker *WorkerInitParameters `json:"worker,omitempty" tf:"worker,omitempty"`
-}
-
-type OutboundObservation struct {
-
-	// (List of String) Pass information from the Dispatch Worker to the Outbound Worker through the parameters.
-	// Pass information from the Dispatch Worker to the Outbound Worker through the parameters.
-	Params []*string `json:"params,omitempty" tf:"params,omitempty"`
-
-	// (Attributes) Outbound worker. (see below for nested schema)
-	Worker *WorkerObservation `json:"worker,omitempty" tf:"worker,omitempty"`
-}
-
-type OutboundParameters struct {
-
-	// (List of String) Pass information from the Dispatch Worker to the Outbound Worker through the parameters.
-	// Pass information from the Dispatch Worker to the Outbound Worker through the parameters.
-	// +kubebuilder:validation:Optional
-	Params []*string `json:"params,omitempty" tf:"params,omitempty"`
-
-	// (Attributes) Outbound worker. (see below for nested schema)
-	// +kubebuilder:validation:Optional
-	Worker *WorkerParameters `json:"worker,omitempty" tf:"worker,omitempty"`
-}
-
-type RenamedClassesInitParameters struct {
-
-	// (String)
-	From *string `json:"from,omitempty" tf:"from,omitempty"`
-
-	// (String)
-	To *string `json:"to,omitempty" tf:"to,omitempty"`
-}
-
-type RenamedClassesObservation struct {
-
-	// (String)
-	From *string `json:"from,omitempty" tf:"from,omitempty"`
-
-	// (String)
-	To *string `json:"to,omitempty" tf:"to,omitempty"`
-}
-
-type RenamedClassesParameters struct {
-
-	// (String)
-	// +kubebuilder:validation:Optional
-	From *string `json:"from,omitempty" tf:"from,omitempty"`
-
-	// (String)
-	// +kubebuilder:validation:Optional
-	To *string `json:"to,omitempty" tf:"to,omitempty"`
-}
-
-type StepsInitParameters struct {
-
-	// (List of String) A list of classes to delete Durable Object namespaces from.
-	// A list of classes to delete Durable Object namespaces from.
-	DeletedClasses []*string `json:"deletedClasses,omitempty" tf:"deleted_classes,omitempty"`
-
-	// (List of String) A list of classes to create Durable Object namespaces from.
-	// A list of classes to create Durable Object namespaces from.
-	NewClasses []*string `json:"newClasses,omitempty" tf:"new_classes,omitempty"`
-
-	// (List of String) A list of classes to create Durable Object namespaces with SQLite from.
-	// A list of classes to create Durable Object namespaces with SQLite from.
-	NewSqliteClasses []*string `json:"newSqliteClasses,omitempty" tf:"new_sqlite_classes,omitempty"`
-
-	// (Attributes List) A list of classes with Durable Object namespaces that were renamed. (see below for nested schema)
-	RenamedClasses []StepsRenamedClassesInitParameters `json:"renamedClasses,omitempty" tf:"renamed_classes,omitempty"`
-
-	// (Attributes List) A list of transfers for Durable Object namespaces from a different Worker and class to a class defined in this Worker. (see below for nested schema)
-	TransferredClasses []TransferredClassesInitParameters `json:"transferredClasses,omitempty" tf:"transferred_classes,omitempty"`
-}
-
-type StepsObservation struct {
-
-	// (List of String) A list of classes to delete Durable Object namespaces from.
-	// A list of classes to delete Durable Object namespaces from.
-	DeletedClasses []*string `json:"deletedClasses,omitempty" tf:"deleted_classes,omitempty"`
-
-	// (List of String) A list of classes to create Durable Object namespaces from.
-	// A list of classes to create Durable Object namespaces from.
-	NewClasses []*string `json:"newClasses,omitempty" tf:"new_classes,omitempty"`
-
-	// (List of String) A list of classes to create Durable Object namespaces with SQLite from.
-	// A list of classes to create Durable Object namespaces with SQLite from.
-	NewSqliteClasses []*string `json:"newSqliteClasses,omitempty" tf:"new_sqlite_classes,omitempty"`
-
-	// (Attributes List) A list of classes with Durable Object namespaces that were renamed. (see below for nested schema)
-	RenamedClasses []StepsRenamedClassesObservation `json:"renamedClasses,omitempty" tf:"renamed_classes,omitempty"`
-
-	// (Attributes List) A list of transfers for Durable Object namespaces from a different Worker and class to a class defined in this Worker. (see below for nested schema)
-	TransferredClasses []TransferredClassesObservation `json:"transferredClasses,omitempty" tf:"transferred_classes,omitempty"`
-}
-
-type StepsParameters struct {
-
-	// (List of String) A list of classes to delete Durable Object namespaces from.
-	// A list of classes to delete Durable Object namespaces from.
-	// +kubebuilder:validation:Optional
-	DeletedClasses []*string `json:"deletedClasses,omitempty" tf:"deleted_classes,omitempty"`
-
-	// (List of String) A list of classes to create Durable Object namespaces from.
-	// A list of classes to create Durable Object namespaces from.
-	// +kubebuilder:validation:Optional
-	NewClasses []*string `json:"newClasses,omitempty" tf:"new_classes,omitempty"`
-
-	// (List of String) A list of classes to create Durable Object namespaces with SQLite from.
-	// A list of classes to create Durable Object namespaces with SQLite from.
-	// +kubebuilder:validation:Optional
-	NewSqliteClasses []*string `json:"newSqliteClasses,omitempty" tf:"new_sqlite_classes,omitempty"`
-
-	// (Attributes List) A list of classes with Durable Object namespaces that were renamed. (see below for nested schema)
-	// +kubebuilder:validation:Optional
-	RenamedClasses []StepsRenamedClassesParameters `json:"renamedClasses,omitempty" tf:"renamed_classes,omitempty"`
-
-	// (Attributes List) A list of transfers for Durable Object namespaces from a different Worker and class to a class defined in this Worker. (see below for nested schema)
-	// +kubebuilder:validation:Optional
-	TransferredClasses []TransferredClassesParameters `json:"transferredClasses,omitempty" tf:"transferred_classes,omitempty"`
-}
-
-type StepsRenamedClassesInitParameters struct {
-
-	// (String)
-	From *string `json:"from,omitempty" tf:"from,omitempty"`
-
-	// (String)
-	To *string `json:"to,omitempty" tf:"to,omitempty"`
-}
-
-type StepsRenamedClassesObservation struct {
-
-	// (String)
-	From *string `json:"from,omitempty" tf:"from,omitempty"`
-
-	// (String)
-	To *string `json:"to,omitempty" tf:"to,omitempty"`
-}
-
-type StepsRenamedClassesParameters struct {
-
-	// (String)
-	// +kubebuilder:validation:Optional
-	From *string `json:"from,omitempty" tf:"from,omitempty"`
-
-	// (String)
-	// +kubebuilder:validation:Optional
-	To *string `json:"to,omitempty" tf:"to,omitempty"`
-}
-
-type TailConsumersInitParameters struct {
-
-	// (String) The environment of the script_name to bind to.
-	// Optional environment if the Worker utilizes one.
-	Environment *string `json:"environment,omitempty" tf:"environment,omitempty"`
-
-	// (String) The name of the dispatch namespace.
-	// Optional dispatch namespace the script belongs to.
-	Namespace *string `json:"namespace,omitempty" tf:"namespace,omitempty"`
-
-	// (String) Name of Worker to bind to.
-	// Name of Worker that is to be the consumer.
-	Service *string `json:"service,omitempty" tf:"service,omitempty"`
-}
-
-type TailConsumersObservation struct {
-
-	// (String) The environment of the script_name to bind to.
-	// Optional environment if the Worker utilizes one.
-	Environment *string `json:"environment,omitempty" tf:"environment,omitempty"`
-
-	// (String) The name of the dispatch namespace.
-	// Optional dispatch namespace the script belongs to.
-	Namespace *string `json:"namespace,omitempty" tf:"namespace,omitempty"`
-
-	// (String) Name of Worker to bind to.
-	// Name of Worker that is to be the consumer.
-	Service *string `json:"service,omitempty" tf:"service,omitempty"`
-}
-
-type TailConsumersParameters struct {
-
-	// (String) The environment of the script_name to bind to.
-	// Optional environment if the Worker utilizes one.
-	// +kubebuilder:validation:Optional
-	Environment *string `json:"environment,omitempty" tf:"environment,omitempty"`
-
-	// (String) The name of the dispatch namespace.
-	// Optional dispatch namespace the script belongs to.
-	// +kubebuilder:validation:Optional
-	Namespace *string `json:"namespace,omitempty" tf:"namespace,omitempty"`
-
-	// (String) Name of Worker to bind to.
-	// Name of Worker that is to be the consumer.
-	// +kubebuilder:validation:Optional
-	Service *string `json:"service" tf:"service,omitempty"`
-}
-
-type TransferredClassesInitParameters struct {
-
-	// (String)
-	From *string `json:"from,omitempty" tf:"from,omitempty"`
-
-	// (String)
-	FromScript *string `json:"fromScript,omitempty" tf:"from_script,omitempty"`
-
-	// (String)
-	To *string `json:"to,omitempty" tf:"to,omitempty"`
-}
-
-type TransferredClassesObservation struct {
-
-	// (String)
-	From *string `json:"from,omitempty" tf:"from,omitempty"`
-
-	// (String)
-	FromScript *string `json:"fromScript,omitempty" tf:"from_script,omitempty"`
-
-	// (String)
-	To *string `json:"to,omitempty" tf:"to,omitempty"`
-}
-
-type TransferredClassesParameters struct {
-
-	// (String)
-	// +kubebuilder:validation:Optional
-	From *string `json:"from,omitempty" tf:"from,omitempty"`
-
-	// (String)
-	// +kubebuilder:validation:Optional
-	FromScript *string `json:"fromScript,omitempty" tf:"from_script,omitempty"`
-
-	// (String)
-	// +kubebuilder:validation:Optional
-	To *string `json:"to,omitempty" tf:"to,omitempty"`
-}
-
-type WorkerInitParameters struct {
-
-	// (String) The environment of the script_name to bind to.
-	// Environment of the outbound worker.
-	Environment *string `json:"environment,omitempty" tf:"environment,omitempty"`
-
-	// (String) Name of Worker to bind to.
-	// Name of the outbound worker.
-	Service *string `json:"service,omitempty" tf:"service,omitempty"`
-}
-
-type WorkerObservation struct {
-
-	// (String) The environment of the script_name to bind to.
-	// Environment of the outbound worker.
-	Environment *string `json:"environment,omitempty" tf:"environment,omitempty"`
-
-	// (String) Name of Worker to bind to.
-	// Name of the outbound worker.
-	Service *string `json:"service,omitempty" tf:"service,omitempty"`
-}
-
-type WorkerParameters struct {
-
-	// (String) The environment of the script_name to bind to.
-	// Environment of the outbound worker.
-	// +kubebuilder:validation:Optional
-	Environment *string `json:"environment,omitempty" tf:"environment,omitempty"`
-
-	// (String) Name of Worker to bind to.
-	// Name of the outbound worker.
-	// +kubebuilder:validation:Optional
-	Service *string `json:"service,omitempty" tf:"service,omitempty"`
-}
-
 type WorkersScriptInitParameters struct {
 
 	// (String) Identifier.
@@ -1171,10 +935,10 @@ type WorkersScriptInitParameters struct {
 	AccountIDSelector *v1common.Selector `json:"accountIdSelector,omitempty" tf:"-"`
 
 	// (Attributes) Configuration for assets within a Worker. (see below for nested schema)
-	Assets *AssetsInitParameters `json:"assets,omitempty" tf:"assets,omitempty"`
+	Assets *WorkersScriptAssetsInitParameters `json:"assets,omitempty" tf:"assets,omitempty"`
 
 	// upload-metadata/#bindings. (see below for nested schema)
-	Bindings []BindingsInitParameters `json:"bindings,omitempty" tf:"bindings,omitempty"`
+	Bindings []WorkersScriptBindingsInitParameters `json:"bindings,omitempty" tf:"bindings,omitempty"`
 
 	// (String) Name of the uploaded file that contains the script (e.g. the file adding a listener to the fetch event). Indicates a service worker syntax Worker.
 	// Name of the uploaded file that contains the script (e.g. the file adding a listener to the `fetch` event). Indicates a `service worker syntax` Worker.
@@ -1226,10 +990,10 @@ type WorkersScriptInitParameters struct {
 	MainModule *string `json:"mainModule,omitempty" tf:"main_module,omitempty"`
 
 	// (Attributes) Migrations to apply for Durable Objects associated with this Worker. (see below for nested schema)
-	Migrations *MigrationsInitParameters `json:"migrations,omitempty" tf:"migrations,omitempty"`
+	Migrations *WorkersScriptMigrationsInitParameters `json:"migrations,omitempty" tf:"migrations,omitempty"`
 
 	// (Attributes) Observability settings for the Worker. (see below for nested schema)
-	Observability *ObservabilityInitParameters `json:"observability,omitempty" tf:"observability,omitempty"`
+	Observability *WorkersScriptObservabilityInitParameters `json:"observability,omitempty" tf:"observability,omitempty"`
 
 	// (Attributes) Configuration for Smart Placement. (see below for nested schema)
 	Placement *WorkersScriptPlacementInitParameters `json:"placement,omitempty" tf:"placement,omitempty"`
@@ -1239,7 +1003,7 @@ type WorkersScriptInitParameters struct {
 	ScriptName *string `json:"scriptName,omitempty" tf:"script_name,omitempty"`
 
 	// (Attributes Set) List of Workers that will consume logs from the attached Worker. (see below for nested schema)
-	TailConsumers []TailConsumersInitParameters `json:"tailConsumers,omitempty" tf:"tail_consumers,omitempty"`
+	TailConsumers []WorkersScriptTailConsumersInitParameters `json:"tailConsumers,omitempty" tf:"tail_consumers,omitempty"`
 
 	// (String) Usage model for the Worker invocations.
 	// Available values: "standard", "bundled", "unbound".
@@ -1270,6 +1034,194 @@ type WorkersScriptLimitsParameters struct {
 	CPUMs *float64 `json:"cpuMs,omitempty" tf:"cpu_ms,omitempty"`
 }
 
+type WorkersScriptMigrationsInitParameters struct {
+
+	// (List of String) A list of classes to delete Durable Object namespaces from.
+	// A list of classes to delete Durable Object namespaces from.
+	DeletedClasses []*string `json:"deletedClasses,omitempty" tf:"deleted_classes,omitempty"`
+
+	// (List of String) A list of classes to create Durable Object namespaces from.
+	// A list of classes to create Durable Object namespaces from.
+	NewClasses []*string `json:"newClasses,omitempty" tf:"new_classes,omitempty"`
+
+	// (List of String) A list of classes to create Durable Object namespaces with SQLite from.
+	// A list of classes to create Durable Object namespaces with SQLite from.
+	NewSqliteClasses []*string `json:"newSqliteClasses,omitempty" tf:"new_sqlite_classes,omitempty"`
+
+	// (String) Tag to set as the latest migration tag.
+	// Tag to set as the latest migration tag.
+	NewTag *string `json:"newTag,omitempty" tf:"new_tag,omitempty"`
+
+	// (String) Tag used to verify against the latest migration tag for this Worker. If they don't match, the upload is rejected.
+	// Tag used to verify against the latest migration tag for this Worker. If they don't match, the upload is rejected.
+	OldTag *string `json:"oldTag,omitempty" tf:"old_tag,omitempty"`
+
+	// (Attributes List) A list of classes with Durable Object namespaces that were renamed. (see below for nested schema)
+	RenamedClasses []MigrationsRenamedClassesInitParameters `json:"renamedClasses,omitempty" tf:"renamed_classes,omitempty"`
+
+	// (Attributes List) Migrations to apply in order. (see below for nested schema)
+	Steps []MigrationsStepsInitParameters `json:"steps,omitempty" tf:"steps,omitempty"`
+
+	// (Attributes List) A list of transfers for Durable Object namespaces from a different Worker and class to a class defined in this Worker. (see below for nested schema)
+	TransferredClasses []WorkersScriptMigrationsTransferredClassesInitParameters `json:"transferredClasses,omitempty" tf:"transferred_classes,omitempty"`
+}
+
+type WorkersScriptMigrationsObservation struct {
+
+	// (List of String) A list of classes to delete Durable Object namespaces from.
+	// A list of classes to delete Durable Object namespaces from.
+	DeletedClasses []*string `json:"deletedClasses,omitempty" tf:"deleted_classes,omitempty"`
+
+	// (List of String) A list of classes to create Durable Object namespaces from.
+	// A list of classes to create Durable Object namespaces from.
+	NewClasses []*string `json:"newClasses,omitempty" tf:"new_classes,omitempty"`
+
+	// (List of String) A list of classes to create Durable Object namespaces with SQLite from.
+	// A list of classes to create Durable Object namespaces with SQLite from.
+	NewSqliteClasses []*string `json:"newSqliteClasses,omitempty" tf:"new_sqlite_classes,omitempty"`
+
+	// (String) Tag to set as the latest migration tag.
+	// Tag to set as the latest migration tag.
+	NewTag *string `json:"newTag,omitempty" tf:"new_tag,omitempty"`
+
+	// (String) Tag used to verify against the latest migration tag for this Worker. If they don't match, the upload is rejected.
+	// Tag used to verify against the latest migration tag for this Worker. If they don't match, the upload is rejected.
+	OldTag *string `json:"oldTag,omitempty" tf:"old_tag,omitempty"`
+
+	// (Attributes List) A list of classes with Durable Object namespaces that were renamed. (see below for nested schema)
+	RenamedClasses []MigrationsRenamedClassesObservation `json:"renamedClasses,omitempty" tf:"renamed_classes,omitempty"`
+
+	// (Attributes List) Migrations to apply in order. (see below for nested schema)
+	Steps []MigrationsStepsObservation `json:"steps,omitempty" tf:"steps,omitempty"`
+
+	// (Attributes List) A list of transfers for Durable Object namespaces from a different Worker and class to a class defined in this Worker. (see below for nested schema)
+	TransferredClasses []WorkersScriptMigrationsTransferredClassesObservation `json:"transferredClasses,omitempty" tf:"transferred_classes,omitempty"`
+}
+
+type WorkersScriptMigrationsParameters struct {
+
+	// (List of String) A list of classes to delete Durable Object namespaces from.
+	// A list of classes to delete Durable Object namespaces from.
+	// +kubebuilder:validation:Optional
+	DeletedClasses []*string `json:"deletedClasses,omitempty" tf:"deleted_classes,omitempty"`
+
+	// (List of String) A list of classes to create Durable Object namespaces from.
+	// A list of classes to create Durable Object namespaces from.
+	// +kubebuilder:validation:Optional
+	NewClasses []*string `json:"newClasses,omitempty" tf:"new_classes,omitempty"`
+
+	// (List of String) A list of classes to create Durable Object namespaces with SQLite from.
+	// A list of classes to create Durable Object namespaces with SQLite from.
+	// +kubebuilder:validation:Optional
+	NewSqliteClasses []*string `json:"newSqliteClasses,omitempty" tf:"new_sqlite_classes,omitempty"`
+
+	// (String) Tag to set as the latest migration tag.
+	// Tag to set as the latest migration tag.
+	// +kubebuilder:validation:Optional
+	NewTag *string `json:"newTag,omitempty" tf:"new_tag,omitempty"`
+
+	// (String) Tag used to verify against the latest migration tag for this Worker. If they don't match, the upload is rejected.
+	// Tag used to verify against the latest migration tag for this Worker. If they don't match, the upload is rejected.
+	// +kubebuilder:validation:Optional
+	OldTag *string `json:"oldTag,omitempty" tf:"old_tag,omitempty"`
+
+	// (Attributes List) A list of classes with Durable Object namespaces that were renamed. (see below for nested schema)
+	// +kubebuilder:validation:Optional
+	RenamedClasses []MigrationsRenamedClassesParameters `json:"renamedClasses,omitempty" tf:"renamed_classes,omitempty"`
+
+	// (Attributes List) Migrations to apply in order. (see below for nested schema)
+	// +kubebuilder:validation:Optional
+	Steps []MigrationsStepsParameters `json:"steps,omitempty" tf:"steps,omitempty"`
+
+	// (Attributes List) A list of transfers for Durable Object namespaces from a different Worker and class to a class defined in this Worker. (see below for nested schema)
+	// +kubebuilder:validation:Optional
+	TransferredClasses []WorkersScriptMigrationsTransferredClassesParameters `json:"transferredClasses,omitempty" tf:"transferred_classes,omitempty"`
+}
+
+type WorkersScriptMigrationsTransferredClassesInitParameters struct {
+
+	// (String)
+	From *string `json:"from,omitempty" tf:"from,omitempty"`
+
+	// (String)
+	FromScript *string `json:"fromScript,omitempty" tf:"from_script,omitempty"`
+
+	// (String)
+	To *string `json:"to,omitempty" tf:"to,omitempty"`
+}
+
+type WorkersScriptMigrationsTransferredClassesObservation struct {
+
+	// (String)
+	From *string `json:"from,omitempty" tf:"from,omitempty"`
+
+	// (String)
+	FromScript *string `json:"fromScript,omitempty" tf:"from_script,omitempty"`
+
+	// (String)
+	To *string `json:"to,omitempty" tf:"to,omitempty"`
+}
+
+type WorkersScriptMigrationsTransferredClassesParameters struct {
+
+	// (String)
+	// +kubebuilder:validation:Optional
+	From *string `json:"from,omitempty" tf:"from,omitempty"`
+
+	// (String)
+	// +kubebuilder:validation:Optional
+	FromScript *string `json:"fromScript,omitempty" tf:"from_script,omitempty"`
+
+	// (String)
+	// +kubebuilder:validation:Optional
+	To *string `json:"to,omitempty" tf:"to,omitempty"`
+}
+
+type WorkersScriptObservabilityInitParameters struct {
+
+	// (Boolean) Whether observability is enabled for the Worker.
+	// Whether observability is enabled for the Worker.
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+
+	// (Number) The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
+	// The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
+	HeadSamplingRate *float64 `json:"headSamplingRate,omitempty" tf:"head_sampling_rate,omitempty"`
+
+	// (Attributes) Log settings for the Worker. (see below for nested schema)
+	Logs *ObservabilityLogsInitParameters `json:"logs,omitempty" tf:"logs,omitempty"`
+}
+
+type WorkersScriptObservabilityObservation struct {
+
+	// (Boolean) Whether observability is enabled for the Worker.
+	// Whether observability is enabled for the Worker.
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+
+	// (Number) The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
+	// The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
+	HeadSamplingRate *float64 `json:"headSamplingRate,omitempty" tf:"head_sampling_rate,omitempty"`
+
+	// (Attributes) Log settings for the Worker. (see below for nested schema)
+	Logs *ObservabilityLogsObservation `json:"logs,omitempty" tf:"logs,omitempty"`
+}
+
+type WorkersScriptObservabilityParameters struct {
+
+	// (Boolean) Whether observability is enabled for the Worker.
+	// Whether observability is enabled for the Worker.
+	// +kubebuilder:validation:Optional
+	Enabled *bool `json:"enabled" tf:"enabled,omitempty"`
+
+	// (Number) The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
+	// The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.
+	// +kubebuilder:validation:Optional
+	HeadSamplingRate *float64 `json:"headSamplingRate,omitempty" tf:"head_sampling_rate,omitempty"`
+
+	// (Attributes) Log settings for the Worker. (see below for nested schema)
+	// +kubebuilder:validation:Optional
+	Logs *ObservabilityLogsParameters `json:"logs,omitempty" tf:"logs,omitempty"`
+}
+
 type WorkersScriptObservation struct {
 
 	// (String) Identifier.
@@ -1277,10 +1229,10 @@ type WorkersScriptObservation struct {
 	AccountID *string `json:"accountId,omitempty" tf:"account_id,omitempty"`
 
 	// (Attributes) Configuration for assets within a Worker. (see below for nested schema)
-	Assets *AssetsObservation `json:"assets,omitempty" tf:"assets,omitempty"`
+	Assets *WorkersScriptAssetsObservation `json:"assets,omitempty" tf:"assets,omitempty"`
 
 	// upload-metadata/#bindings. (see below for nested schema)
-	Bindings []BindingsObservation `json:"bindings,omitempty" tf:"bindings,omitempty"`
+	Bindings []WorkersScriptBindingsObservation `json:"bindings,omitempty" tf:"bindings,omitempty"`
 
 	// (String) Name of the uploaded file that contains the script (e.g. the file adding a listener to the fetch event). Indicates a service worker syntax Worker.
 	// Name of the uploaded file that contains the script (e.g. the file adding a listener to the `fetch` event). Indicates a `service worker syntax` Worker.
@@ -1363,7 +1315,7 @@ type WorkersScriptObservation struct {
 	MigrationTag *string `json:"migrationTag,omitempty" tf:"migration_tag,omitempty"`
 
 	// (Attributes) Migrations to apply for Durable Objects associated with this Worker. (see below for nested schema)
-	Migrations *MigrationsObservation `json:"migrations,omitempty" tf:"migrations,omitempty"`
+	Migrations *WorkersScriptMigrationsObservation `json:"migrations,omitempty" tf:"migrations,omitempty"`
 
 	// (String) When the script was last modified.
 	// When the script was last modified.
@@ -1373,7 +1325,7 @@ type WorkersScriptObservation struct {
 	NamedHandlers []NamedHandlersObservation `json:"namedHandlers,omitempty" tf:"named_handlers,omitempty"`
 
 	// (Attributes) Observability settings for the Worker. (see below for nested schema)
-	Observability *ObservabilityObservation `json:"observability,omitempty" tf:"observability,omitempty"`
+	Observability *WorkersScriptObservabilityObservation `json:"observability,omitempty" tf:"observability,omitempty"`
 
 	// (Attributes) Configuration for Smart Placement. (see below for nested schema)
 	Placement *WorkersScriptPlacementObservation `json:"placement,omitempty" tf:"placement,omitempty"`
@@ -1386,7 +1338,7 @@ type WorkersScriptObservation struct {
 	StartupTimeMs *float64 `json:"startupTimeMs,omitempty" tf:"startup_time_ms,omitempty"`
 
 	// (Attributes Set) List of Workers that will consume logs from the attached Worker. (see below for nested schema)
-	TailConsumers []TailConsumersObservation `json:"tailConsumers,omitempty" tf:"tail_consumers,omitempty"`
+	TailConsumers []WorkersScriptTailConsumersObservation `json:"tailConsumers,omitempty" tf:"tail_consumers,omitempty"`
 
 	// (String) Usage model for the Worker invocations.
 	// Available values: "standard", "bundled", "unbound".
@@ -1413,11 +1365,11 @@ type WorkersScriptParameters struct {
 
 	// (Attributes) Configuration for assets within a Worker. (see below for nested schema)
 	// +kubebuilder:validation:Optional
-	Assets *AssetsParameters `json:"assets,omitempty" tf:"assets,omitempty"`
+	Assets *WorkersScriptAssetsParameters `json:"assets,omitempty" tf:"assets,omitempty"`
 
 	// upload-metadata/#bindings. (see below for nested schema)
 	// +kubebuilder:validation:Optional
-	Bindings []BindingsParameters `json:"bindings,omitempty" tf:"bindings,omitempty"`
+	Bindings []WorkersScriptBindingsParameters `json:"bindings,omitempty" tf:"bindings,omitempty"`
 
 	// (String) Name of the uploaded file that contains the script (e.g. the file adding a listener to the fetch event). Indicates a service worker syntax Worker.
 	// Name of the uploaded file that contains the script (e.g. the file adding a listener to the `fetch` event). Indicates a `service worker syntax` Worker.
@@ -1482,11 +1434,11 @@ type WorkersScriptParameters struct {
 
 	// (Attributes) Migrations to apply for Durable Objects associated with this Worker. (see below for nested schema)
 	// +kubebuilder:validation:Optional
-	Migrations *MigrationsParameters `json:"migrations,omitempty" tf:"migrations,omitempty"`
+	Migrations *WorkersScriptMigrationsParameters `json:"migrations,omitempty" tf:"migrations,omitempty"`
 
 	// (Attributes) Observability settings for the Worker. (see below for nested schema)
 	// +kubebuilder:validation:Optional
-	Observability *ObservabilityParameters `json:"observability,omitempty" tf:"observability,omitempty"`
+	Observability *WorkersScriptObservabilityParameters `json:"observability,omitempty" tf:"observability,omitempty"`
 
 	// (Attributes) Configuration for Smart Placement. (see below for nested schema)
 	// +kubebuilder:validation:Optional
@@ -1499,7 +1451,7 @@ type WorkersScriptParameters struct {
 
 	// (Attributes Set) List of Workers that will consume logs from the attached Worker. (see below for nested schema)
 	// +kubebuilder:validation:Optional
-	TailConsumers []TailConsumersParameters `json:"tailConsumers,omitempty" tf:"tail_consumers,omitempty"`
+	TailConsumers []WorkersScriptTailConsumersParameters `json:"tailConsumers,omitempty" tf:"tail_consumers,omitempty"`
 
 	// (String) Usage model for the Worker invocations.
 	// Available values: "standard", "bundled", "unbound".
@@ -1545,6 +1497,54 @@ type WorkersScriptPlacementParameters struct {
 	// Available values: "smart".
 	// +kubebuilder:validation:Optional
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
+}
+
+type WorkersScriptTailConsumersInitParameters struct {
+
+	// (String) The environment of the script_name to bind to.
+	// Optional environment if the Worker utilizes one.
+	Environment *string `json:"environment,omitempty" tf:"environment,omitempty"`
+
+	// (String) The name of the dispatch namespace.
+	// Optional dispatch namespace the script belongs to.
+	Namespace *string `json:"namespace,omitempty" tf:"namespace,omitempty"`
+
+	// (String) Name of Worker to bind to.
+	// Name of Worker that is to be the consumer.
+	Service *string `json:"service,omitempty" tf:"service,omitempty"`
+}
+
+type WorkersScriptTailConsumersObservation struct {
+
+	// (String) The environment of the script_name to bind to.
+	// Optional environment if the Worker utilizes one.
+	Environment *string `json:"environment,omitempty" tf:"environment,omitempty"`
+
+	// (String) The name of the dispatch namespace.
+	// Optional dispatch namespace the script belongs to.
+	Namespace *string `json:"namespace,omitempty" tf:"namespace,omitempty"`
+
+	// (String) Name of Worker to bind to.
+	// Name of Worker that is to be the consumer.
+	Service *string `json:"service,omitempty" tf:"service,omitempty"`
+}
+
+type WorkersScriptTailConsumersParameters struct {
+
+	// (String) The environment of the script_name to bind to.
+	// Optional environment if the Worker utilizes one.
+	// +kubebuilder:validation:Optional
+	Environment *string `json:"environment,omitempty" tf:"environment,omitempty"`
+
+	// (String) The name of the dispatch namespace.
+	// Optional dispatch namespace the script belongs to.
+	// +kubebuilder:validation:Optional
+	Namespace *string `json:"namespace,omitempty" tf:"namespace,omitempty"`
+
+	// (String) Name of Worker to bind to.
+	// Name of Worker that is to be the consumer.
+	// +kubebuilder:validation:Optional
+	Service *string `json:"service" tf:"service,omitempty"`
 }
 
 // WorkersScriptSpec defines the desired state of WorkersScript

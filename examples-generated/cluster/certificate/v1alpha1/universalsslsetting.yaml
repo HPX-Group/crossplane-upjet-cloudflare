@@ -1,0 +1,14 @@
+apiVersion: certificate.cloudflare.crossplane.io/v1alpha1
+kind: UniversalSSLSetting
+metadata:
+  annotations:
+    meta.upbound.io/example-id: certificate/v1alpha1/universalsslsetting
+  labels:
+    testing.upbound.io/example-name: example_universal_ssl_setting
+  name: example-universal-ssl-setting
+spec:
+  forProvider:
+    enabled: true
+    zoneIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example

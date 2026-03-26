@@ -78,5 +78,26 @@ func Configure(p *config.Provider) {
 		r.References["bucket_name"] = config.Reference{
 			TerraformName: "cloudflare_r2_bucket",
 		}
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["secret_access_key"]; ok {
+				conn["secret_access_key"] = []byte(v.(string))
+			}
+			if v, ok := attr["private_key"]; ok {
+				conn["private_key"] = []byte(v.(string))
+			}
+			return conn, nil
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_r2_bucket_event_notification", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "R2BucketEventNotification"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+		r.References["bucket_name"] = config.Reference{
+			TerraformName: "cloudflare_r2_bucket",
+		}
 	})
 }

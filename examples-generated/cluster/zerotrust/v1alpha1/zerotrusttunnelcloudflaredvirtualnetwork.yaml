@@ -1,0 +1,17 @@
+apiVersion: zerotrust.cloudflare.crossplane.io/v1alpha1
+kind: ZeroTrustTunnelCloudflaredVirtualNetwork
+metadata:
+  annotations:
+    meta.upbound.io/example-id: zerotrust/v1alpha1/zerotrusttunnelcloudflaredvirtualnetwork
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_tunnel_cloudflared_virtual_network
+  name: example-zero-trust-tunnel-cloudflared-virtual-network
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    comment: Staging VPC for data science
+    isDefault: true
+    isDefaultNetwork: false
+    name: us-east-1-vpc

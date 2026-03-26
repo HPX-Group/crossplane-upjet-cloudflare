@@ -61,4 +61,20 @@ func Configure(p *config.Provider) {
 			TerraformName: "cloudflare_zone",
 		}
 	})
+
+	p.AddResourceConfigurator("cloudflare_zone_dns_settings", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZoneDNSSettings"
+		r.References["zone_id"] = config.Reference{
+			TerraformName: "cloudflare_zone",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zone_subscription", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZoneSubscription"
+		r.References["zone_id"] = config.Reference{
+			TerraformName: "cloudflare_zone",
+		}
+	})
 }

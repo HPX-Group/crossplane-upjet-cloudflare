@@ -1,0 +1,15 @@
+apiVersion: zerotrust.cloudflare.m.cloudflare.com/v1alpha1
+kind: ZeroTrustTunnelWarpConnector
+metadata:
+  annotations:
+    meta.upbound.io/example-id: zerotrust/v1alpha1/zerotrusttunnelwarpconnector
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_tunnel_warp_connector
+  name: example-zero-trust-tunnel-warp-connector
+  namespace: crossplane-system
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    name: blog

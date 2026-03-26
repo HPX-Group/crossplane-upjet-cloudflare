@@ -20,5 +20,12 @@ func Configure(p *config.Provider) {
 		r.References["account_id"] = config.Reference{
 			TerraformName: "cloudflare_account",
 		}
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["secret"]; ok {
+				conn["secret"] = []byte(v.(string))
+			}
+			return conn, nil
+		}
 	})
 }

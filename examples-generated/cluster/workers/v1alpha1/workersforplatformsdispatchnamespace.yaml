@@ -1,0 +1,14 @@
+apiVersion: workers.cloudflare.crossplane.io/v1alpha1
+kind: WorkersForPlatformsDispatchNamespace
+metadata:
+  annotations:
+    meta.upbound.io/example-id: workers/v1alpha1/workersforplatformsdispatchnamespace
+  labels:
+    testing.upbound.io/example-name: example_workers_for_platforms_dispatch_namespace
+  name: example-workers-for-platforms-dispatch-namespace
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    name: my-dispatch-namespace

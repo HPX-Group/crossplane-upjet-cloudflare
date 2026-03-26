@@ -1,0 +1,15 @@
+apiVersion: argo.cloudflare.m.cloudflare.com/v1alpha1
+kind: ArgoSmartRouting
+metadata:
+  annotations:
+    meta.upbound.io/example-id: argo/v1alpha1/argosmartrouting
+  labels:
+    testing.upbound.io/example-name: example_argo_smart_routing
+  name: example-argo-smart-routing
+  namespace: crossplane-system
+spec:
+  forProvider:
+    value: "on"
+    zoneIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example

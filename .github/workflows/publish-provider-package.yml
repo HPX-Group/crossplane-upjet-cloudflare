@@ -12,11 +12,17 @@ on:
         default: '1.26'
         required: false
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   publish-provider-package:
     uses: crossplane-contrib/provider-workflows/.github/workflows/publish-provider.yml@main
     with:
-      repository: provider-upjet-cloudflare
+      repository: crossplane-provider-upjet-cloudflare
+      registry_org: hpx-group
+      mirror: false
       version: ${{ github.event.inputs.version }}
       go-version: ${{ github.event.inputs.go-version }}
       cleanup-disk: true

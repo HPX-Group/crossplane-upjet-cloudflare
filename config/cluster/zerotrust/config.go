@@ -30,11 +30,50 @@ func Configure(p *config.Provider) {
 		}
 	})
 
+	p.AddResourceConfigurator("cloudflare_zero_trust_gateway_certificate", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustGatewayCertificate"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zero_trust_gateway_logging", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustGatewayLogging"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zero_trust_gateway_proxy_endpoint", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustGatewayProxyEndpoint"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zero_trust_dns_location", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustDNSLocation"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
 	p.AddResourceConfigurator("cloudflare_zero_trust_tunnel_cloudflared", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "ZeroTrustTunnelCloudflared"
 		r.References["account_id"] = config.Reference{
 			TerraformName: "cloudflare_account",
+		}
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["tunnel_secret"]; ok {
+				conn["tunnel_secret"] = []byte(v.(string))
+			}
+			return conn, nil
 		}
 	})
 
@@ -49,9 +88,9 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_zero_trust_tunnel_route", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_zero_trust_tunnel_cloudflared_route", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "ZeroTrustTunnelRoute"
+		r.Kind = "ZeroTrustTunnelCloudflaredRoute"
 		r.References["account_id"] = config.Reference{
 			TerraformName: "cloudflare_account",
 		}
@@ -60,6 +99,38 @@ func Configure(p *config.Provider) {
 		}
 	})
 
+	p.AddResourceConfigurator("cloudflare_zero_trust_tunnel_cloudflared_virtual_network", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustTunnelCloudflaredVirtualNetwork"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zero_trust_tunnel_warp_connector", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustTunnelWarpConnector"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["tunnel_secret"]; ok {
+				conn["tunnel_secret"] = []byte(v.(string))
+			}
+			return conn, nil
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zero_trust_network_hostname_route", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustNetworkHostnameRoute"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	// Device resources
 	p.AddResourceConfigurator("cloudflare_zero_trust_device_posture_rule", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "ZeroTrustDevicePostureRule"
@@ -74,13 +145,15 @@ func Configure(p *config.Provider) {
 		r.References["account_id"] = config.Reference{
 			TerraformName: "cloudflare_account",
 		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_zero_trust_device_profiles", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "ZeroTrustDeviceProfiles"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["access_client_secret"]; ok {
+				conn["access_client_secret"] = []byte(v.(string))
+			}
+			if v, ok := attr["client_secret"]; ok {
+				conn["client_secret"] = []byte(v.(string))
+			}
+			return conn, nil
 		}
 	})
 
@@ -92,11 +165,51 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_zero_trust_device_certificates", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_zero_trust_device_settings", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "ZeroTrustDeviceCertificates"
+		r.Kind = "ZeroTrustDeviceSettings"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zero_trust_device_custom_profile", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustDeviceCustomProfile"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zero_trust_device_custom_profile_local_domain_fallback", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustDeviceCustomProfileLocalDomainFallback"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zero_trust_device_default_profile", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustDeviceDefaultProfile"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zero_trust_device_default_profile_certificates", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustDeviceDefaultProfileCertificates"
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zero_trust_device_default_profile_local_domain_fallback", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustDeviceDefaultProfileLocalDomainFallback"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
 		}
 	})
 
@@ -108,22 +221,7 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_zero_trust_device_dex_test", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "ZeroTrustDeviceDEXTest"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_zero_trust_dlp_profile", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "ZeroTrustDLPProfile"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
+	// DLP resources
 	p.AddResourceConfigurator("cloudflare_zero_trust_dlp_custom_profile", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "ZeroTrustDLPCustomProfile"
@@ -148,6 +246,39 @@ func Configure(p *config.Provider) {
 		}
 	})
 
+	p.AddResourceConfigurator("cloudflare_zero_trust_dlp_dataset", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustDLPDataset"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zero_trust_dlp_integration_entry", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustDLPIntegrationEntry"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zero_trust_dlp_predefined_entry", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustDLPPredefinedEntry"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_zero_trust_dlp_predefined_profile", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ZeroTrustDLPPredefinedProfile"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	// Risk resources
 	p.AddResourceConfigurator("cloudflare_zero_trust_risk_behavior", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "ZeroTrustRiskBehavior"
@@ -159,123 +290,6 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("cloudflare_zero_trust_risk_scoring_integration", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "ZeroTrustRiskScoringIntegration"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_zero_trust_access_short_lived_certificate", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "ZeroTrustAccessShortLivedCertificate"
-		r.References["zone_id"] = config.Reference{
-			TerraformName: "cloudflare_zone",
-		}
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_zero_trust_gateway_certificate", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "ZeroTrustGatewayCertificate"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_zero_trust_local_domain_fallback", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "ZeroTrustLocalDomainFallback"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_zero_trust_split_tunnel", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "ZeroTrustSplitTunnel"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	// Legacy Teams resources (being replaced by Zero Trust)
-	p.AddResourceConfigurator("cloudflare_teams_account", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "TeamsAccount"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_teams_list", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "TeamsList"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_teams_location", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "TeamsLocation"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_teams_proxy_endpoint", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "TeamsProxyEndpoint"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_teams_rule", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "TeamsRule"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_fallback_domain", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "FallbackDomain"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_split_tunnel", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "SplitTunnel"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	// Browser Isolation
-	p.AddResourceConfigurator("cloudflare_browser_isolation_banner", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "BrowserIsolationBanner"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_browser_isolation_certificate", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "BrowserIsolationCertificate"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_browser_isolation_permissions", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "BrowserIsolationPermissions"
 		r.References["account_id"] = config.Reference{
 			TerraformName: "cloudflare_account",
 		}

@@ -1,0 +1,20 @@
+apiVersion: firewall.cloudflare.m.cloudflare.com/v1alpha1
+kind: ManagedTransforms
+metadata:
+  annotations:
+    meta.upbound.io/example-id: firewall/v1alpha1/managedtransforms
+  labels:
+    testing.upbound.io/example-name: example_managed_transforms
+  name: example-managed-transforms
+  namespace: crossplane-system
+spec:
+  forProvider:
+    managedRequestHeaders:
+    - enabled: true
+      id: add_bot_protection_headers
+    managedResponseHeaders:
+    - enabled: true
+      id: add_security_headers
+    zoneIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example

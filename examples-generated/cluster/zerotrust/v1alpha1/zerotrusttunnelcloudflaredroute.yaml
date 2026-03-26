@@ -1,0 +1,19 @@
+apiVersion: zerotrust.cloudflare.crossplane.io/v1alpha1
+kind: ZeroTrustTunnelCloudflaredRoute
+metadata:
+  annotations:
+    meta.upbound.io/example-id: zerotrust/v1alpha1/zerotrusttunnelcloudflaredroute
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_tunnel_cloudflared_route
+  name: example-zero-trust-tunnel-cloudflared-route
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    comment: Example comment for this route.
+    network: 172.16.0.0/16
+    tunnelIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    virtualNetworkId: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415

@@ -8,6 +8,106 @@ package v1alpha1
 
 import xpv1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
 
+// GetCondition of this AccountDNSSettings.
+func (mg *AccountDNSSettings) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this AccountDNSSettings.
+func (mg *AccountDNSSettings) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this AccountDNSSettings.
+func (mg *AccountDNSSettings) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this AccountDNSSettings.
+func (mg *AccountDNSSettings) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this AccountDNSSettings.
+func (mg *AccountDNSSettings) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this AccountDNSSettings.
+func (mg *AccountDNSSettings) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this AccountDNSSettings.
+func (mg *AccountDNSSettings) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this AccountDNSSettings.
+func (mg *AccountDNSSettings) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this AccountDNSSettings.
+func (mg *AccountDNSSettings) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this AccountDNSSettings.
+func (mg *AccountDNSSettings) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this AccountDNSSettingsInternalView.
+func (mg *AccountDNSSettingsInternalView) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this AccountDNSSettingsInternalView.
+func (mg *AccountDNSSettingsInternalView) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this AccountDNSSettingsInternalView.
+func (mg *AccountDNSSettingsInternalView) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this AccountDNSSettingsInternalView.
+func (mg *AccountDNSSettingsInternalView) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this AccountDNSSettingsInternalView.
+func (mg *AccountDNSSettingsInternalView) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this AccountDNSSettingsInternalView.
+func (mg *AccountDNSSettingsInternalView) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this AccountDNSSettingsInternalView.
+func (mg *AccountDNSSettingsInternalView) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this AccountDNSSettingsInternalView.
+func (mg *AccountDNSSettingsInternalView) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this AccountDNSSettingsInternalView.
+func (mg *AccountDNSSettingsInternalView) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this AccountDNSSettingsInternalView.
+func (mg *AccountDNSSettingsInternalView) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this DNSFirewall.
 func (mg *DNSFirewall) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -105,5 +205,255 @@ func (mg *DNSRecord) SetProviderConfigReference(r *xpv1.Reference) {
 
 // SetWriteConnectionSecretToReference of this DNSRecord.
 func (mg *DNSRecord) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this DNSZoneTransfersACL.
+func (mg *DNSZoneTransfersACL) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this DNSZoneTransfersACL.
+func (mg *DNSZoneTransfersACL) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this DNSZoneTransfersACL.
+func (mg *DNSZoneTransfersACL) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this DNSZoneTransfersACL.
+func (mg *DNSZoneTransfersACL) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this DNSZoneTransfersACL.
+func (mg *DNSZoneTransfersACL) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this DNSZoneTransfersACL.
+func (mg *DNSZoneTransfersACL) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this DNSZoneTransfersACL.
+func (mg *DNSZoneTransfersACL) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this DNSZoneTransfersACL.
+func (mg *DNSZoneTransfersACL) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this DNSZoneTransfersACL.
+func (mg *DNSZoneTransfersACL) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this DNSZoneTransfersACL.
+func (mg *DNSZoneTransfersACL) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this DNSZoneTransfersIncoming.
+func (mg *DNSZoneTransfersIncoming) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this DNSZoneTransfersIncoming.
+func (mg *DNSZoneTransfersIncoming) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this DNSZoneTransfersIncoming.
+func (mg *DNSZoneTransfersIncoming) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this DNSZoneTransfersIncoming.
+func (mg *DNSZoneTransfersIncoming) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this DNSZoneTransfersIncoming.
+func (mg *DNSZoneTransfersIncoming) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this DNSZoneTransfersIncoming.
+func (mg *DNSZoneTransfersIncoming) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this DNSZoneTransfersIncoming.
+func (mg *DNSZoneTransfersIncoming) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this DNSZoneTransfersIncoming.
+func (mg *DNSZoneTransfersIncoming) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this DNSZoneTransfersIncoming.
+func (mg *DNSZoneTransfersIncoming) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this DNSZoneTransfersIncoming.
+func (mg *DNSZoneTransfersIncoming) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this DNSZoneTransfersOutgoing.
+func (mg *DNSZoneTransfersOutgoing) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this DNSZoneTransfersOutgoing.
+func (mg *DNSZoneTransfersOutgoing) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this DNSZoneTransfersOutgoing.
+func (mg *DNSZoneTransfersOutgoing) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this DNSZoneTransfersOutgoing.
+func (mg *DNSZoneTransfersOutgoing) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this DNSZoneTransfersOutgoing.
+func (mg *DNSZoneTransfersOutgoing) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this DNSZoneTransfersOutgoing.
+func (mg *DNSZoneTransfersOutgoing) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this DNSZoneTransfersOutgoing.
+func (mg *DNSZoneTransfersOutgoing) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this DNSZoneTransfersOutgoing.
+func (mg *DNSZoneTransfersOutgoing) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this DNSZoneTransfersOutgoing.
+func (mg *DNSZoneTransfersOutgoing) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this DNSZoneTransfersOutgoing.
+func (mg *DNSZoneTransfersOutgoing) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this DNSZoneTransfersPeer.
+func (mg *DNSZoneTransfersPeer) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this DNSZoneTransfersPeer.
+func (mg *DNSZoneTransfersPeer) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this DNSZoneTransfersPeer.
+func (mg *DNSZoneTransfersPeer) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this DNSZoneTransfersPeer.
+func (mg *DNSZoneTransfersPeer) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this DNSZoneTransfersPeer.
+func (mg *DNSZoneTransfersPeer) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this DNSZoneTransfersPeer.
+func (mg *DNSZoneTransfersPeer) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this DNSZoneTransfersPeer.
+func (mg *DNSZoneTransfersPeer) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this DNSZoneTransfersPeer.
+func (mg *DNSZoneTransfersPeer) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this DNSZoneTransfersPeer.
+func (mg *DNSZoneTransfersPeer) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this DNSZoneTransfersPeer.
+func (mg *DNSZoneTransfersPeer) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this DNSZoneTransfersTSIG.
+func (mg *DNSZoneTransfersTSIG) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this DNSZoneTransfersTSIG.
+func (mg *DNSZoneTransfersTSIG) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this DNSZoneTransfersTSIG.
+func (mg *DNSZoneTransfersTSIG) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this DNSZoneTransfersTSIG.
+func (mg *DNSZoneTransfersTSIG) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this DNSZoneTransfersTSIG.
+func (mg *DNSZoneTransfersTSIG) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this DNSZoneTransfersTSIG.
+func (mg *DNSZoneTransfersTSIG) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this DNSZoneTransfersTSIG.
+func (mg *DNSZoneTransfersTSIG) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this DNSZoneTransfersTSIG.
+func (mg *DNSZoneTransfersTSIG) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this DNSZoneTransfersTSIG.
+func (mg *DNSZoneTransfersTSIG) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this DNSZoneTransfersTSIG.
+func (mg *DNSZoneTransfersTSIG) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }

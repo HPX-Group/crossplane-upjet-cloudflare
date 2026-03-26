@@ -12,6 +12,13 @@ func Configure(p *config.Provider) {
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
 		}
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["custom_key"]; ok {
+				conn["custom_key"] = []byte(v.(string))
+			}
+			return conn, nil
+		}
 	})
 
 	p.AddResourceConfigurator("cloudflare_custom_hostname_fallback_origin", func(r *config.Resource) {
@@ -27,6 +34,13 @@ func Configure(p *config.Provider) {
 		r.Kind = "CustomSSL"
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
+		}
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["private_key"]; ok {
+				conn["private_key"] = []byte(v.(string))
+			}
+			return conn, nil
 		}
 	})
 
@@ -57,6 +71,13 @@ func Configure(p *config.Provider) {
 		r.References["account_id"] = config.Reference{
 			TerraformName: "cloudflare_account",
 		}
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["private_key"]; ok {
+				conn["private_key"] = []byte(v.(string))
+			}
+			return conn, nil
+		}
 	})
 
 	p.AddResourceConfigurator("cloudflare_total_tls", func(r *config.Resource) {
@@ -75,19 +96,18 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_hostname_tls_setting_ciphers", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "HostnameTLSSettingCiphers"
-		r.References["zone_id"] = config.Reference{
-			TerraformName: "cloudflare_zone",
-		}
-	})
-
 	p.AddResourceConfigurator("cloudflare_authenticated_origin_pulls", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "AuthenticatedOriginPulls"
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
+		}
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["private_key"]; ok {
+				conn["private_key"] = []byte(v.(string))
+			}
+			return conn, nil
 		}
 	})
 
@@ -97,19 +117,26 @@ func Configure(p *config.Provider) {
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
 		}
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["private_key"]; ok {
+				conn["private_key"] = []byte(v.(string))
+			}
+			return conn, nil
+		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_ssl_recommendation", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_authenticated_origin_pulls_settings", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "SSLRecommendation"
+		r.Kind = "AuthenticatedOriginPullsSettings"
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
 		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_custom_hostname_certificate_pack", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_universal_ssl_setting", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "CustomHostnameCertificatePack"
+		r.Kind = "UniversalSSLSetting"
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
 		}

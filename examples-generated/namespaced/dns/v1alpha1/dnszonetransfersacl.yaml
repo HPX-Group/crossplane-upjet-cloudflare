@@ -1,0 +1,16 @@
+apiVersion: dns.cloudflare.m.cloudflare.com/v1alpha1
+kind: DNSZoneTransfersACL
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dns/v1alpha1/dnszonetransfersacl
+  labels:
+    testing.upbound.io/example-name: example_dns_zone_transfers_acl
+  name: example-dns-zone-transfers-acl
+  namespace: crossplane-system
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    ipRange: 192.0.2.53/28
+    name: my-acl-1

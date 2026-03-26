@@ -1,0 +1,16 @@
+apiVersion: zerotrust.cloudflare.crossplane.io/v1alpha1
+kind: ZeroTrustNetworkHostnameRoute
+metadata:
+  annotations:
+    meta.upbound.io/example-id: zerotrust/v1alpha1/zerotrustnetworkhostnameroute
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_network_hostname_route
+  name: example-zero-trust-network-hostname-route
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    comment: example comment
+    hostname: office-1.local
+    tunnelId: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415

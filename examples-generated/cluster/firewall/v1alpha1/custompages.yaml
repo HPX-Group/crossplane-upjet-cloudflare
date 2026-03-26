@@ -1,0 +1,14 @@
+apiVersion: firewall.cloudflare.crossplane.io/v1alpha1
+kind: CustomPages
+metadata:
+  annotations:
+    meta.upbound.io/example-id: firewall/v1alpha1/custompages
+  labels:
+    testing.upbound.io/example-name: example_custom_pages
+  name: example-custom-pages
+spec:
+  forProvider:
+    identifier: ratelimit_block
+    state: default
+    url: http://www.example.com
+    zoneId: zone_id

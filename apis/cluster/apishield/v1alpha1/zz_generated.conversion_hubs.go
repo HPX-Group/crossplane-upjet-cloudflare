@@ -10,6 +10,9 @@ package v1alpha1
 func (tr *APIShield) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *APIShieldDiscoveryOperation) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *APIShieldOperation) Hub() {}
 
 // Hub marks this type as a conversion hub.
@@ -20,3 +23,12 @@ func (tr *APIShieldSchema) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *APIShieldSchemaValidationSettings) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *SchemaValidationOperationSettings) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *SchemaValidationSchemas) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *SchemaValidationSettings) Hub() {}

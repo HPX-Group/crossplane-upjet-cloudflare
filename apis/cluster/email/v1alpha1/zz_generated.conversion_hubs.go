@@ -20,3 +20,12 @@ func (tr *EmailRoutingRule) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *EmailRoutingSettings) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *EmailSecurityBlockSender) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *EmailSecurityImpersonationRegistry) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *EmailSecurityTrustedDomains) Hub() {}

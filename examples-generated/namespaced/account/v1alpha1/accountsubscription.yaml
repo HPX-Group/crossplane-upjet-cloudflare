@@ -1,0 +1,18 @@
+apiVersion: account.cloudflare.m.cloudflare.com/v1alpha1
+kind: AccountSubscription
+metadata:
+  annotations:
+    meta.upbound.io/example-id: account/v1alpha1/accountsubscription
+  labels:
+    testing.upbound.io/example-name: example_account_subscription
+  name: example-account-subscription
+  namespace: crossplane-system
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    frequency: monthly
+    ratePlan:
+      id: free
+      scope: zone

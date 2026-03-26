@@ -8,15 +8,6 @@ package v1alpha1
 
 import resource "github.com/crossplane/crossplane-runtime/v2/pkg/resource"
 
-// GetItems of this ZeroTrustAccessShortLivedCertificateList.
-func (l *ZeroTrustAccessShortLivedCertificateList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
 // GetItems of this ZeroTrustDEXTestList.
 func (l *ZeroTrustDEXTestList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -44,8 +35,98 @@ func (l *ZeroTrustDLPCustomProfileList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this ZeroTrustDLPDatasetList.
+func (l *ZeroTrustDLPDatasetList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this ZeroTrustDLPEntryList.
 func (l *ZeroTrustDLPEntryList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustDLPIntegrationEntryList.
+func (l *ZeroTrustDLPIntegrationEntryList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustDLPPredefinedEntryList.
+func (l *ZeroTrustDLPPredefinedEntryList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustDLPPredefinedProfileList.
+func (l *ZeroTrustDLPPredefinedProfileList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustDNSLocationList.
+func (l *ZeroTrustDNSLocationList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustDeviceCustomProfileList.
+func (l *ZeroTrustDeviceCustomProfileList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustDeviceCustomProfileLocalDomainFallbackList.
+func (l *ZeroTrustDeviceCustomProfileLocalDomainFallbackList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustDeviceDefaultProfileCertificatesList.
+func (l *ZeroTrustDeviceDefaultProfileCertificatesList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustDeviceDefaultProfileList.
+func (l *ZeroTrustDeviceDefaultProfileList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustDeviceDefaultProfileLocalDomainFallbackList.
+func (l *ZeroTrustDeviceDefaultProfileLocalDomainFallbackList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -80,6 +161,15 @@ func (l *ZeroTrustDevicePostureRuleList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this ZeroTrustDeviceSettingsList.
+func (l *ZeroTrustDeviceSettingsList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this ZeroTrustGatewayCertificateList.
 func (l *ZeroTrustGatewayCertificateList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -89,8 +179,26 @@ func (l *ZeroTrustGatewayCertificateList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this ZeroTrustGatewayLoggingList.
+func (l *ZeroTrustGatewayLoggingList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this ZeroTrustGatewayPolicyList.
 func (l *ZeroTrustGatewayPolicyList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustGatewayProxyEndpointList.
+func (l *ZeroTrustGatewayProxyEndpointList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -109,6 +217,15 @@ func (l *ZeroTrustGatewaySettingsList) GetItems() []resource.Managed {
 
 // GetItems of this ZeroTrustListList.
 func (l *ZeroTrustListList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustNetworkHostnameRouteList.
+func (l *ZeroTrustNetworkHostnameRouteList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -145,6 +262,33 @@ func (l *ZeroTrustTunnelCloudflaredConfigList) GetItems() []resource.Managed {
 
 // GetItems of this ZeroTrustTunnelCloudflaredList.
 func (l *ZeroTrustTunnelCloudflaredList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustTunnelCloudflaredRouteList.
+func (l *ZeroTrustTunnelCloudflaredRouteList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustTunnelCloudflaredVirtualNetworkList.
+func (l *ZeroTrustTunnelCloudflaredVirtualNetworkList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustTunnelWarpConnectorList.
+func (l *ZeroTrustTunnelWarpConnectorList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

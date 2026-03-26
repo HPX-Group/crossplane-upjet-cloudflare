@@ -1,0 +1,15 @@
+apiVersion: dns.cloudflare.m.cloudflare.com/v1alpha1
+kind: DNSZoneTransfersPeer
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dns/v1alpha1/dnszonetransferspeer
+  labels:
+    testing.upbound.io/example-name: example_dns_zone_transfers_peer
+  name: example-dns-zone-transfers-peer
+  namespace: crossplane-system
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    name: my-peer-1

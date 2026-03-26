@@ -1,0 +1,24 @@
+apiVersion: zerotrust.cloudflare.crossplane.io/v1alpha1
+kind: ZeroTrustGatewayLogging
+metadata:
+  annotations:
+    meta.upbound.io/example-id: zerotrust/v1alpha1/zerotrustgatewaylogging
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_gateway_logging
+  name: example-zero-trust-gateway-logging
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    redactPii: true
+    settingsByRuleType:
+      dns:
+        logAll: false
+        logBlocks: true
+      http:
+        logAll: false
+        logBlocks: true
+      l4:
+        logAll: false
+        logBlocks: true

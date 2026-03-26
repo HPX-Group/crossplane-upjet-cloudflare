@@ -1,0 +1,21 @@
+apiVersion: access.cloudflare.crossplane.io/v1alpha1
+kind: ZeroTrustAccessInfrastructureTarget
+metadata:
+  annotations:
+    meta.upbound.io/example-id: access/v1alpha1/zerotrustaccessinfrastructuretarget
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_access_infrastructure_target
+  name: example-zero-trust-access-infrastructure-target
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    hostname: infra-access-target
+    ip:
+      ipv4:
+        ipAddr: 187.26.29.249
+        virtualNetworkId: c77b744e-acc8-428f-9257-6878c046ed55
+      ipv6:
+        ipAddr: 64c0:64e8:f0b4:8dbf:7104:72b0:ec8f:f5e0
+        virtualNetworkId: c77b744e-acc8-428f-9257-6878c046ed55

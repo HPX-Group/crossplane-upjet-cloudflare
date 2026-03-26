@@ -1,0 +1,23 @@
+apiVersion: argo.cloudflare.m.cloudflare.com/v1alpha1
+kind: MagicTransitConnector
+metadata:
+  annotations:
+    meta.upbound.io/example-id: argo/v1alpha1/magictransitconnector
+  labels:
+    testing.upbound.io/example-name: example_magic_transit_connector
+  name: example-magic-transit-connector
+  namespace: crossplane-system
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    activated: true
+    device:
+      id: id
+      provisionLicense: true
+      serialNumber: serial_number
+    interruptWindowDurationHours: 0
+    interruptWindowHourOfDay: 0
+    notes: notes
+    timezone: timezone

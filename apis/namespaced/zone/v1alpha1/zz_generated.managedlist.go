@@ -35,6 +35,15 @@ func (l *ZoneDNSSECList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this ZoneDNSSettingsList.
+func (l *ZoneDNSSettingsList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this ZoneHoldList.
 func (l *ZoneHoldList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -64,6 +73,15 @@ func (l *ZoneLockdownList) GetItems() []resource.Managed {
 
 // GetItems of this ZoneSettingList.
 func (l *ZoneSettingList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZoneSubscriptionList.
+func (l *ZoneSubscriptionList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

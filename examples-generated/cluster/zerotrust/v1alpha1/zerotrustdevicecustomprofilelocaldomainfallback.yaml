@@ -1,0 +1,19 @@
+apiVersion: zerotrust.cloudflare.crossplane.io/v1alpha1
+kind: ZeroTrustDeviceCustomProfileLocalDomainFallback
+metadata:
+  annotations:
+    meta.upbound.io/example-id: zerotrust/v1alpha1/zerotrustdevicecustomprofilelocaldomainfallback
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_device_custom_profile_local_domain_fallback
+  name: example-zero-trust-device-custom-profile-local-domain-fallback
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    domains:
+    - description: Domain bypass for local development
+      dnsServer:
+      - 1.1.1.1
+      suffix: example.com
+    policyId: f174e90a-fafe-4643-bbbc-4a0ed4fc8415

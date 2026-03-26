@@ -1,0 +1,20 @@
+apiVersion: argo.cloudflare.crossplane.io/v1alpha1
+kind: MagicNetworkMonitoringRule
+metadata:
+  annotations:
+    meta.upbound.io/example-id: argo/v1alpha1/magicnetworkmonitoringrule
+  labels:
+    testing.upbound.io/example-name: example_magic_network_monitoring_rule
+  name: example-magic-network-monitoring-rule
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    automaticAdvertisement: true
+    bandwidth: 1000
+    duration: 1m
+    name: my_rule_1
+    packetThreshold: 10000
+    prefixes:
+    - 203.0.113.1/32

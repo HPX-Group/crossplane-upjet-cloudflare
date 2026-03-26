@@ -1,0 +1,16 @@
+apiVersion: email.cloudflare.crossplane.io/v1alpha1
+kind: EmailSecurityImpersonationRegistry
+metadata:
+  annotations:
+    meta.upbound.io/example-id: email/v1alpha1/emailsecurityimpersonationregistry
+  labels:
+    testing.upbound.io/example-name: example_email_security_impersonation_registry
+  name: example-email-security-impersonation-registry
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    email: email
+    isEmailRegex: true
+    name: name

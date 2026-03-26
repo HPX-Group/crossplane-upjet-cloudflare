@@ -1,0 +1,18 @@
+apiVersion: zerotrust.cloudflare.crossplane.io/v1alpha1
+kind: ZeroTrustDLPDataset
+metadata:
+  annotations:
+    meta.upbound.io/example-id: zerotrust/v1alpha1/zerotrustdlpdataset
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_dlp_dataset
+  name: example-zero-trust-dlp-dataset
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    caseSensitive: true
+    description: description
+    encodingVersion: 0
+    name: name
+    secret: true

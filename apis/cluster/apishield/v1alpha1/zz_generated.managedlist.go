@@ -8,6 +8,15 @@ package v1alpha1
 
 import resource "github.com/crossplane/crossplane-runtime/v2/pkg/resource"
 
+// GetItems of this APIShieldDiscoveryOperationList.
+func (l *APIShieldDiscoveryOperationList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this APIShieldList.
 func (l *APIShieldList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -46,6 +55,33 @@ func (l *APIShieldSchemaList) GetItems() []resource.Managed {
 
 // GetItems of this APIShieldSchemaValidationSettingsList.
 func (l *APIShieldSchemaValidationSettingsList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this SchemaValidationOperationSettingsList.
+func (l *SchemaValidationOperationSettingsList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this SchemaValidationSchemasList.
+func (l *SchemaValidationSchemasList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this SchemaValidationSettingsList.
+func (l *SchemaValidationSettingsList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

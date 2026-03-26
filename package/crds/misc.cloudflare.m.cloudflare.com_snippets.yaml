@@ -12,10 +12,10 @@ spec:
     - crossplane
     - managed
     - cloudflare
-    kind: Snippet
-    listKind: SnippetList
+    kind: Snippets
+    listKind: SnippetsList
     plural: snippets
-    singular: snippet
+    singular: snippets
   scope: Namespaced
   versions:
   - additionalPrinterColumns:
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Snippet is the Schema for the Snippets API.
+        description: Snippets is the Schema for the Snippetss API. <no value>
         properties:
           apiVersion:
             description: |-
@@ -54,43 +54,27 @@ spec:
           metadata:
             type: object
           spec:
-            description: SnippetSpec defines the desired state of Snippet
+            description: SnippetsSpec defines the desired state of Snippets
             properties:
               forProvider:
                 properties:
                   files:
-                    description: |-
-                      (List of Object) The list of files belonging to the snippet. (see below for nested schema)
-                      The list of files belonging to the snippet.
+                    description: The list of files belonging to the snippet.
                     items:
-                      properties:
-                        content:
-                          description: (String)
-                          type: string
-                        name:
-                          description: (String)
-                          type: string
-                      type: object
+                      type: string
                     type: array
                   metadata:
-                    description: (Attributes) Metadata about the snippet. (see below
-                      for nested schema)
                     properties:
                       mainModule:
-                        description: |-
-                          (String) Name of the file that contains the main module of the snippet.
-                          Name of the file that contains the main module of the snippet.
+                        description: Name of the file that contains the main module
+                          of the snippet.
                         type: string
                     type: object
                   snippetName:
-                    description: |-
-                      (String) The identifying name of the snippet.
-                      The identifying name of the snippet.
+                    description: The identifying name of the snippet.
                     type: string
                   zoneId:
-                    description: |-
-                      (String) The unique ID of the zone.
-                      The unique ID of the zone.
+                    description: The unique ID of the zone.
                     type: string
                   zoneIdRef:
                     description: Reference to a Zone in zone to populate zoneId.
@@ -187,38 +171,22 @@ spec:
                   autoscaler.
                 properties:
                   files:
-                    description: |-
-                      (List of Object) The list of files belonging to the snippet. (see below for nested schema)
-                      The list of files belonging to the snippet.
+                    description: The list of files belonging to the snippet.
                     items:
-                      properties:
-                        content:
-                          description: (String)
-                          type: string
-                        name:
-                          description: (String)
-                          type: string
-                      type: object
+                      type: string
                     type: array
                   metadata:
-                    description: (Attributes) Metadata about the snippet. (see below
-                      for nested schema)
                     properties:
                       mainModule:
-                        description: |-
-                          (String) Name of the file that contains the main module of the snippet.
-                          Name of the file that contains the main module of the snippet.
+                        description: Name of the file that contains the main module
+                          of the snippet.
                         type: string
                     type: object
                   snippetName:
-                    description: |-
-                      (String) The identifying name of the snippet.
-                      The identifying name of the snippet.
+                    description: The identifying name of the snippet.
                     type: string
                   zoneId:
-                    description: |-
-                      (String) The unique ID of the zone.
-                      The unique ID of the zone.
+                    description: The unique ID of the zone.
                     type: string
                   zoneIdRef:
                     description: Reference to a Zone in zone to populate zoneId.
@@ -373,55 +341,35 @@ spec:
                 || ''Update'' in self.managementPolicies) || has(self.forProvider.snippetName)
                 || (has(self.initProvider) && has(self.initProvider.snippetName))'
           status:
-            description: SnippetStatus defines the observed state of Snippet.
+            description: SnippetsStatus defines the observed state of Snippets.
             properties:
               atProvider:
                 properties:
                   createdOn:
-                    description: |-
-                      (String) The timestamp of when the snippet was created.
-                      The timestamp of when the snippet was created.
+                    description: The timestamp of when the snippet was created.
                     type: string
                   files:
-                    description: |-
-                      (List of Object) The list of files belonging to the snippet. (see below for nested schema)
-                      The list of files belonging to the snippet.
+                    description: The list of files belonging to the snippet.
                     items:
-                      properties:
-                        content:
-                          description: (String)
-                          type: string
-                        name:
-                          description: (String)
-                          type: string
-                      type: object
+                      type: string
                     type: array
                   id:
                     type: string
                   metadata:
-                    description: (Attributes) Metadata about the snippet. (see below
-                      for nested schema)
                     properties:
                       mainModule:
-                        description: |-
-                          (String) Name of the file that contains the main module of the snippet.
-                          Name of the file that contains the main module of the snippet.
+                        description: Name of the file that contains the main module
+                          of the snippet.
                         type: string
                     type: object
                   modifiedOn:
-                    description: |-
-                      (String) The timestamp of when the snippet was last modified.
-                      The timestamp of when the snippet was last modified.
+                    description: The timestamp of when the snippet was last modified.
                     type: string
                   snippetName:
-                    description: |-
-                      (String) The identifying name of the snippet.
-                      The identifying name of the snippet.
+                    description: The identifying name of the snippet.
                     type: string
                   zoneId:
-                    description: |-
-                      (String) The unique ID of the zone.
-                      The unique ID of the zone.
+                    description: The unique ID of the zone.
                     type: string
                 type: object
               conditions:

@@ -11,3 +11,6 @@ func (tr *LogpullRetention) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *LogpushJob) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *LogpushOwnershipChallenge) Hub() {}

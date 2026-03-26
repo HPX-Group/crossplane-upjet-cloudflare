@@ -1,0 +1,17 @@
+apiVersion: misc.cloudflare.m.cloudflare.com/v1alpha1
+kind: SSOConnector
+metadata:
+  annotations:
+    meta.upbound.io/example-id: misc/v1alpha1/ssoconnector
+  labels:
+    testing.upbound.io/example-name: example_sso_connector
+  name: example-sso-connector
+  namespace: crossplane-system
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    beginVerification: true
+    emailDomain: example.com
+    useFedrampLanguage: false

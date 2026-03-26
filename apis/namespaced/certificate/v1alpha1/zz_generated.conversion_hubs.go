@@ -13,6 +13,9 @@ func (tr *AuthenticatedOriginPulls) Hub() {}
 func (tr *AuthenticatedOriginPullsCertificate) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *AuthenticatedOriginPullsSettings) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *CertificatePack) Hub() {}
 
 // Hub marks this type as a conversion hub.
@@ -38,3 +41,6 @@ func (tr *OriginCACertificate) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *TotalTLS) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *UniversalSSLSetting) Hub() {}

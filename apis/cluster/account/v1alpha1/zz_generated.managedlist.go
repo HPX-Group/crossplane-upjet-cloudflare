@@ -26,6 +26,15 @@ func (l *AccountList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this AccountSubscriptionList.
+func (l *AccountSubscriptionList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this AccountTokenList.
 func (l *AccountTokenList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -37,6 +46,15 @@ func (l *AccountTokenList) GetItems() []resource.Managed {
 
 // GetItems of this MemberList.
 func (l *MemberList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this RegistrarDomainList.
+func (l *RegistrarDomainList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

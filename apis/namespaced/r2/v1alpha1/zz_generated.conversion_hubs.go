@@ -13,6 +13,9 @@ func (tr *R2Bucket) Hub() {}
 func (tr *R2BucketCORS) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *R2BucketEventNotification) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *R2BucketLifecycle) Hub() {}
 
 // Hub marks this type as a conversion hub.

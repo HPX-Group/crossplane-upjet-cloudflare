@@ -17,6 +17,15 @@ func (l *BotManagementList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this CustomPagesList.
+func (l *CustomPagesList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this FilterList.
 func (l *FilterList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -53,8 +62,26 @@ func (l *LeakedCredentialCheckRuleList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this ManagedTransformsList.
+func (l *ManagedTransformsList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this PageRuleList.
 func (l *PageRuleList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this PageShieldPolicyList.
+func (l *PageShieldPolicyList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

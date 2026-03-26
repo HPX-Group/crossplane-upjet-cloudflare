@@ -10,6 +10,9 @@ package v1alpha1
 func (tr *Account) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *AccountSubscription) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *AccountToken) Hub() {}
 
 // Hub marks this type as a conversion hub.
@@ -17,3 +20,6 @@ func (tr *APIToken) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *Member) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *RegistrarDomain) Hub() {}

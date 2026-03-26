@@ -89,6 +89,15 @@ func (l *CloudforceOneRequestPriorityList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this ConnectivityDirectoryServiceList.
+func (l *ConnectivityDirectoryServiceList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this ContentScanningExpressionList.
 func (l *ContentScanningExpressionList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -125,8 +134,44 @@ func (l *HyperdriveConfigList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this ImageList.
+func (l *ImageList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ImageVariantList.
+func (l *ImageVariantList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this ObservatoryScheduledTestList.
 func (l *ObservatoryScheduledTestList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this OrganizationList.
+func (l *OrganizationList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this OrganizationProfileList.
+func (l *OrganizationProfileList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -161,6 +206,15 @@ func (l *RegionalHostnameList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this SSOConnectorList.
+func (l *SSOConnectorList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this SnippetList.
 func (l *SnippetList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -179,8 +233,44 @@ func (l *SnippetRulesList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this SnippetsList.
+func (l *SnippetsList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this TokenValidationConfigList.
+func (l *TokenValidationConfigList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this TokenValidationRulesList.
+func (l *TokenValidationRulesList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this TurnstileWidgetList.
 func (l *TurnstileWidgetList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this UserList.
+func (l *UserList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

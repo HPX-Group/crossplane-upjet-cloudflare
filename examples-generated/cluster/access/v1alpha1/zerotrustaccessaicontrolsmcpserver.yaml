@@ -1,0 +1,18 @@
+apiVersion: access.cloudflare.crossplane.io/v1alpha1
+kind: ZeroTrustAccessAIControlsMCPServer
+metadata:
+  annotations:
+    meta.upbound.io/example-id: access/v1alpha1/zerotrustaccessaicontrolsmcpserver
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_access_ai_controls_mcp_server
+  name: example-zero-trust-access-ai-controls-mcp-server
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    authCredentials: auth_credentials
+    authType: unauthenticated
+    description: This is one remote mcp server
+    hostname: https://exmaple.com/mcp
+    name: My MCP Server

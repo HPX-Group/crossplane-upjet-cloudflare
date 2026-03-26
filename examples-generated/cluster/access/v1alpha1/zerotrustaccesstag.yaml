@@ -1,0 +1,14 @@
+apiVersion: access.cloudflare.crossplane.io/v1alpha1
+kind: ZeroTrustAccessTag
+metadata:
+  annotations:
+    meta.upbound.io/example-id: access/v1alpha1/zerotrustaccesstag
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_access_tag
+  name: example-zero-trust-access-tag
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    name: engineers

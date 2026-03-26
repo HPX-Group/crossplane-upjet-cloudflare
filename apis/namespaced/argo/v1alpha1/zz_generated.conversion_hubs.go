@@ -7,6 +7,33 @@
 package v1alpha1
 
 // Hub marks this type as a conversion hub.
+func (tr *ArgoSmartRouting) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ArgoTieredCaching) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *MagicNetworkMonitoringConfiguration) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *MagicNetworkMonitoringRule) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *MagicTransitConnector) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *MagicTransitSite) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *MagicTransitSiteACL) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *MagicTransitSiteLAN) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *MagicTransitSiteWAN) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *MagicWANGRETunnel) Hub() {}
 
 // Hub marks this type as a conversion hub.

@@ -1,0 +1,18 @@
+apiVersion: access.cloudflare.m.cloudflare.com/v1alpha1
+kind: ZeroTrustAccessServiceToken
+metadata:
+  annotations:
+    meta.upbound.io/example-id: access/v1alpha1/zerotrustaccessservicetoken
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_access_service_token
+  name: example-zero-trust-access-service-token
+  namespace: crossplane-system
+spec:
+  forProvider:
+    clientSecretVersion: 0
+    duration: 60m
+    name: CI/CD token
+    previousClientSecretExpiresAt: "2014-01-01T05:20:00.12345Z"
+    zoneIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example

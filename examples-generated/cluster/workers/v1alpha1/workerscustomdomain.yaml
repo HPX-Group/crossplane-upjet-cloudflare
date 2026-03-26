@@ -1,0 +1,19 @@
+apiVersion: workers.cloudflare.crossplane.io/v1alpha1
+kind: WorkersCustomDomain
+metadata:
+  annotations:
+    meta.upbound.io/example-id: workers/v1alpha1/workerscustomdomain
+  labels:
+    testing.upbound.io/example-name: example_workers_custom_domain
+  name: example-workers-custom-domain
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    environment: production
+    hostname: foo.example.com
+    service: foo
+    zoneIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example

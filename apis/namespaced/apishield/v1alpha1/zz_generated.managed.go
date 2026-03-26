@@ -48,6 +48,46 @@ func (mg *APIShield) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretRefe
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+// GetCondition of this APIShieldDiscoveryOperation.
+func (mg *APIShieldDiscoveryOperation) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this APIShieldDiscoveryOperation.
+func (mg *APIShieldDiscoveryOperation) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this APIShieldDiscoveryOperation.
+func (mg *APIShieldDiscoveryOperation) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this APIShieldDiscoveryOperation.
+func (mg *APIShieldDiscoveryOperation) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this APIShieldDiscoveryOperation.
+func (mg *APIShieldDiscoveryOperation) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this APIShieldDiscoveryOperation.
+func (mg *APIShieldDiscoveryOperation) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this APIShieldDiscoveryOperation.
+func (mg *APIShieldDiscoveryOperation) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this APIShieldDiscoveryOperation.
+func (mg *APIShieldDiscoveryOperation) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this APIShieldOperation.
 func (mg *APIShieldOperation) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -205,5 +245,125 @@ func (mg *APIShieldSchemaValidationSettings) SetProviderConfigReference(r *xpv1.
 
 // SetWriteConnectionSecretToReference of this APIShieldSchemaValidationSettings.
 func (mg *APIShieldSchemaValidationSettings) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this SchemaValidationOperationSettings.
+func (mg *SchemaValidationOperationSettings) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this SchemaValidationOperationSettings.
+func (mg *SchemaValidationOperationSettings) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this SchemaValidationOperationSettings.
+func (mg *SchemaValidationOperationSettings) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this SchemaValidationOperationSettings.
+func (mg *SchemaValidationOperationSettings) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this SchemaValidationOperationSettings.
+func (mg *SchemaValidationOperationSettings) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this SchemaValidationOperationSettings.
+func (mg *SchemaValidationOperationSettings) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this SchemaValidationOperationSettings.
+func (mg *SchemaValidationOperationSettings) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this SchemaValidationOperationSettings.
+func (mg *SchemaValidationOperationSettings) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this SchemaValidationSchemas.
+func (mg *SchemaValidationSchemas) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this SchemaValidationSchemas.
+func (mg *SchemaValidationSchemas) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this SchemaValidationSchemas.
+func (mg *SchemaValidationSchemas) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this SchemaValidationSchemas.
+func (mg *SchemaValidationSchemas) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this SchemaValidationSchemas.
+func (mg *SchemaValidationSchemas) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this SchemaValidationSchemas.
+func (mg *SchemaValidationSchemas) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this SchemaValidationSchemas.
+func (mg *SchemaValidationSchemas) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this SchemaValidationSchemas.
+func (mg *SchemaValidationSchemas) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this SchemaValidationSettings.
+func (mg *SchemaValidationSettings) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this SchemaValidationSettings.
+func (mg *SchemaValidationSettings) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this SchemaValidationSettings.
+func (mg *SchemaValidationSettings) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this SchemaValidationSettings.
+func (mg *SchemaValidationSettings) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this SchemaValidationSettings.
+func (mg *SchemaValidationSettings) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this SchemaValidationSettings.
+func (mg *SchemaValidationSettings) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this SchemaValidationSettings.
+func (mg *SchemaValidationSettings) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this SchemaValidationSettings.
+func (mg *SchemaValidationSettings) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }

@@ -1,0 +1,21 @@
+apiVersion: argo.cloudflare.crossplane.io/v1alpha1
+kind: MagicNetworkMonitoringConfiguration
+metadata:
+  annotations:
+    meta.upbound.io/example-id: argo/v1alpha1/magicnetworkmonitoringconfiguration
+  labels:
+    testing.upbound.io/example-name: example_magic_network_monitoring_configuration
+  name: example-magic-network-monitoring-configuration
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    defaultSampling: 1
+    name: cloudflare user's account
+    routerIps:
+    - 203.0.113.1
+    warpDevices:
+    - id: 5360368d-b351-4791-abe1-93550dabd351
+      name: My warp device
+      routerIp: 203.0.113.1

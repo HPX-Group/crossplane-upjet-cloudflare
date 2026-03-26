@@ -1,0 +1,22 @@
+apiVersion: argo.cloudflare.m.cloudflare.com/v1alpha1
+kind: MagicTransitSite
+metadata:
+  annotations:
+    meta.upbound.io/example-id: argo/v1alpha1/magictransitsite
+  labels:
+    testing.upbound.io/example-name: example_magic_transit_site
+  name: example-magic-transit-site
+  namespace: crossplane-system
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    connectorId: ac60d3d0435248289d446cedd870bcf4
+    description: description
+    haMode: true
+    location:
+      lat: "37.6192"
+      lon: "122.3816"
+    name: site_1
+    secondaryConnectorId: 8d67040d3835dbcf46ce29da440dc482

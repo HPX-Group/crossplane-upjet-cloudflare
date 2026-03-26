@@ -19,6 +19,9 @@ func (tr *ZoneCacheVariants) Hub() {}
 func (tr *ZoneDNSSEC) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *ZoneDNSSettings) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *ZoneHold) Hub() {}
 
 // Hub marks this type as a conversion hub.
@@ -26,3 +29,6 @@ func (tr *ZoneLockdown) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *ZoneSetting) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZoneSubscription) Hub() {}

@@ -108,6 +108,56 @@ func (mg *AuthenticatedOriginPullsCertificate) SetWriteConnectionSecretToReferen
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+// GetCondition of this AuthenticatedOriginPullsSettings.
+func (mg *AuthenticatedOriginPullsSettings) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this AuthenticatedOriginPullsSettings.
+func (mg *AuthenticatedOriginPullsSettings) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this AuthenticatedOriginPullsSettings.
+func (mg *AuthenticatedOriginPullsSettings) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this AuthenticatedOriginPullsSettings.
+func (mg *AuthenticatedOriginPullsSettings) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this AuthenticatedOriginPullsSettings.
+func (mg *AuthenticatedOriginPullsSettings) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this AuthenticatedOriginPullsSettings.
+func (mg *AuthenticatedOriginPullsSettings) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this AuthenticatedOriginPullsSettings.
+func (mg *AuthenticatedOriginPullsSettings) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this AuthenticatedOriginPullsSettings.
+func (mg *AuthenticatedOriginPullsSettings) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this AuthenticatedOriginPullsSettings.
+func (mg *AuthenticatedOriginPullsSettings) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this AuthenticatedOriginPullsSettings.
+func (mg *AuthenticatedOriginPullsSettings) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this CertificatePack.
 func (mg *CertificatePack) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -555,5 +605,55 @@ func (mg *TotalTLS) SetProviderConfigReference(r *xpv1.Reference) {
 
 // SetWriteConnectionSecretToReference of this TotalTLS.
 func (mg *TotalTLS) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this UniversalSSLSetting.
+func (mg *UniversalSSLSetting) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this UniversalSSLSetting.
+func (mg *UniversalSSLSetting) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this UniversalSSLSetting.
+func (mg *UniversalSSLSetting) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this UniversalSSLSetting.
+func (mg *UniversalSSLSetting) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this UniversalSSLSetting.
+func (mg *UniversalSSLSetting) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this UniversalSSLSetting.
+func (mg *UniversalSSLSetting) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this UniversalSSLSetting.
+func (mg *UniversalSSLSetting) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this UniversalSSLSetting.
+func (mg *UniversalSSLSetting) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this UniversalSSLSetting.
+func (mg *UniversalSSLSetting) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this UniversalSSLSetting.
+func (mg *UniversalSSLSetting) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }

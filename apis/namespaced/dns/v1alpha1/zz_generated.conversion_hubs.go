@@ -7,7 +7,28 @@
 package v1alpha1
 
 // Hub marks this type as a conversion hub.
+func (tr *AccountDNSSettings) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *AccountDNSSettingsInternalView) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *DNSFirewall) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *DNSRecord) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *DNSZoneTransfersACL) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *DNSZoneTransfersIncoming) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *DNSZoneTransfersOutgoing) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *DNSZoneTransfersPeer) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *DNSZoneTransfersTSIG) Hub() {}

@@ -26,6 +26,15 @@ func (l *AuthenticatedOriginPullsList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this AuthenticatedOriginPullsSettingsList.
+func (l *AuthenticatedOriginPullsSettingsList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this CertificatePackList.
 func (l *CertificatePackList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -100,6 +109,15 @@ func (l *OriginCACertificateList) GetItems() []resource.Managed {
 
 // GetItems of this TotalTLSList.
 func (l *TotalTLSList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this UniversalSSLSettingList.
+func (l *UniversalSSLSettingList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

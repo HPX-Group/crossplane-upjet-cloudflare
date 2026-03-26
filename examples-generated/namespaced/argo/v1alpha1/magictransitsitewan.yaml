@@ -1,0 +1,23 @@
+apiVersion: argo.cloudflare.m.cloudflare.com/v1alpha1
+kind: MagicTransitSiteWAN
+metadata:
+  annotations:
+    meta.upbound.io/example-id: argo/v1alpha1/magictransitsitewan
+  labels:
+    testing.upbound.io/example-name: example_magic_transit_site_wan
+  name: example-magic-transit-site-wan
+  namespace: crossplane-system
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    name: name
+    physport: 1
+    priority: 0
+    siteId: 023e105f4ecef8ad9ca31a8372d0c353
+    staticAddressing:
+      address: 192.0.2.0/24
+      gatewayAddress: 192.0.2.1
+      secondaryAddress: 192.0.2.0/24
+    vlanTag: 42

@@ -6,7 +6,6 @@ const shortGroup = "misc"
 
 // Configure configures individual resources by adding custom ResourceConfigurators.
 func Configure(p *config.Provider) {
-	// Web3 Hostname
 	p.AddResourceConfigurator("cloudflare_web3_hostname", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "Web3Hostname"
@@ -15,8 +14,6 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	// Address Map & BYO IP
-	// Note: r.Kind is set to avoid generating a directory called "map" which is a Go reserved keyword
 	p.AddResourceConfigurator("cloudflare_address_map", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "AddressMap"
@@ -33,7 +30,6 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	// Regional Hostname
 	p.AddResourceConfigurator("cloudflare_regional_hostname", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "RegionalHostname"
@@ -42,7 +38,6 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	// Snippet
 	p.AddResourceConfigurator("cloudflare_snippet", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "Snippet"
@@ -59,16 +54,29 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	// Turnstile Widget
+	p.AddResourceConfigurator("cloudflare_snippets", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "Snippets"
+		r.References["zone_id"] = config.Reference{
+			TerraformName: "cloudflare_zone",
+		}
+	})
+
 	p.AddResourceConfigurator("cloudflare_turnstile_widget", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "TurnstileWidget"
 		r.References["account_id"] = config.Reference{
 			TerraformName: "cloudflare_account",
 		}
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["secret"]; ok {
+				conn["secret"] = []byte(v.(string))
+			}
+			return conn, nil
+		}
 	})
 
-	// Web Analytics
 	p.AddResourceConfigurator("cloudflare_web_analytics_site", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "WebAnalyticsSite"
@@ -85,7 +93,6 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	// Queue
 	p.AddResourceConfigurator("cloudflare_queue", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "Queue"
@@ -105,34 +112,24 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	// Hyperdrive
 	p.AddResourceConfigurator("cloudflare_hyperdrive_config", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "HyperdriveConfig"
 		r.References["account_id"] = config.Reference{
 			TerraformName: "cloudflare_account",
 		}
-	})
-
-	// AI Gateway
-	p.AddResourceConfigurator("cloudflare_ai_gateway", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "AIGateway"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["access_client_secret"]; ok {
+				conn["access_client_secret"] = []byte(v.(string))
+			}
+			if v, ok := attr["password"]; ok {
+				conn["password"] = []byte(v.(string))
+			}
+			return conn, nil
 		}
 	})
 
-	// AI Search
-	p.AddResourceConfigurator("cloudflare_ai_search", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "AISearch"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	// D1 Database
 	p.AddResourceConfigurator("cloudflare_d1_database", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "D1Database"
@@ -141,16 +138,6 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	// Infrastructure Access Target
-	p.AddResourceConfigurator("cloudflare_infrastructure_access_target", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "InfrastructureAccessTarget"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	// Observatory
 	p.AddResourceConfigurator("cloudflare_observatory_scheduled_test", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "ObservatoryScheduledTest"
@@ -159,7 +146,6 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	// Cloudforce One
 	p.AddResourceConfigurator("cloudflare_cloudforce_one_request", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "CloudforceOneRequest"
@@ -192,21 +178,34 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	// Images
-	p.AddResourceConfigurator("cloudflare_images_variant", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_image", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "ImagesVariant"
+		r.Kind = "Image"
 		r.References["account_id"] = config.Reference{
 			TerraformName: "cloudflare_account",
 		}
 	})
 
-	// Calls
+	p.AddResourceConfigurator("cloudflare_image_variant", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "ImageVariant"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
 	p.AddResourceConfigurator("cloudflare_calls_sfu_app", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "CallsSFUApp"
 		r.References["account_id"] = config.Reference{
 			TerraformName: "cloudflare_account",
+		}
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["secret"]; ok {
+				conn["secret"] = []byte(v.(string))
+			}
+			return conn, nil
 		}
 	})
 
@@ -216,18 +215,15 @@ func Configure(p *config.Provider) {
 		r.References["account_id"] = config.Reference{
 			TerraformName: "cloudflare_account",
 		}
-	})
-
-	// Vectorize
-	p.AddResourceConfigurator("cloudflare_vectorize_index", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "VectorizeIndex"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["key"]; ok {
+				conn["key"] = []byte(v.(string))
+			}
+			return conn, nil
 		}
 	})
 
-	// Content Scanning
 	p.AddResourceConfigurator("cloudflare_content_scanning", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "ContentScanning"
@@ -244,7 +240,6 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	// Cloud Connector
 	p.AddResourceConfigurator("cloudflare_cloud_connector_rules", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "CloudConnectorRules"
@@ -253,36 +248,50 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	// Zaraz
-	p.AddResourceConfigurator("cloudflare_zaraz_config", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_connectivity_directory_service", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "ZarazConfig"
+		r.Kind = "ConnectivityDirectoryService"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_sso_connector", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "SSOConnector"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_token_validation_config", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "TokenValidationConfig"
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
 		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_zaraz_default_config", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_token_validation_rules", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "ZarazDefaultConfig"
+		r.Kind = "TokenValidationRules"
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
 		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_zaraz_history_settings", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_user", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "ZarazHistorySettings"
-		r.References["zone_id"] = config.Reference{
-			TerraformName: "cloudflare_zone",
-		}
+		r.Kind = "User"
 	})
 
-	p.AddResourceConfigurator("cloudflare_zaraz_workflow", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_organization", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "ZarazWorkflow"
-		r.References["zone_id"] = config.Reference{
-			TerraformName: "cloudflare_zone",
-		}
+		r.Kind = "Organization"
+	})
+
+	p.AddResourceConfigurator("cloudflare_organization_profile", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "OrganizationProfile"
 	})
 }

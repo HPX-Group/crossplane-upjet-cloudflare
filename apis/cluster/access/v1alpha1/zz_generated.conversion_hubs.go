@@ -8,3 +8,48 @@ package v1alpha1
 
 // Hub marks this type as a conversion hub.
 func (tr *AccessRule) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessAIControlsMCPPortal) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessAIControlsMCPServer) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessApplication) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessCustomPage) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessGroup) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessIdentityProvider) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessInfrastructureTarget) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessKeyConfiguration) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessMTLSCertificate) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessMTLSHostnameSettings) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessPolicy) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessServiceToken) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessShortLivedCertificate) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustAccessTag) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustOrganization) Hub() {}

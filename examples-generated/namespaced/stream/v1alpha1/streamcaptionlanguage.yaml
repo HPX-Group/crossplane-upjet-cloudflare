@@ -1,0 +1,16 @@
+apiVersion: stream.cloudflare.m.cloudflare.com/v1alpha1
+kind: StreamCaptionLanguage
+metadata:
+  annotations:
+    meta.upbound.io/example-id: stream/v1alpha1/streamcaptionlanguage
+  labels:
+    testing.upbound.io/example-name: example_stream_caption_language
+  name: example-stream-caption-language
+  namespace: crossplane-system
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    identifier: ea95132c15732412d22c1476fa83f27a
+    language: tr

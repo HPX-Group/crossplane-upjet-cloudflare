@@ -10,6 +10,9 @@ package v1alpha1
 func (tr *BotManagement) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *CustomPages) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *Filter) Hub() {}
 
 // Hub marks this type as a conversion hub.
@@ -22,7 +25,13 @@ func (tr *LeakedCredentialCheck) Hub() {}
 func (tr *LeakedCredentialCheckRule) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *ManagedTransforms) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *PageRule) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *PageShieldPolicy) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *RateLimit) Hub() {}

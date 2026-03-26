@@ -1,0 +1,16 @@
+apiVersion: zerotrust.cloudflare.crossplane.io/v1alpha1
+kind: ZeroTrustDLPPredefinedEntry
+metadata:
+  annotations:
+    meta.upbound.io/example-id: zerotrust/v1alpha1/zerotrustdlppredefinedentry
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_dlp_predefined_entry
+  name: example-zero-trust-dlp-predefined-entry
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    enabled: true
+    entryId: 182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e
+    profileId: 182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e

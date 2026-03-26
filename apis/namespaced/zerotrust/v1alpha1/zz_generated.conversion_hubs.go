@@ -7,7 +7,19 @@
 package v1alpha1
 
 // Hub marks this type as a conversion hub.
-func (tr *ZeroTrustAccessShortLivedCertificate) Hub() {}
+func (tr *ZeroTrustDeviceCustomProfile) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustDeviceCustomProfileLocalDomainFallback) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustDeviceDefaultProfile) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustDeviceDefaultProfileCertificates) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustDeviceDefaultProfileLocalDomainFallback) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *ZeroTrustDeviceManagedNetworks) Hub() {}
@@ -19,6 +31,9 @@ func (tr *ZeroTrustDevicePostureIntegration) Hub() {}
 func (tr *ZeroTrustDevicePostureRule) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *ZeroTrustDeviceSettings) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *ZeroTrustDEXTest) Hub() {}
 
 // Hub marks this type as a conversion hub.
@@ -28,19 +43,43 @@ func (tr *ZeroTrustDLPCustomEntry) Hub() {}
 func (tr *ZeroTrustDLPCustomProfile) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *ZeroTrustDLPDataset) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *ZeroTrustDLPEntry) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustDLPIntegrationEntry) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustDLPPredefinedEntry) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustDLPPredefinedProfile) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustDNSLocation) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *ZeroTrustGatewayCertificate) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *ZeroTrustGatewayLogging) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *ZeroTrustGatewayPolicy) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustGatewayProxyEndpoint) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *ZeroTrustGatewaySettings) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *ZeroTrustList) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustNetworkHostnameRoute) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *ZeroTrustRiskBehavior) Hub() {}
@@ -53,3 +92,12 @@ func (tr *ZeroTrustTunnelCloudflared) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *ZeroTrustTunnelCloudflaredConfig) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustTunnelCloudflaredRoute) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustTunnelCloudflaredVirtualNetwork) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ZeroTrustTunnelWarpConnector) Hub() {}

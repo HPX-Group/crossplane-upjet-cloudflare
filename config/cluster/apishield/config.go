@@ -45,4 +45,36 @@ func Configure(p *config.Provider) {
 			TerraformName: "cloudflare_zone",
 		}
 	})
+
+	p.AddResourceConfigurator("cloudflare_api_shield_discovery_operation", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "APIShieldDiscoveryOperation"
+		r.References["zone_id"] = config.Reference{
+			TerraformName: "cloudflare_zone",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_schema_validation_operation_settings", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "SchemaValidationOperationSettings"
+		r.References["zone_id"] = config.Reference{
+			TerraformName: "cloudflare_zone",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_schema_validation_schemas", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "SchemaValidationSchemas"
+		r.References["zone_id"] = config.Reference{
+			TerraformName: "cloudflare_zone",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_schema_validation_settings", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "SchemaValidationSettings"
+		r.References["zone_id"] = config.Reference{
+			TerraformName: "cloudflare_zone",
+		}
+	})
 }

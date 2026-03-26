@@ -310,33 +310,155 @@ type CheckSessionParameters struct {
 	Enforce *bool `json:"enforce,omitempty" tf:"enforce,omitempty"`
 }
 
+type DNSResolversIPv4InitParameters struct {
+
+	// (String) Specify the IPv4 address of the upstream resolver.
+	// Specify the IPv4 address of the upstream resolver.
+	IP *string `json:"ip,omitempty" tf:"ip,omitempty"`
+
+	// (Number) Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
+	// Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
+
+	// (Boolean) Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
+	// Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
+	RouteThroughPrivateNetwork *bool `json:"routeThroughPrivateNetwork,omitempty" tf:"route_through_private_network,omitempty"`
+
+	// (String) Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
+	// Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
+	VnetID *string `json:"vnetId,omitempty" tf:"vnet_id,omitempty"`
+}
+
+type DNSResolversIPv4Observation struct {
+
+	// (String) Specify the IPv4 address of the upstream resolver.
+	// Specify the IPv4 address of the upstream resolver.
+	IP *string `json:"ip,omitempty" tf:"ip,omitempty"`
+
+	// (Number) Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
+	// Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
+
+	// (Boolean) Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
+	// Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
+	RouteThroughPrivateNetwork *bool `json:"routeThroughPrivateNetwork,omitempty" tf:"route_through_private_network,omitempty"`
+
+	// (String) Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
+	// Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
+	VnetID *string `json:"vnetId,omitempty" tf:"vnet_id,omitempty"`
+}
+
+type DNSResolversIPv4Parameters struct {
+
+	// (String) Specify the IPv4 address of the upstream resolver.
+	// Specify the IPv4 address of the upstream resolver.
+	// +kubebuilder:validation:Optional
+	IP *string `json:"ip" tf:"ip,omitempty"`
+
+	// (Number) Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
+	// Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
+	// +kubebuilder:validation:Optional
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
+
+	// (Boolean) Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
+	// Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
+	// +kubebuilder:validation:Optional
+	RouteThroughPrivateNetwork *bool `json:"routeThroughPrivateNetwork,omitempty" tf:"route_through_private_network,omitempty"`
+
+	// (String) Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
+	// Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
+	// +kubebuilder:validation:Optional
+	VnetID *string `json:"vnetId,omitempty" tf:"vnet_id,omitempty"`
+}
+
+type DNSResolversIPv6InitParameters struct {
+
+	// (String) Specify the IPv4 address of the upstream resolver.
+	// Specify the IPv6 address of the upstream resolver.
+	IP *string `json:"ip,omitempty" tf:"ip,omitempty"`
+
+	// (Number) Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
+	// Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
+
+	// (Boolean) Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
+	// Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
+	RouteThroughPrivateNetwork *bool `json:"routeThroughPrivateNetwork,omitempty" tf:"route_through_private_network,omitempty"`
+
+	// (String) Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
+	// Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
+	VnetID *string `json:"vnetId,omitempty" tf:"vnet_id,omitempty"`
+}
+
+type DNSResolversIPv6Observation struct {
+
+	// (String) Specify the IPv4 address of the upstream resolver.
+	// Specify the IPv6 address of the upstream resolver.
+	IP *string `json:"ip,omitempty" tf:"ip,omitempty"`
+
+	// (Number) Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
+	// Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
+
+	// (Boolean) Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
+	// Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
+	RouteThroughPrivateNetwork *bool `json:"routeThroughPrivateNetwork,omitempty" tf:"route_through_private_network,omitempty"`
+
+	// (String) Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
+	// Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
+	VnetID *string `json:"vnetId,omitempty" tf:"vnet_id,omitempty"`
+}
+
+type DNSResolversIPv6Parameters struct {
+
+	// (String) Specify the IPv4 address of the upstream resolver.
+	// Specify the IPv6 address of the upstream resolver.
+	// +kubebuilder:validation:Optional
+	IP *string `json:"ip" tf:"ip,omitempty"`
+
+	// (Number) Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
+	// Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
+	// +kubebuilder:validation:Optional
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
+
+	// (Boolean) Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
+	// Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
+	// +kubebuilder:validation:Optional
+	RouteThroughPrivateNetwork *bool `json:"routeThroughPrivateNetwork,omitempty" tf:"route_through_private_network,omitempty"`
+
+	// (String) Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
+	// Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
+	// +kubebuilder:validation:Optional
+	VnetID *string `json:"vnetId,omitempty" tf:"vnet_id,omitempty"`
+}
+
 type DNSResolversInitParameters struct {
 
 	// (Attributes List) (see below for nested schema)
-	IPv4 []IPv4InitParameters `json:"ipv4,omitempty" tf:"ipv4,omitempty"`
+	IPv4 []DNSResolversIPv4InitParameters `json:"ipv4,omitempty" tf:"ipv4,omitempty"`
 
 	// (Attributes List) (see below for nested schema)
-	IPv6 []IPv6InitParameters `json:"ipv6,omitempty" tf:"ipv6,omitempty"`
+	IPv6 []DNSResolversIPv6InitParameters `json:"ipv6,omitempty" tf:"ipv6,omitempty"`
 }
 
 type DNSResolversObservation struct {
 
 	// (Attributes List) (see below for nested schema)
-	IPv4 []IPv4Observation `json:"ipv4,omitempty" tf:"ipv4,omitempty"`
+	IPv4 []DNSResolversIPv4Observation `json:"ipv4,omitempty" tf:"ipv4,omitempty"`
 
 	// (Attributes List) (see below for nested schema)
-	IPv6 []IPv6Observation `json:"ipv6,omitempty" tf:"ipv6,omitempty"`
+	IPv6 []DNSResolversIPv6Observation `json:"ipv6,omitempty" tf:"ipv6,omitempty"`
 }
 
 type DNSResolversParameters struct {
 
 	// (Attributes List) (see below for nested schema)
 	// +kubebuilder:validation:Optional
-	IPv4 []IPv4Parameters `json:"ipv4,omitempty" tf:"ipv4,omitempty"`
+	IPv4 []DNSResolversIPv4Parameters `json:"ipv4,omitempty" tf:"ipv4,omitempty"`
 
 	// (Attributes List) (see below for nested schema)
 	// +kubebuilder:validation:Optional
-	IPv6 []IPv6Parameters `json:"ipv6,omitempty" tf:"ipv6,omitempty"`
+	IPv6 []DNSResolversIPv6Parameters `json:"ipv6,omitempty" tf:"ipv6,omitempty"`
 }
 
 type EgressInitParameters struct {
@@ -446,128 +568,6 @@ type ForensicCopyParameters struct {
 	// Enable sending the copy to storage.
 	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
-}
-
-type IPv4InitParameters struct {
-
-	// (String) Specify the IPv4 address of the upstream resolver.
-	// Specify the IPv4 address of the upstream resolver.
-	IP *string `json:"ip,omitempty" tf:"ip,omitempty"`
-
-	// (Number) Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
-	// Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
-	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
-
-	// (Boolean) Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
-	// Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
-	RouteThroughPrivateNetwork *bool `json:"routeThroughPrivateNetwork,omitempty" tf:"route_through_private_network,omitempty"`
-
-	// (String) Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
-	// Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
-	VnetID *string `json:"vnetId,omitempty" tf:"vnet_id,omitempty"`
-}
-
-type IPv4Observation struct {
-
-	// (String) Specify the IPv4 address of the upstream resolver.
-	// Specify the IPv4 address of the upstream resolver.
-	IP *string `json:"ip,omitempty" tf:"ip,omitempty"`
-
-	// (Number) Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
-	// Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
-	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
-
-	// (Boolean) Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
-	// Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
-	RouteThroughPrivateNetwork *bool `json:"routeThroughPrivateNetwork,omitempty" tf:"route_through_private_network,omitempty"`
-
-	// (String) Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
-	// Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
-	VnetID *string `json:"vnetId,omitempty" tf:"vnet_id,omitempty"`
-}
-
-type IPv4Parameters struct {
-
-	// (String) Specify the IPv4 address of the upstream resolver.
-	// Specify the IPv4 address of the upstream resolver.
-	// +kubebuilder:validation:Optional
-	IP *string `json:"ip" tf:"ip,omitempty"`
-
-	// (Number) Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
-	// Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
-	// +kubebuilder:validation:Optional
-	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
-
-	// (Boolean) Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
-	// Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
-	// +kubebuilder:validation:Optional
-	RouteThroughPrivateNetwork *bool `json:"routeThroughPrivateNetwork,omitempty" tf:"route_through_private_network,omitempty"`
-
-	// (String) Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
-	// Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
-	// +kubebuilder:validation:Optional
-	VnetID *string `json:"vnetId,omitempty" tf:"vnet_id,omitempty"`
-}
-
-type IPv6InitParameters struct {
-
-	// (String) Specify the IPv4 address of the upstream resolver.
-	// Specify the IPv6 address of the upstream resolver.
-	IP *string `json:"ip,omitempty" tf:"ip,omitempty"`
-
-	// (Number) Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
-	// Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
-	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
-
-	// (Boolean) Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
-	// Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
-	RouteThroughPrivateNetwork *bool `json:"routeThroughPrivateNetwork,omitempty" tf:"route_through_private_network,omitempty"`
-
-	// (String) Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
-	// Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
-	VnetID *string `json:"vnetId,omitempty" tf:"vnet_id,omitempty"`
-}
-
-type IPv6Observation struct {
-
-	// (String) Specify the IPv4 address of the upstream resolver.
-	// Specify the IPv6 address of the upstream resolver.
-	IP *string `json:"ip,omitempty" tf:"ip,omitempty"`
-
-	// (Number) Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
-	// Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
-	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
-
-	// (Boolean) Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
-	// Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
-	RouteThroughPrivateNetwork *bool `json:"routeThroughPrivateNetwork,omitempty" tf:"route_through_private_network,omitempty"`
-
-	// (String) Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
-	// Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
-	VnetID *string `json:"vnetId,omitempty" tf:"vnet_id,omitempty"`
-}
-
-type IPv6Parameters struct {
-
-	// (String) Specify the IPv4 address of the upstream resolver.
-	// Specify the IPv6 address of the upstream resolver.
-	// +kubebuilder:validation:Optional
-	IP *string `json:"ip" tf:"ip,omitempty"`
-
-	// (Number) Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
-	// Specify a port number to use for the upstream resolver. Defaults to 53 if unspecified.
-	// +kubebuilder:validation:Optional
-	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
-
-	// (Boolean) Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
-	// Indicate whether to connect to this resolver over a private network. Must set when vnet_id set.
-	// +kubebuilder:validation:Optional
-	RouteThroughPrivateNetwork *bool `json:"routeThroughPrivateNetwork,omitempty" tf:"route_through_private_network,omitempty"`
-
-	// (String) Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
-	// Specify an optional virtual network for this resolver. Uses default virtual network id if omitted.
-	// +kubebuilder:validation:Optional
-	VnetID *string `json:"vnetId,omitempty" tf:"vnet_id,omitempty"`
 }
 
 type L4OverrideInitParameters struct {

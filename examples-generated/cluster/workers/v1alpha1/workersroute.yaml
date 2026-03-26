@@ -1,0 +1,15 @@
+apiVersion: workers.cloudflare.crossplane.io/v1alpha1
+kind: WorkersRoute
+metadata:
+  annotations:
+    meta.upbound.io/example-id: workers/v1alpha1/workersroute
+  labels:
+    testing.upbound.io/example-name: example_workers_route
+  name: example-workers-route
+spec:
+  forProvider:
+    pattern: example.com/*
+    script: my-workers-script
+    zoneIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example

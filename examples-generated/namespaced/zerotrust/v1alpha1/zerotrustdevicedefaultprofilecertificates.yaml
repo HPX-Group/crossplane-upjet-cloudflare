@@ -1,0 +1,15 @@
+apiVersion: zerotrust.cloudflare.m.cloudflare.com/v1alpha1
+kind: ZeroTrustDeviceDefaultProfileCertificates
+metadata:
+  annotations:
+    meta.upbound.io/example-id: zerotrust/v1alpha1/zerotrustdevicedefaultprofilecertificates
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_device_default_profile_certificates
+  name: example-zero-trust-device-default-profile-certificates
+  namespace: crossplane-system
+spec:
+  forProvider:
+    enabled: true
+    zoneIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example

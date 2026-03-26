@@ -16,3 +16,138 @@ func (l *AccessRuleList) GetItems() []resource.Managed {
 	}
 	return items
 }
+
+// GetItems of this ZeroTrustAccessAIControlsMCPPortalList.
+func (l *ZeroTrustAccessAIControlsMCPPortalList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustAccessAIControlsMCPServerList.
+func (l *ZeroTrustAccessAIControlsMCPServerList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustAccessApplicationList.
+func (l *ZeroTrustAccessApplicationList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustAccessCustomPageList.
+func (l *ZeroTrustAccessCustomPageList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustAccessGroupList.
+func (l *ZeroTrustAccessGroupList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustAccessIdentityProviderList.
+func (l *ZeroTrustAccessIdentityProviderList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustAccessInfrastructureTargetList.
+func (l *ZeroTrustAccessInfrastructureTargetList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustAccessKeyConfigurationList.
+func (l *ZeroTrustAccessKeyConfigurationList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustAccessMTLSCertificateList.
+func (l *ZeroTrustAccessMTLSCertificateList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustAccessMTLSHostnameSettingsList.
+func (l *ZeroTrustAccessMTLSHostnameSettingsList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustAccessPolicyList.
+func (l *ZeroTrustAccessPolicyList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustAccessServiceTokenList.
+func (l *ZeroTrustAccessServiceTokenList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustAccessShortLivedCertificateList.
+func (l *ZeroTrustAccessShortLivedCertificateList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustAccessTagList.
+func (l *ZeroTrustAccessTagList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ZeroTrustOrganizationList.
+func (l *ZeroTrustOrganizationList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}

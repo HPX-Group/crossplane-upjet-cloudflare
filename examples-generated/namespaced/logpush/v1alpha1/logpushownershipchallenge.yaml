@@ -1,0 +1,15 @@
+apiVersion: logpush.cloudflare.m.cloudflare.com/v1alpha1
+kind: LogpushOwnershipChallenge
+metadata:
+  annotations:
+    meta.upbound.io/example-id: logpush/v1alpha1/logpushownershipchallenge
+  labels:
+    testing.upbound.io/example-name: example_logpush_ownership_challenge
+  name: example-logpush-ownership-challenge
+  namespace: crossplane-system
+spec:
+  forProvider:
+    destinationConf: s3://mybucket/logs?region=us-west-2
+    zoneIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example

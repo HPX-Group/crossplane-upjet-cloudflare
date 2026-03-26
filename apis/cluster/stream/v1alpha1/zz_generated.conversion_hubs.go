@@ -13,6 +13,9 @@ func (tr *Stream) Hub() {}
 func (tr *StreamAudioTrack) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *StreamCaptionLanguage) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *StreamDownload) Hub() {}
 
 // Hub marks this type as a conversion hub.

@@ -6,19 +6,19 @@ const shortGroup = "argo"
 
 // Configure configures individual resources by adding custom ResourceConfigurators.
 func Configure(p *config.Provider) {
-	p.AddResourceConfigurator("cloudflare_argo", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_argo_smart_routing", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "Argo"
+		r.Kind = "ArgoSmartRouting"
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
 		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_argo_tunnel", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_argo_tiered_caching", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "ArgoTunnel"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
+		r.Kind = "ArgoTieredCaching"
+		r.References["zone_id"] = config.Reference{
+			TerraformName: "cloudflare_zone",
 		}
 	})
 
@@ -38,39 +38,7 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_static_route", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "StaticRoute"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_gre_tunnel", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "GRETunnel"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_ipsec_tunnel", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "IPSecTunnel"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
 	// Magic WAN
-	p.AddResourceConfigurator("cloudflare_magic_firewall_ruleset", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "MagicFirewallRuleset"
-		r.References["account_id"] = config.Reference{
-			TerraformName: "cloudflare_account",
-		}
-	})
-
 	p.AddResourceConfigurator("cloudflare_magic_wan_gre_tunnel", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "MagicWANGRETunnel"
@@ -85,11 +53,83 @@ func Configure(p *config.Provider) {
 		r.References["account_id"] = config.Reference{
 			TerraformName: "cloudflare_account",
 		}
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["psk"]; ok {
+				conn["psk"] = []byte(v.(string))
+			}
+			return conn, nil
+		}
 	})
 
 	p.AddResourceConfigurator("cloudflare_magic_wan_static_route", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "MagicWANStaticRoute"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	// Magic Network Monitoring
+	p.AddResourceConfigurator("cloudflare_magic_network_monitoring_configuration", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "MagicNetworkMonitoringConfiguration"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_magic_network_monitoring_rule", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "MagicNetworkMonitoringRule"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	// Magic Transit
+	p.AddResourceConfigurator("cloudflare_magic_transit_connector", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "MagicTransitConnector"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+		r.Sensitive.AdditionalConnectionDetailsFn = func(attr map[string]any) (map[string][]byte, error) {
+			conn := map[string][]byte{}
+			if v, ok := attr["license_key"]; ok {
+				conn["license_key"] = []byte(v.(string))
+			}
+			return conn, nil
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_magic_transit_site", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "MagicTransitSite"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_magic_transit_site_acl", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "MagicTransitSiteACL"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_magic_transit_site_lan", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "MagicTransitSiteLAN"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_magic_transit_site_wan", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "MagicTransitSiteWAN"
 		r.References["account_id"] = config.Reference{
 			TerraformName: "cloudflare_account",
 		}

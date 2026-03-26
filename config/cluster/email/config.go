@@ -45,4 +45,29 @@ func Configure(p *config.Provider) {
 			TerraformName: "cloudflare_zone",
 		}
 	})
+
+	// Email Security
+	p.AddResourceConfigurator("cloudflare_email_security_block_sender", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "EmailSecurityBlockSender"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_email_security_impersonation_registry", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "EmailSecurityImpersonationRegistry"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
+
+	p.AddResourceConfigurator("cloudflare_email_security_trusted_domains", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "EmailSecurityTrustedDomains"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
+		}
+	})
 }

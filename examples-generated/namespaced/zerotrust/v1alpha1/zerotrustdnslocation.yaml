@@ -1,0 +1,36 @@
+apiVersion: zerotrust.cloudflare.m.cloudflare.com/v1alpha1
+kind: ZeroTrustDNSLocation
+metadata:
+  annotations:
+    meta.upbound.io/example-id: zerotrust/v1alpha1/zerotrustdnslocation
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_dns_location
+  name: example-zero-trust-dns-location
+  namespace: crossplane-system
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    clientDefault: false
+    dnsDestinationIpsId: 0e4a32c6-6fb8-4858-9296-98f51631e8e6
+    ecsSupport: false
+    endpoints:
+      doh:
+        enabled: true
+        networks:
+        - network: 2001:85a3::/64
+        requireToken: true
+      dot:
+        enabled: true
+        networks:
+        - network: 2001:85a3::/64
+      ipv4:
+        enabled: true
+      ipv6:
+        enabled: true
+        networks:
+        - network: 2001:85a3::/64
+    name: Austin Office Location
+    networks:
+    - network: 192.0.2.1/32

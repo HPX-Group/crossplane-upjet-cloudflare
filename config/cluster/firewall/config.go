@@ -32,50 +32,9 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_rate_limiting_rule", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "RateLimitingRule"
-		r.References["zone_id"] = config.Reference{
-			TerraformName: "cloudflare_zone",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_waf_rule", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "WAFRule"
-		r.References["zone_id"] = config.Reference{
-			TerraformName: "cloudflare_zone",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_waf_override", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "WAFOverride"
-		r.References["zone_id"] = config.Reference{
-			TerraformName: "cloudflare_zone",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_waf_package", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "WAFPackage"
-		r.References["zone_id"] = config.Reference{
-			TerraformName: "cloudflare_zone",
-		}
-	})
-
-	p.AddResourceConfigurator("cloudflare_waf_group", func(r *config.Resource) {
-		r.ShortGroup = shortGroup
-		r.Kind = "WAFGroup"
-		r.References["zone_id"] = config.Reference{
-			TerraformName: "cloudflare_zone",
-		}
-	})
-
 	p.AddResourceConfigurator("cloudflare_ruleset", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "Ruleset"
-		// ruleset can be at zone or account level
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
 		}
@@ -84,9 +43,9 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_managed_headers", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_managed_transforms", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "ManagedHeaders"
+		r.Kind = "ManagedTransforms"
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
 		}
@@ -140,19 +99,19 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_cache_rule", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_page_shield_policy", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "CacheRule"
+		r.Kind = "PageShieldPolicy"
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
 		}
 	})
 
-	p.AddResourceConfigurator("cloudflare_cache_reserve", func(r *config.Resource) {
+	p.AddResourceConfigurator("cloudflare_custom_pages", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
-		r.Kind = "CacheReserve"
-		r.References["zone_id"] = config.Reference{
-			TerraformName: "cloudflare_zone",
+		r.Kind = "CustomPages"
+		r.References["account_id"] = config.Reference{
+			TerraformName: "cloudflare_account",
 		}
 	})
 }

@@ -1,0 +1,15 @@
+apiVersion: zerotrust.cloudflare.crossplane.io/v1alpha1
+kind: ZeroTrustGatewayProxyEndpoint
+metadata:
+  annotations:
+    meta.upbound.io/example-id: zerotrust/v1alpha1/zerotrustgatewayproxyendpoint
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_gateway_proxy_endpoint
+  name: example-zero-trust-gateway-proxy-endpoint
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    kind: ip
+    name: Devops team

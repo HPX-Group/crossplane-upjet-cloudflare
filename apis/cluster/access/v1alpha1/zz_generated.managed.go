@@ -57,3 +57,753 @@ func (mg *AccessRule) SetProviderConfigReference(r *xpv1.Reference) {
 func (mg *AccessRule) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
+
+// GetCondition of this ZeroTrustAccessAIControlsMCPPortal.
+func (mg *ZeroTrustAccessAIControlsMCPPortal) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessAIControlsMCPPortal.
+func (mg *ZeroTrustAccessAIControlsMCPPortal) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessAIControlsMCPPortal.
+func (mg *ZeroTrustAccessAIControlsMCPPortal) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessAIControlsMCPPortal.
+func (mg *ZeroTrustAccessAIControlsMCPPortal) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessAIControlsMCPPortal.
+func (mg *ZeroTrustAccessAIControlsMCPPortal) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessAIControlsMCPPortal.
+func (mg *ZeroTrustAccessAIControlsMCPPortal) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessAIControlsMCPPortal.
+func (mg *ZeroTrustAccessAIControlsMCPPortal) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessAIControlsMCPPortal.
+func (mg *ZeroTrustAccessAIControlsMCPPortal) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessAIControlsMCPPortal.
+func (mg *ZeroTrustAccessAIControlsMCPPortal) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessAIControlsMCPPortal.
+func (mg *ZeroTrustAccessAIControlsMCPPortal) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustAccessAIControlsMCPServer.
+func (mg *ZeroTrustAccessAIControlsMCPServer) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessAIControlsMCPServer.
+func (mg *ZeroTrustAccessAIControlsMCPServer) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessAIControlsMCPServer.
+func (mg *ZeroTrustAccessAIControlsMCPServer) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessAIControlsMCPServer.
+func (mg *ZeroTrustAccessAIControlsMCPServer) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessAIControlsMCPServer.
+func (mg *ZeroTrustAccessAIControlsMCPServer) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessAIControlsMCPServer.
+func (mg *ZeroTrustAccessAIControlsMCPServer) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessAIControlsMCPServer.
+func (mg *ZeroTrustAccessAIControlsMCPServer) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessAIControlsMCPServer.
+func (mg *ZeroTrustAccessAIControlsMCPServer) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessAIControlsMCPServer.
+func (mg *ZeroTrustAccessAIControlsMCPServer) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessAIControlsMCPServer.
+func (mg *ZeroTrustAccessAIControlsMCPServer) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustAccessApplication.
+func (mg *ZeroTrustAccessApplication) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessApplication.
+func (mg *ZeroTrustAccessApplication) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessApplication.
+func (mg *ZeroTrustAccessApplication) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessApplication.
+func (mg *ZeroTrustAccessApplication) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessApplication.
+func (mg *ZeroTrustAccessApplication) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessApplication.
+func (mg *ZeroTrustAccessApplication) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessApplication.
+func (mg *ZeroTrustAccessApplication) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessApplication.
+func (mg *ZeroTrustAccessApplication) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessApplication.
+func (mg *ZeroTrustAccessApplication) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessApplication.
+func (mg *ZeroTrustAccessApplication) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustAccessCustomPage.
+func (mg *ZeroTrustAccessCustomPage) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessCustomPage.
+func (mg *ZeroTrustAccessCustomPage) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessCustomPage.
+func (mg *ZeroTrustAccessCustomPage) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessCustomPage.
+func (mg *ZeroTrustAccessCustomPage) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessCustomPage.
+func (mg *ZeroTrustAccessCustomPage) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessCustomPage.
+func (mg *ZeroTrustAccessCustomPage) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessCustomPage.
+func (mg *ZeroTrustAccessCustomPage) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessCustomPage.
+func (mg *ZeroTrustAccessCustomPage) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessCustomPage.
+func (mg *ZeroTrustAccessCustomPage) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessCustomPage.
+func (mg *ZeroTrustAccessCustomPage) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustAccessGroup.
+func (mg *ZeroTrustAccessGroup) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessGroup.
+func (mg *ZeroTrustAccessGroup) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessGroup.
+func (mg *ZeroTrustAccessGroup) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessGroup.
+func (mg *ZeroTrustAccessGroup) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessGroup.
+func (mg *ZeroTrustAccessGroup) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessGroup.
+func (mg *ZeroTrustAccessGroup) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessGroup.
+func (mg *ZeroTrustAccessGroup) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessGroup.
+func (mg *ZeroTrustAccessGroup) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessGroup.
+func (mg *ZeroTrustAccessGroup) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessGroup.
+func (mg *ZeroTrustAccessGroup) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustAccessIdentityProvider.
+func (mg *ZeroTrustAccessIdentityProvider) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessIdentityProvider.
+func (mg *ZeroTrustAccessIdentityProvider) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessIdentityProvider.
+func (mg *ZeroTrustAccessIdentityProvider) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessIdentityProvider.
+func (mg *ZeroTrustAccessIdentityProvider) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessIdentityProvider.
+func (mg *ZeroTrustAccessIdentityProvider) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessIdentityProvider.
+func (mg *ZeroTrustAccessIdentityProvider) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessIdentityProvider.
+func (mg *ZeroTrustAccessIdentityProvider) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessIdentityProvider.
+func (mg *ZeroTrustAccessIdentityProvider) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessIdentityProvider.
+func (mg *ZeroTrustAccessIdentityProvider) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessIdentityProvider.
+func (mg *ZeroTrustAccessIdentityProvider) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustAccessInfrastructureTarget.
+func (mg *ZeroTrustAccessInfrastructureTarget) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessInfrastructureTarget.
+func (mg *ZeroTrustAccessInfrastructureTarget) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessInfrastructureTarget.
+func (mg *ZeroTrustAccessInfrastructureTarget) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessInfrastructureTarget.
+func (mg *ZeroTrustAccessInfrastructureTarget) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessInfrastructureTarget.
+func (mg *ZeroTrustAccessInfrastructureTarget) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessInfrastructureTarget.
+func (mg *ZeroTrustAccessInfrastructureTarget) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessInfrastructureTarget.
+func (mg *ZeroTrustAccessInfrastructureTarget) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessInfrastructureTarget.
+func (mg *ZeroTrustAccessInfrastructureTarget) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessInfrastructureTarget.
+func (mg *ZeroTrustAccessInfrastructureTarget) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessInfrastructureTarget.
+func (mg *ZeroTrustAccessInfrastructureTarget) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustAccessKeyConfiguration.
+func (mg *ZeroTrustAccessKeyConfiguration) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessKeyConfiguration.
+func (mg *ZeroTrustAccessKeyConfiguration) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessKeyConfiguration.
+func (mg *ZeroTrustAccessKeyConfiguration) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessKeyConfiguration.
+func (mg *ZeroTrustAccessKeyConfiguration) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessKeyConfiguration.
+func (mg *ZeroTrustAccessKeyConfiguration) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessKeyConfiguration.
+func (mg *ZeroTrustAccessKeyConfiguration) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessKeyConfiguration.
+func (mg *ZeroTrustAccessKeyConfiguration) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessKeyConfiguration.
+func (mg *ZeroTrustAccessKeyConfiguration) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessKeyConfiguration.
+func (mg *ZeroTrustAccessKeyConfiguration) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessKeyConfiguration.
+func (mg *ZeroTrustAccessKeyConfiguration) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustAccessMTLSCertificate.
+func (mg *ZeroTrustAccessMTLSCertificate) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessMTLSCertificate.
+func (mg *ZeroTrustAccessMTLSCertificate) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessMTLSCertificate.
+func (mg *ZeroTrustAccessMTLSCertificate) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessMTLSCertificate.
+func (mg *ZeroTrustAccessMTLSCertificate) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessMTLSCertificate.
+func (mg *ZeroTrustAccessMTLSCertificate) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessMTLSCertificate.
+func (mg *ZeroTrustAccessMTLSCertificate) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessMTLSCertificate.
+func (mg *ZeroTrustAccessMTLSCertificate) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessMTLSCertificate.
+func (mg *ZeroTrustAccessMTLSCertificate) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessMTLSCertificate.
+func (mg *ZeroTrustAccessMTLSCertificate) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessMTLSCertificate.
+func (mg *ZeroTrustAccessMTLSCertificate) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustAccessMTLSHostnameSettings.
+func (mg *ZeroTrustAccessMTLSHostnameSettings) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessMTLSHostnameSettings.
+func (mg *ZeroTrustAccessMTLSHostnameSettings) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessMTLSHostnameSettings.
+func (mg *ZeroTrustAccessMTLSHostnameSettings) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessMTLSHostnameSettings.
+func (mg *ZeroTrustAccessMTLSHostnameSettings) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessMTLSHostnameSettings.
+func (mg *ZeroTrustAccessMTLSHostnameSettings) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessMTLSHostnameSettings.
+func (mg *ZeroTrustAccessMTLSHostnameSettings) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessMTLSHostnameSettings.
+func (mg *ZeroTrustAccessMTLSHostnameSettings) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessMTLSHostnameSettings.
+func (mg *ZeroTrustAccessMTLSHostnameSettings) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessMTLSHostnameSettings.
+func (mg *ZeroTrustAccessMTLSHostnameSettings) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessMTLSHostnameSettings.
+func (mg *ZeroTrustAccessMTLSHostnameSettings) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustAccessPolicy.
+func (mg *ZeroTrustAccessPolicy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessPolicy.
+func (mg *ZeroTrustAccessPolicy) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessPolicy.
+func (mg *ZeroTrustAccessPolicy) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessPolicy.
+func (mg *ZeroTrustAccessPolicy) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessPolicy.
+func (mg *ZeroTrustAccessPolicy) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessPolicy.
+func (mg *ZeroTrustAccessPolicy) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessPolicy.
+func (mg *ZeroTrustAccessPolicy) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessPolicy.
+func (mg *ZeroTrustAccessPolicy) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessPolicy.
+func (mg *ZeroTrustAccessPolicy) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessPolicy.
+func (mg *ZeroTrustAccessPolicy) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustAccessServiceToken.
+func (mg *ZeroTrustAccessServiceToken) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessServiceToken.
+func (mg *ZeroTrustAccessServiceToken) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessServiceToken.
+func (mg *ZeroTrustAccessServiceToken) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessServiceToken.
+func (mg *ZeroTrustAccessServiceToken) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessServiceToken.
+func (mg *ZeroTrustAccessServiceToken) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessServiceToken.
+func (mg *ZeroTrustAccessServiceToken) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessServiceToken.
+func (mg *ZeroTrustAccessServiceToken) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessServiceToken.
+func (mg *ZeroTrustAccessServiceToken) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessServiceToken.
+func (mg *ZeroTrustAccessServiceToken) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessServiceToken.
+func (mg *ZeroTrustAccessServiceToken) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustAccessShortLivedCertificate.
+func (mg *ZeroTrustAccessShortLivedCertificate) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessShortLivedCertificate.
+func (mg *ZeroTrustAccessShortLivedCertificate) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessShortLivedCertificate.
+func (mg *ZeroTrustAccessShortLivedCertificate) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessShortLivedCertificate.
+func (mg *ZeroTrustAccessShortLivedCertificate) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessShortLivedCertificate.
+func (mg *ZeroTrustAccessShortLivedCertificate) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessShortLivedCertificate.
+func (mg *ZeroTrustAccessShortLivedCertificate) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessShortLivedCertificate.
+func (mg *ZeroTrustAccessShortLivedCertificate) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessShortLivedCertificate.
+func (mg *ZeroTrustAccessShortLivedCertificate) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessShortLivedCertificate.
+func (mg *ZeroTrustAccessShortLivedCertificate) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessShortLivedCertificate.
+func (mg *ZeroTrustAccessShortLivedCertificate) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustAccessTag.
+func (mg *ZeroTrustAccessTag) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustAccessTag.
+func (mg *ZeroTrustAccessTag) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustAccessTag.
+func (mg *ZeroTrustAccessTag) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustAccessTag.
+func (mg *ZeroTrustAccessTag) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustAccessTag.
+func (mg *ZeroTrustAccessTag) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustAccessTag.
+func (mg *ZeroTrustAccessTag) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustAccessTag.
+func (mg *ZeroTrustAccessTag) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustAccessTag.
+func (mg *ZeroTrustAccessTag) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustAccessTag.
+func (mg *ZeroTrustAccessTag) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustAccessTag.
+func (mg *ZeroTrustAccessTag) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustOrganization.
+func (mg *ZeroTrustOrganization) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ZeroTrustOrganization.
+func (mg *ZeroTrustOrganization) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this ZeroTrustOrganization.
+func (mg *ZeroTrustOrganization) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustOrganization.
+func (mg *ZeroTrustOrganization) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustOrganization.
+func (mg *ZeroTrustOrganization) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustOrganization.
+func (mg *ZeroTrustOrganization) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ZeroTrustOrganization.
+func (mg *ZeroTrustOrganization) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this ZeroTrustOrganization.
+func (mg *ZeroTrustOrganization) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustOrganization.
+func (mg *ZeroTrustOrganization) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustOrganization.
+func (mg *ZeroTrustOrganization) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}

@@ -87,3 +87,43 @@ func (mg *LogpushJob) SetProviderConfigReference(r *xpv1.ProviderConfigReference
 func (mg *LogpushJob) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
+
+// GetCondition of this LogpushOwnershipChallenge.
+func (mg *LogpushOwnershipChallenge) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this LogpushOwnershipChallenge.
+func (mg *LogpushOwnershipChallenge) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this LogpushOwnershipChallenge.
+func (mg *LogpushOwnershipChallenge) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this LogpushOwnershipChallenge.
+func (mg *LogpushOwnershipChallenge) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this LogpushOwnershipChallenge.
+func (mg *LogpushOwnershipChallenge) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this LogpushOwnershipChallenge.
+func (mg *LogpushOwnershipChallenge) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this LogpushOwnershipChallenge.
+func (mg *LogpushOwnershipChallenge) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this LogpushOwnershipChallenge.
+func (mg *LogpushOwnershipChallenge) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}

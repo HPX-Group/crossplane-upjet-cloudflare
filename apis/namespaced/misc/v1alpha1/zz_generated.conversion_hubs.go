@@ -34,6 +34,9 @@ func (tr *CloudforceOneRequestMessage) Hub() {}
 func (tr *CloudforceOneRequestPriority) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *ConnectivityDirectoryService) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *ContentScanning) Hub() {}
 
 // Hub marks this type as a conversion hub.
@@ -46,7 +49,19 @@ func (tr *D1Database) Hub() {}
 func (tr *HyperdriveConfig) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *Image) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ImageVariant) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *ObservatoryScheduledTest) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *Organization) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *OrganizationProfile) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *Queue) Hub() {}
@@ -64,7 +79,22 @@ func (tr *Snippet) Hub() {}
 func (tr *SnippetRules) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *Snippets) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *SSOConnector) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *TokenValidationConfig) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *TokenValidationRules) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *TurnstileWidget) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *User) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *Web3Hostname) Hub() {}

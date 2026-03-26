@@ -26,6 +26,60 @@ func (l *PagesProjectList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this WorkerList.
+func (l *WorkerList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this WorkerVersionList.
+func (l *WorkerVersionList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this WorkersCronTriggerList.
+func (l *WorkersCronTriggerList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this WorkersCustomDomainList.
+func (l *WorkersCustomDomainList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this WorkersDeploymentList.
+func (l *WorkersDeploymentList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this WorkersForPlatformsDispatchNamespaceList.
+func (l *WorkersForPlatformsDispatchNamespaceList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this WorkersKVList.
 func (l *WorkersKVList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -44,8 +98,35 @@ func (l *WorkersKVNamespaceList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this WorkersRouteList.
+func (l *WorkersRouteList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this WorkersScriptList.
 func (l *WorkersScriptList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this WorkersScriptSubdomainList.
+func (l *WorkersScriptSubdomainList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this WorkflowList.
+func (l *WorkflowList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

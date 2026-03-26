@@ -1,0 +1,17 @@
+apiVersion: dns.cloudflare.m.cloudflare.com/v1alpha1
+kind: AccountDNSSettingsInternalView
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dns/v1alpha1/accountdnssettingsinternalview
+  labels:
+    testing.upbound.io/example-name: example_account_dns_settings_internal_view
+  name: example-account-dns-settings-internal-view
+  namespace: crossplane-system
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    name: my view
+    zones:
+    - 372e67954025e0ba6aaa6d586b9e0b59

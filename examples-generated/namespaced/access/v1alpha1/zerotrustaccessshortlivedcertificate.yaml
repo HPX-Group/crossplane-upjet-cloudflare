@@ -1,0 +1,15 @@
+apiVersion: access.cloudflare.m.cloudflare.com/v1alpha1
+kind: ZeroTrustAccessShortLivedCertificate
+metadata:
+  annotations:
+    meta.upbound.io/example-id: access/v1alpha1/zerotrustaccessshortlivedcertificate
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_access_short_lived_certificate
+  name: example-zero-trust-access-short-lived-certificate
+  namespace: crossplane-system
+spec:
+  forProvider:
+    appId: f174e90a-fafe-4643-bbbc-4a0ed4fc8415
+    zoneIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example

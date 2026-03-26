@@ -1,0 +1,18 @@
+apiVersion: email.cloudflare.crossplane.io/v1alpha1
+kind: EmailSecurityTrustedDomains
+metadata:
+  annotations:
+    meta.upbound.io/example-id: email/v1alpha1/emailsecuritytrusteddomains
+  labels:
+    testing.upbound.io/example-name: example_email_security_trusted_domains
+  name: example-email-security-trusted-domains
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    comments: null
+    isRecent: true
+    isRegex: false
+    isSimilarity: false
+    pattern: example.com

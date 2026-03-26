@@ -1,0 +1,17 @@
+apiVersion: account.cloudflare.crossplane.io/v1alpha1
+kind: RegistrarDomain
+metadata:
+  annotations:
+    meta.upbound.io/example-id: account/v1alpha1/registrardomain
+  labels:
+    testing.upbound.io/example-name: example_registrar_domain
+  name: example-registrar-domain
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    autoRenew: true
+    domainName: cloudflare.com
+    locked: false
+    privacy: true

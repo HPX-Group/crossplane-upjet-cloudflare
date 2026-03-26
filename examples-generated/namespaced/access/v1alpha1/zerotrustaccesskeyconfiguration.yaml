@@ -1,0 +1,15 @@
+apiVersion: access.cloudflare.m.cloudflare.com/v1alpha1
+kind: ZeroTrustAccessKeyConfiguration
+metadata:
+  annotations:
+    meta.upbound.io/example-id: access/v1alpha1/zerotrustaccesskeyconfiguration
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_access_key_configuration
+  name: example-zero-trust-access-key-configuration
+  namespace: crossplane-system
+spec:
+  forProvider:
+    accountIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    keyRotationIntervalDays: 30

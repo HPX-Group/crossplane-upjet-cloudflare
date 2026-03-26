@@ -52,3 +52,30 @@ func (l *EmailRoutingSettingsList) GetItems() []resource.Managed {
 	}
 	return items
 }
+
+// GetItems of this EmailSecurityBlockSenderList.
+func (l *EmailSecurityBlockSenderList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this EmailSecurityImpersonationRegistryList.
+func (l *EmailSecurityImpersonationRegistryList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this EmailSecurityTrustedDomainsList.
+func (l *EmailSecurityTrustedDomainsList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}

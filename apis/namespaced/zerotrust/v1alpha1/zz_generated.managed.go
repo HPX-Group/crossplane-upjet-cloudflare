@@ -8,46 +8,6 @@ package v1alpha1
 
 import xpv1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
 
-// GetCondition of this ZeroTrustAccessShortLivedCertificate.
-func (mg *ZeroTrustAccessShortLivedCertificate) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
-	return mg.Status.GetCondition(ct)
-}
-
-// GetManagementPolicies of this ZeroTrustAccessShortLivedCertificate.
-func (mg *ZeroTrustAccessShortLivedCertificate) GetManagementPolicies() xpv1.ManagementPolicies {
-	return mg.Spec.ManagementPolicies
-}
-
-// GetProviderConfigReference of this ZeroTrustAccessShortLivedCertificate.
-func (mg *ZeroTrustAccessShortLivedCertificate) GetProviderConfigReference() *xpv1.ProviderConfigReference {
-	return mg.Spec.ProviderConfigReference
-}
-
-// GetWriteConnectionSecretToReference of this ZeroTrustAccessShortLivedCertificate.
-func (mg *ZeroTrustAccessShortLivedCertificate) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
-	return mg.Spec.WriteConnectionSecretToReference
-}
-
-// SetConditions of this ZeroTrustAccessShortLivedCertificate.
-func (mg *ZeroTrustAccessShortLivedCertificate) SetConditions(c ...xpv1.Condition) {
-	mg.Status.SetConditions(c...)
-}
-
-// SetManagementPolicies of this ZeroTrustAccessShortLivedCertificate.
-func (mg *ZeroTrustAccessShortLivedCertificate) SetManagementPolicies(r xpv1.ManagementPolicies) {
-	mg.Spec.ManagementPolicies = r
-}
-
-// SetProviderConfigReference of this ZeroTrustAccessShortLivedCertificate.
-func (mg *ZeroTrustAccessShortLivedCertificate) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
-	mg.Spec.ProviderConfigReference = r
-}
-
-// SetWriteConnectionSecretToReference of this ZeroTrustAccessShortLivedCertificate.
-func (mg *ZeroTrustAccessShortLivedCertificate) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
-	mg.Spec.WriteConnectionSecretToReference = r
-}
-
 // GetCondition of this ZeroTrustDEXTest.
 func (mg *ZeroTrustDEXTest) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -168,6 +128,46 @@ func (mg *ZeroTrustDLPCustomProfile) SetWriteConnectionSecretToReference(r *xpv1
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+// GetCondition of this ZeroTrustDLPDataset.
+func (mg *ZeroTrustDLPDataset) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustDLPDataset.
+func (mg *ZeroTrustDLPDataset) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustDLPDataset.
+func (mg *ZeroTrustDLPDataset) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustDLPDataset.
+func (mg *ZeroTrustDLPDataset) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustDLPDataset.
+func (mg *ZeroTrustDLPDataset) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustDLPDataset.
+func (mg *ZeroTrustDLPDataset) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustDLPDataset.
+func (mg *ZeroTrustDLPDataset) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustDLPDataset.
+func (mg *ZeroTrustDLPDataset) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this ZeroTrustDLPEntry.
 func (mg *ZeroTrustDLPEntry) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -205,6 +205,366 @@ func (mg *ZeroTrustDLPEntry) SetProviderConfigReference(r *xpv1.ProviderConfigRe
 
 // SetWriteConnectionSecretToReference of this ZeroTrustDLPEntry.
 func (mg *ZeroTrustDLPEntry) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustDLPIntegrationEntry.
+func (mg *ZeroTrustDLPIntegrationEntry) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustDLPIntegrationEntry.
+func (mg *ZeroTrustDLPIntegrationEntry) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustDLPIntegrationEntry.
+func (mg *ZeroTrustDLPIntegrationEntry) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustDLPIntegrationEntry.
+func (mg *ZeroTrustDLPIntegrationEntry) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustDLPIntegrationEntry.
+func (mg *ZeroTrustDLPIntegrationEntry) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustDLPIntegrationEntry.
+func (mg *ZeroTrustDLPIntegrationEntry) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustDLPIntegrationEntry.
+func (mg *ZeroTrustDLPIntegrationEntry) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustDLPIntegrationEntry.
+func (mg *ZeroTrustDLPIntegrationEntry) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustDLPPredefinedEntry.
+func (mg *ZeroTrustDLPPredefinedEntry) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustDLPPredefinedEntry.
+func (mg *ZeroTrustDLPPredefinedEntry) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustDLPPredefinedEntry.
+func (mg *ZeroTrustDLPPredefinedEntry) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustDLPPredefinedEntry.
+func (mg *ZeroTrustDLPPredefinedEntry) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustDLPPredefinedEntry.
+func (mg *ZeroTrustDLPPredefinedEntry) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustDLPPredefinedEntry.
+func (mg *ZeroTrustDLPPredefinedEntry) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustDLPPredefinedEntry.
+func (mg *ZeroTrustDLPPredefinedEntry) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustDLPPredefinedEntry.
+func (mg *ZeroTrustDLPPredefinedEntry) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustDLPPredefinedProfile.
+func (mg *ZeroTrustDLPPredefinedProfile) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustDLPPredefinedProfile.
+func (mg *ZeroTrustDLPPredefinedProfile) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustDLPPredefinedProfile.
+func (mg *ZeroTrustDLPPredefinedProfile) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustDLPPredefinedProfile.
+func (mg *ZeroTrustDLPPredefinedProfile) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustDLPPredefinedProfile.
+func (mg *ZeroTrustDLPPredefinedProfile) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustDLPPredefinedProfile.
+func (mg *ZeroTrustDLPPredefinedProfile) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustDLPPredefinedProfile.
+func (mg *ZeroTrustDLPPredefinedProfile) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustDLPPredefinedProfile.
+func (mg *ZeroTrustDLPPredefinedProfile) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustDNSLocation.
+func (mg *ZeroTrustDNSLocation) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustDNSLocation.
+func (mg *ZeroTrustDNSLocation) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustDNSLocation.
+func (mg *ZeroTrustDNSLocation) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustDNSLocation.
+func (mg *ZeroTrustDNSLocation) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustDNSLocation.
+func (mg *ZeroTrustDNSLocation) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustDNSLocation.
+func (mg *ZeroTrustDNSLocation) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustDNSLocation.
+func (mg *ZeroTrustDNSLocation) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustDNSLocation.
+func (mg *ZeroTrustDNSLocation) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustDeviceCustomProfile.
+func (mg *ZeroTrustDeviceCustomProfile) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustDeviceCustomProfile.
+func (mg *ZeroTrustDeviceCustomProfile) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustDeviceCustomProfile.
+func (mg *ZeroTrustDeviceCustomProfile) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustDeviceCustomProfile.
+func (mg *ZeroTrustDeviceCustomProfile) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustDeviceCustomProfile.
+func (mg *ZeroTrustDeviceCustomProfile) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustDeviceCustomProfile.
+func (mg *ZeroTrustDeviceCustomProfile) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustDeviceCustomProfile.
+func (mg *ZeroTrustDeviceCustomProfile) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustDeviceCustomProfile.
+func (mg *ZeroTrustDeviceCustomProfile) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustDeviceCustomProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceCustomProfileLocalDomainFallback) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustDeviceCustomProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceCustomProfileLocalDomainFallback) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustDeviceCustomProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceCustomProfileLocalDomainFallback) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustDeviceCustomProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceCustomProfileLocalDomainFallback) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustDeviceCustomProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceCustomProfileLocalDomainFallback) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustDeviceCustomProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceCustomProfileLocalDomainFallback) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustDeviceCustomProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceCustomProfileLocalDomainFallback) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustDeviceCustomProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceCustomProfileLocalDomainFallback) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustDeviceDefaultProfile.
+func (mg *ZeroTrustDeviceDefaultProfile) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustDeviceDefaultProfile.
+func (mg *ZeroTrustDeviceDefaultProfile) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustDeviceDefaultProfile.
+func (mg *ZeroTrustDeviceDefaultProfile) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustDeviceDefaultProfile.
+func (mg *ZeroTrustDeviceDefaultProfile) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustDeviceDefaultProfile.
+func (mg *ZeroTrustDeviceDefaultProfile) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustDeviceDefaultProfile.
+func (mg *ZeroTrustDeviceDefaultProfile) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustDeviceDefaultProfile.
+func (mg *ZeroTrustDeviceDefaultProfile) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustDeviceDefaultProfile.
+func (mg *ZeroTrustDeviceDefaultProfile) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustDeviceDefaultProfileCertificates.
+func (mg *ZeroTrustDeviceDefaultProfileCertificates) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustDeviceDefaultProfileCertificates.
+func (mg *ZeroTrustDeviceDefaultProfileCertificates) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustDeviceDefaultProfileCertificates.
+func (mg *ZeroTrustDeviceDefaultProfileCertificates) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustDeviceDefaultProfileCertificates.
+func (mg *ZeroTrustDeviceDefaultProfileCertificates) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustDeviceDefaultProfileCertificates.
+func (mg *ZeroTrustDeviceDefaultProfileCertificates) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustDeviceDefaultProfileCertificates.
+func (mg *ZeroTrustDeviceDefaultProfileCertificates) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustDeviceDefaultProfileCertificates.
+func (mg *ZeroTrustDeviceDefaultProfileCertificates) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustDeviceDefaultProfileCertificates.
+func (mg *ZeroTrustDeviceDefaultProfileCertificates) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustDeviceDefaultProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceDefaultProfileLocalDomainFallback) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustDeviceDefaultProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceDefaultProfileLocalDomainFallback) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustDeviceDefaultProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceDefaultProfileLocalDomainFallback) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustDeviceDefaultProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceDefaultProfileLocalDomainFallback) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustDeviceDefaultProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceDefaultProfileLocalDomainFallback) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustDeviceDefaultProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceDefaultProfileLocalDomainFallback) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustDeviceDefaultProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceDefaultProfileLocalDomainFallback) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustDeviceDefaultProfileLocalDomainFallback.
+func (mg *ZeroTrustDeviceDefaultProfileLocalDomainFallback) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
@@ -328,6 +688,46 @@ func (mg *ZeroTrustDevicePostureRule) SetWriteConnectionSecretToReference(r *xpv
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+// GetCondition of this ZeroTrustDeviceSettings.
+func (mg *ZeroTrustDeviceSettings) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustDeviceSettings.
+func (mg *ZeroTrustDeviceSettings) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustDeviceSettings.
+func (mg *ZeroTrustDeviceSettings) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustDeviceSettings.
+func (mg *ZeroTrustDeviceSettings) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustDeviceSettings.
+func (mg *ZeroTrustDeviceSettings) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustDeviceSettings.
+func (mg *ZeroTrustDeviceSettings) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustDeviceSettings.
+func (mg *ZeroTrustDeviceSettings) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustDeviceSettings.
+func (mg *ZeroTrustDeviceSettings) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this ZeroTrustGatewayCertificate.
 func (mg *ZeroTrustGatewayCertificate) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -368,6 +768,46 @@ func (mg *ZeroTrustGatewayCertificate) SetWriteConnectionSecretToReference(r *xp
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+// GetCondition of this ZeroTrustGatewayLogging.
+func (mg *ZeroTrustGatewayLogging) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustGatewayLogging.
+func (mg *ZeroTrustGatewayLogging) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustGatewayLogging.
+func (mg *ZeroTrustGatewayLogging) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustGatewayLogging.
+func (mg *ZeroTrustGatewayLogging) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustGatewayLogging.
+func (mg *ZeroTrustGatewayLogging) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustGatewayLogging.
+func (mg *ZeroTrustGatewayLogging) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustGatewayLogging.
+func (mg *ZeroTrustGatewayLogging) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustGatewayLogging.
+func (mg *ZeroTrustGatewayLogging) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this ZeroTrustGatewayPolicy.
 func (mg *ZeroTrustGatewayPolicy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -405,6 +845,46 @@ func (mg *ZeroTrustGatewayPolicy) SetProviderConfigReference(r *xpv1.ProviderCon
 
 // SetWriteConnectionSecretToReference of this ZeroTrustGatewayPolicy.
 func (mg *ZeroTrustGatewayPolicy) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustGatewayProxyEndpoint.
+func (mg *ZeroTrustGatewayProxyEndpoint) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustGatewayProxyEndpoint.
+func (mg *ZeroTrustGatewayProxyEndpoint) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustGatewayProxyEndpoint.
+func (mg *ZeroTrustGatewayProxyEndpoint) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustGatewayProxyEndpoint.
+func (mg *ZeroTrustGatewayProxyEndpoint) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustGatewayProxyEndpoint.
+func (mg *ZeroTrustGatewayProxyEndpoint) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustGatewayProxyEndpoint.
+func (mg *ZeroTrustGatewayProxyEndpoint) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustGatewayProxyEndpoint.
+func (mg *ZeroTrustGatewayProxyEndpoint) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustGatewayProxyEndpoint.
+func (mg *ZeroTrustGatewayProxyEndpoint) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
@@ -485,6 +965,46 @@ func (mg *ZeroTrustList) SetProviderConfigReference(r *xpv1.ProviderConfigRefere
 
 // SetWriteConnectionSecretToReference of this ZeroTrustList.
 func (mg *ZeroTrustList) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustNetworkHostnameRoute.
+func (mg *ZeroTrustNetworkHostnameRoute) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustNetworkHostnameRoute.
+func (mg *ZeroTrustNetworkHostnameRoute) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustNetworkHostnameRoute.
+func (mg *ZeroTrustNetworkHostnameRoute) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustNetworkHostnameRoute.
+func (mg *ZeroTrustNetworkHostnameRoute) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustNetworkHostnameRoute.
+func (mg *ZeroTrustNetworkHostnameRoute) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustNetworkHostnameRoute.
+func (mg *ZeroTrustNetworkHostnameRoute) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustNetworkHostnameRoute.
+func (mg *ZeroTrustNetworkHostnameRoute) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustNetworkHostnameRoute.
+func (mg *ZeroTrustNetworkHostnameRoute) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
@@ -645,5 +1165,125 @@ func (mg *ZeroTrustTunnelCloudflaredConfig) SetProviderConfigReference(r *xpv1.P
 
 // SetWriteConnectionSecretToReference of this ZeroTrustTunnelCloudflaredConfig.
 func (mg *ZeroTrustTunnelCloudflaredConfig) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustTunnelCloudflaredRoute.
+func (mg *ZeroTrustTunnelCloudflaredRoute) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustTunnelCloudflaredRoute.
+func (mg *ZeroTrustTunnelCloudflaredRoute) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustTunnelCloudflaredRoute.
+func (mg *ZeroTrustTunnelCloudflaredRoute) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustTunnelCloudflaredRoute.
+func (mg *ZeroTrustTunnelCloudflaredRoute) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustTunnelCloudflaredRoute.
+func (mg *ZeroTrustTunnelCloudflaredRoute) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustTunnelCloudflaredRoute.
+func (mg *ZeroTrustTunnelCloudflaredRoute) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustTunnelCloudflaredRoute.
+func (mg *ZeroTrustTunnelCloudflaredRoute) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustTunnelCloudflaredRoute.
+func (mg *ZeroTrustTunnelCloudflaredRoute) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustTunnelCloudflaredVirtualNetwork.
+func (mg *ZeroTrustTunnelCloudflaredVirtualNetwork) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustTunnelCloudflaredVirtualNetwork.
+func (mg *ZeroTrustTunnelCloudflaredVirtualNetwork) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustTunnelCloudflaredVirtualNetwork.
+func (mg *ZeroTrustTunnelCloudflaredVirtualNetwork) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustTunnelCloudflaredVirtualNetwork.
+func (mg *ZeroTrustTunnelCloudflaredVirtualNetwork) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustTunnelCloudflaredVirtualNetwork.
+func (mg *ZeroTrustTunnelCloudflaredVirtualNetwork) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustTunnelCloudflaredVirtualNetwork.
+func (mg *ZeroTrustTunnelCloudflaredVirtualNetwork) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustTunnelCloudflaredVirtualNetwork.
+func (mg *ZeroTrustTunnelCloudflaredVirtualNetwork) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustTunnelCloudflaredVirtualNetwork.
+func (mg *ZeroTrustTunnelCloudflaredVirtualNetwork) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ZeroTrustTunnelWarpConnector.
+func (mg *ZeroTrustTunnelWarpConnector) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetManagementPolicies of this ZeroTrustTunnelWarpConnector.
+func (mg *ZeroTrustTunnelWarpConnector) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this ZeroTrustTunnelWarpConnector.
+func (mg *ZeroTrustTunnelWarpConnector) GetProviderConfigReference() *xpv1.ProviderConfigReference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this ZeroTrustTunnelWarpConnector.
+func (mg *ZeroTrustTunnelWarpConnector) GetWriteConnectionSecretToReference() *xpv1.LocalSecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ZeroTrustTunnelWarpConnector.
+func (mg *ZeroTrustTunnelWarpConnector) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetManagementPolicies of this ZeroTrustTunnelWarpConnector.
+func (mg *ZeroTrustTunnelWarpConnector) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this ZeroTrustTunnelWarpConnector.
+func (mg *ZeroTrustTunnelWarpConnector) SetProviderConfigReference(r *xpv1.ProviderConfigReference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ZeroTrustTunnelWarpConnector.
+func (mg *ZeroTrustTunnelWarpConnector) SetWriteConnectionSecretToReference(r *xpv1.LocalSecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }

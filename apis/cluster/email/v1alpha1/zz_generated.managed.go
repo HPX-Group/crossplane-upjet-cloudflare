@@ -257,3 +257,153 @@ func (mg *EmailRoutingSettings) SetProviderConfigReference(r *xpv1.Reference) {
 func (mg *EmailRoutingSettings) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
+
+// GetCondition of this EmailSecurityBlockSender.
+func (mg *EmailSecurityBlockSender) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this EmailSecurityBlockSender.
+func (mg *EmailSecurityBlockSender) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this EmailSecurityBlockSender.
+func (mg *EmailSecurityBlockSender) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this EmailSecurityBlockSender.
+func (mg *EmailSecurityBlockSender) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this EmailSecurityBlockSender.
+func (mg *EmailSecurityBlockSender) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this EmailSecurityBlockSender.
+func (mg *EmailSecurityBlockSender) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this EmailSecurityBlockSender.
+func (mg *EmailSecurityBlockSender) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this EmailSecurityBlockSender.
+func (mg *EmailSecurityBlockSender) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this EmailSecurityBlockSender.
+func (mg *EmailSecurityBlockSender) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this EmailSecurityBlockSender.
+func (mg *EmailSecurityBlockSender) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this EmailSecurityImpersonationRegistry.
+func (mg *EmailSecurityImpersonationRegistry) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this EmailSecurityImpersonationRegistry.
+func (mg *EmailSecurityImpersonationRegistry) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this EmailSecurityImpersonationRegistry.
+func (mg *EmailSecurityImpersonationRegistry) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this EmailSecurityImpersonationRegistry.
+func (mg *EmailSecurityImpersonationRegistry) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this EmailSecurityImpersonationRegistry.
+func (mg *EmailSecurityImpersonationRegistry) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this EmailSecurityImpersonationRegistry.
+func (mg *EmailSecurityImpersonationRegistry) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this EmailSecurityImpersonationRegistry.
+func (mg *EmailSecurityImpersonationRegistry) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this EmailSecurityImpersonationRegistry.
+func (mg *EmailSecurityImpersonationRegistry) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this EmailSecurityImpersonationRegistry.
+func (mg *EmailSecurityImpersonationRegistry) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this EmailSecurityImpersonationRegistry.
+func (mg *EmailSecurityImpersonationRegistry) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this EmailSecurityTrustedDomains.
+func (mg *EmailSecurityTrustedDomains) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this EmailSecurityTrustedDomains.
+func (mg *EmailSecurityTrustedDomains) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this EmailSecurityTrustedDomains.
+func (mg *EmailSecurityTrustedDomains) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this EmailSecurityTrustedDomains.
+func (mg *EmailSecurityTrustedDomains) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetWriteConnectionSecretToReference of this EmailSecurityTrustedDomains.
+func (mg *EmailSecurityTrustedDomains) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this EmailSecurityTrustedDomains.
+func (mg *EmailSecurityTrustedDomains) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this EmailSecurityTrustedDomains.
+func (mg *EmailSecurityTrustedDomains) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this EmailSecurityTrustedDomains.
+func (mg *EmailSecurityTrustedDomains) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this EmailSecurityTrustedDomains.
+func (mg *EmailSecurityTrustedDomains) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetWriteConnectionSecretToReference of this EmailSecurityTrustedDomains.
+func (mg *EmailSecurityTrustedDomains) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}

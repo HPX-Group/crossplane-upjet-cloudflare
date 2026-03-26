@@ -1,0 +1,19 @@
+apiVersion: firewall.cloudflare.m.cloudflare.com/v1alpha1
+kind: PageShieldPolicy
+metadata:
+  annotations:
+    meta.upbound.io/example-id: firewall/v1alpha1/pageshieldpolicy
+  labels:
+    testing.upbound.io/example-name: example_page_shield_policy
+  name: example-page-shield-policy
+  namespace: crossplane-system
+spec:
+  forProvider:
+    action: allow
+    description: Checkout page CSP policy
+    enabled: true
+    expression: ends_with(http.request.uri.path, "/checkout")
+    value: script-src 'none';
+    zoneIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example

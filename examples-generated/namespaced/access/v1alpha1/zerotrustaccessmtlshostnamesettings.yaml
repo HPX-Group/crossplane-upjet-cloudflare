@@ -1,0 +1,18 @@
+apiVersion: access.cloudflare.m.cloudflare.com/v1alpha1
+kind: ZeroTrustAccessMTLSHostnameSettings
+metadata:
+  annotations:
+    meta.upbound.io/example-id: access/v1alpha1/zerotrustaccessmtlshostnamesettings
+  labels:
+    testing.upbound.io/example-name: example_zero_trust_access_mtls_hostname_settings
+  name: example-zero-trust-access-mtls-hostname-settings
+  namespace: crossplane-system
+spec:
+  forProvider:
+    settings:
+    - chinaNetwork: false
+      clientCertificateForwarding: true
+      hostname: admin.example.com
+    zoneIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
