@@ -32,17 +32,18 @@ func Configure(p *config.Provider) {
 		// removed", the refresh succeeds with empty state, and Observe correctly
 		// returns ResourceDoesNotExist so Create can proceed.
 		r.ExternalName = config.IdentifierFromProvider
-		r.ExternalName.GetIDFn = func(_ context.Context, externalName string, parameters map[string]any, _ map[string]any) (string, error) {
+		r.ExternalName.GetIDFn = func(_ context.Context, externalName string, _ map[string]any, _ map[string]any) (string, error) {
 			if externalName != "" {
 				return externalName, nil
 			}
-			zoneID, _ := parameters["zone_id"].(string)
-			if zoneID == "" {
-				return "", nil
-			}
-			// Placeholder composite ID: triggers a 404 from the Cloudflare API
-			// rather than the "missing parameter" error from an empty id.
-			return zoneID + "/00000000-0000-0000-0000-000000000000", nil
+			// When no external-name is set (resource not yet created), return a
+			// placeholder UUID. The provider builds the URL as
+			// /zones/{zone_id}/dns_records/{id} using zone_id from config and id
+			// from state separately, so the placeholder must be just a UUID (no
+			// zone_id prefix). The Cloudflare API returns 404 for this non-existent
+			// record, Terraform treats it as "resource removed", and Observe returns
+			// ResourceDoesNotExist so Create can proceed.
+			return "00000000-0000-0000-0000-000000000000", nil
 		}
 	})
 
