@@ -43,7 +43,7 @@ func Configure(p *config.Provider) {
 			// zone_id prefix). The Cloudflare API returns 404 for this non-existent
 			// record, Terraform treats it as "resource removed", and Observe returns
 			// ResourceDoesNotExist so Create can proceed.
-			return "00000000-0000-0000-0000-000000000000", nil
+			return "00000000000000000000000000000000", nil
 		}
 	})
 
