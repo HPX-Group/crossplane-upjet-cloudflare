@@ -1,10 +1,6 @@
 package dns
 
-import (
-	"context"
-
-	"github.com/crossplane/upjet/v2/pkg/config"
-)
+import "github.com/crossplane/upjet/v2/pkg/config"
 
 const shortGroup = "dns"
 
@@ -15,35 +11,6 @@ func Configure(p *config.Provider) {
 		r.Kind = "DNSRecord"
 		r.References["zone_id"] = config.Reference{
 			TerraformName: "cloudflare_zone",
-		}
-		// The Cloudflare v5 Terraform provider stores the DNS record ID as a
-		// composite "zone_id/dns_record_id" in the Terraform state and requires
-		// that format for refresh and import operations.
-		//
-		// Without this fix, a fresh resource has external-name="" which causes
-		// EnsureTFState to write id="" to the state file. Terraform then calls
-		// the Cloudflare provider's Read function with id="" which fails with
-		// "missing required dns_record_id parameter" instead of returning
-		// not-found, so the resource never proceeds to Create.
-		//
-		// The fix: when external-name is empty (resource not yet created), return
-		// a placeholder composite ID using the zone_id. The Cloudflare API returns
-		// 404 for a non-existent record, which Terraform treats as "resource
-		// removed", the refresh succeeds with empty state, and Observe correctly
-		// returns ResourceDoesNotExist so Create can proceed.
-		r.ExternalName = config.IdentifierFromProvider
-		r.ExternalName.GetIDFn = func(_ context.Context, externalName string, _ map[string]any, _ map[string]any) (string, error) {
-			if externalName != "" {
-				return externalName, nil
-			}
-			// When no external-name is set (resource not yet created), return a
-			// placeholder UUID. The provider builds the URL as
-			// /zones/{zone_id}/dns_records/{id} using zone_id from config and id
-			// from state separately, so the placeholder must be just a UUID (no
-			// zone_id prefix). The Cloudflare API returns 404 for this non-existent
-			// record, Terraform treats it as "resource removed", and Observe returns
-			// ResourceDoesNotExist so Create can proceed.
-			return "00000000000000000000000000000000", nil
 		}
 	})
 

@@ -151,7 +151,7 @@ spec:
                   certificates:
                     description: |-
                       (String) The uploaded root CA certificate.
-                      The uploaded root CA certificate.
+                      The uploaded root CA certificate or certificate chain. Certificates must be provided in PEM format with the certificate matching the private_key first in the chain.
                     type: string
                   name:
                     description: |-
@@ -279,7 +279,7 @@ spec:
                   certificates:
                     description: |-
                       (String) The uploaded root CA certificate.
-                      The uploaded root CA certificate.
+                      The uploaded root CA certificate or certificate chain. Certificates must be provided in PEM format with the certificate matching the private_key first in the chain.
                     type: string
                   name:
                     description: |-
@@ -386,7 +386,7 @@ spec:
                   certificates:
                     description: |-
                       (String) The uploaded root CA certificate.
-                      The uploaded root CA certificate.
+                      The uploaded root CA certificate or certificate chain. Certificates must be provided in PEM format with the certificate matching the private_key first in the chain.
                     type: string
                   expiresOn:
                     description: |-

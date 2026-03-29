@@ -198,10 +198,11 @@ spec:
                   roles:
                     description: |-
                       (List of String) Array of roles associated with this member.
-                      Array of roles associated with this member.
+                      Set of roles associated with this member.
                     items:
                       type: string
                     type: array
+                    x-kubernetes-list-type: set
                   status:
                     description: |-
                       (String) Available values: "accepted", "pending".
@@ -347,10 +348,11 @@ spec:
                   roles:
                     description: |-
                       (List of String) Array of roles associated with this member.
-                      Array of roles associated with this member.
+                      Set of roles associated with this member.
                     items:
                       type: string
                     type: array
+                    x-kubernetes-list-type: set
                   status:
                     description: |-
                       (String) Available values: "accepted", "pending".
@@ -508,10 +510,11 @@ spec:
                   roles:
                     description: |-
                       (List of String) Array of roles associated with this member.
-                      Array of roles associated with this member.
+                      Set of roles associated with this member.
                     items:
                       type: string
                     type: array
+                    x-kubernetes-list-type: set
                   status:
                     description: |-
                       (String) Available values: "accepted", "pending".

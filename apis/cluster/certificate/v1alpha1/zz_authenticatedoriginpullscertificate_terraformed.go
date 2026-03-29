@@ -125,5 +125,5 @@ func (tr *AuthenticatedOriginPullsCertificate) LateInitialize(attrs []byte) (boo
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
 func (tr *AuthenticatedOriginPullsCertificate) GetTerraformSchemaVersion() int {
-	return 0
+	return 1
 }

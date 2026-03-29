@@ -37,7 +37,7 @@ type R2BucketInitParameters struct {
 	// (String) Location of the bucket.
 	// Available values: "apac", "eeur", "enam", "weur", "wnam", "oc".
 	// Location of the bucket.
-	// Available values: "apac", "eeur", "enam", "weur", "wnam", "oc".
+	// Available values: "apac", "eeur", "enam", "weur", "wnam", "oc".  Note: `location` is only honored the first time a bucket with a given name is created. If you delete and recreate a bucket with the same name, the original bucket location will be used. It is also a best-effort, not a guarantee, of bucket location.
 	Location *string `json:"location,omitempty" tf:"location,omitempty"`
 
 	// (String) Storage class for newly uploaded objects, unless specified otherwise.
@@ -69,7 +69,7 @@ type R2BucketObservation struct {
 	// (String) Location of the bucket.
 	// Available values: "apac", "eeur", "enam", "weur", "wnam", "oc".
 	// Location of the bucket.
-	// Available values: "apac", "eeur", "enam", "weur", "wnam", "oc".
+	// Available values: "apac", "eeur", "enam", "weur", "wnam", "oc".  Note: `location` is only honored the first time a bucket with a given name is created. If you delete and recreate a bucket with the same name, the original bucket location will be used. It is also a best-effort, not a guarantee, of bucket location.
 	Location *string `json:"location,omitempty" tf:"location,omitempty"`
 
 	// (String) Storage class for newly uploaded objects, unless specified otherwise.
@@ -105,7 +105,7 @@ type R2BucketParameters struct {
 	// (String) Location of the bucket.
 	// Available values: "apac", "eeur", "enam", "weur", "wnam", "oc".
 	// Location of the bucket.
-	// Available values: "apac", "eeur", "enam", "weur", "wnam", "oc".
+	// Available values: "apac", "eeur", "enam", "weur", "wnam", "oc".  Note: `location` is only honored the first time a bucket with a given name is created. If you delete and recreate a bucket with the same name, the original bucket location will be used. It is also a best-effort, not a guarantee, of bucket location.
 	// +kubebuilder:validation:Optional
 	Location *string `json:"location,omitempty" tf:"location,omitempty"`
 

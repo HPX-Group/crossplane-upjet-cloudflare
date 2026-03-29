@@ -33,7 +33,7 @@ type MTLSCertificateInitParameters struct {
 	CA *bool `json:"ca,omitempty" tf:"ca,omitempty"`
 
 	// (String) The uploaded root CA certificate.
-	// The uploaded root CA certificate.
+	// The uploaded root CA certificate or certificate chain. Certificates must be provided in PEM format with the certificate matching the private_key first in the chain.
 	Certificates *string `json:"certificates,omitempty" tf:"certificates,omitempty"`
 
 	// (String) Optional unique name for the certificate. Only used for human readability.
@@ -56,7 +56,7 @@ type MTLSCertificateObservation struct {
 	CA *bool `json:"ca,omitempty" tf:"ca,omitempty"`
 
 	// (String) The uploaded root CA certificate.
-	// The uploaded root CA certificate.
+	// The uploaded root CA certificate or certificate chain. Certificates must be provided in PEM format with the certificate matching the private_key first in the chain.
 	Certificates *string `json:"certificates,omitempty" tf:"certificates,omitempty"`
 
 	// (String) When the certificate expires.
@@ -113,7 +113,7 @@ type MTLSCertificateParameters struct {
 	CA *bool `json:"ca,omitempty" tf:"ca,omitempty"`
 
 	// (String) The uploaded root CA certificate.
-	// The uploaded root CA certificate.
+	// The uploaded root CA certificate or certificate chain. Certificates must be provided in PEM format with the certificate matching the private_key first in the chain.
 	// +kubebuilder:validation:Optional
 	Certificates *string `json:"certificates,omitempty" tf:"certificates,omitempty"`
 

@@ -412,6 +412,11 @@ func (in *ActionParametersInitParameters) DeepCopyInto(out *ActionParametersInit
 		*out = new(float64)
 		**out = **in
 	}
+	if in.RequestBodyBuffering != nil {
+		in, out := &in.RequestBodyBuffering, &out.RequestBodyBuffering
+		*out = new(string)
+		**out = **in
+	}
 	if in.RequestFields != nil {
 		in, out := &in.RequestFields, &out.RequestFields
 		*out = make([]RequestFieldsInitParameters, len(*in))
@@ -428,6 +433,11 @@ func (in *ActionParametersInitParameters) DeepCopyInto(out *ActionParametersInit
 		in, out := &in.Response, &out.Response
 		*out = new(ActionParametersResponseInitParameters)
 		(*in).DeepCopyInto(*out)
+	}
+	if in.ResponseBodyBuffering != nil {
+		in, out := &in.ResponseBodyBuffering, &out.ResponseBodyBuffering
+		*out = new(string)
+		**out = **in
 	}
 	if in.ResponseFields != nil {
 		in, out := &in.ResponseFields, &out.ResponseFields
@@ -757,6 +767,11 @@ func (in *ActionParametersObservation) DeepCopyInto(out *ActionParametersObserva
 		*out = new(float64)
 		**out = **in
 	}
+	if in.RequestBodyBuffering != nil {
+		in, out := &in.RequestBodyBuffering, &out.RequestBodyBuffering
+		*out = new(string)
+		**out = **in
+	}
 	if in.RequestFields != nil {
 		in, out := &in.RequestFields, &out.RequestFields
 		*out = make([]RequestFieldsObservation, len(*in))
@@ -773,6 +788,11 @@ func (in *ActionParametersObservation) DeepCopyInto(out *ActionParametersObserva
 		in, out := &in.Response, &out.Response
 		*out = new(ActionParametersResponseObservation)
 		(*in).DeepCopyInto(*out)
+	}
+	if in.ResponseBodyBuffering != nil {
+		in, out := &in.ResponseBodyBuffering, &out.ResponseBodyBuffering
+		*out = new(string)
+		**out = **in
 	}
 	if in.ResponseFields != nil {
 		in, out := &in.ResponseFields, &out.ResponseFields
@@ -1102,6 +1122,11 @@ func (in *ActionParametersParameters) DeepCopyInto(out *ActionParametersParamete
 		*out = new(float64)
 		**out = **in
 	}
+	if in.RequestBodyBuffering != nil {
+		in, out := &in.RequestBodyBuffering, &out.RequestBodyBuffering
+		*out = new(string)
+		**out = **in
+	}
 	if in.RequestFields != nil {
 		in, out := &in.RequestFields, &out.RequestFields
 		*out = make([]RequestFieldsParameters, len(*in))
@@ -1118,6 +1143,11 @@ func (in *ActionParametersParameters) DeepCopyInto(out *ActionParametersParamete
 		in, out := &in.Response, &out.Response
 		*out = new(ActionParametersResponseParameters)
 		(*in).DeepCopyInto(*out)
+	}
+	if in.ResponseBodyBuffering != nil {
+		in, out := &in.ResponseBodyBuffering, &out.ResponseBodyBuffering
+		*out = new(string)
+		**out = **in
 	}
 	if in.ResponseFields != nil {
 		in, out := &in.ResponseFields, &out.ResponseFields

@@ -125,5 +125,5 @@ func (tr *CustomHostnameFallbackOrigin) LateInitialize(attrs []byte) (bool, erro
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
 func (tr *CustomHostnameFallbackOrigin) GetTerraformSchemaVersion() int {
-	return 0
+	return 1
 }

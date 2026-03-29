@@ -125,5 +125,5 @@ func (tr *SpectrumApplication) LateInitialize(attrs []byte) (bool, error) {
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
 func (tr *SpectrumApplication) GetTerraformSchemaVersion() int {
-	return 0
+	return 1
 }

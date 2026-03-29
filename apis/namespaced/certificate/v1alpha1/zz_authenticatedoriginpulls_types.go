@@ -19,10 +19,6 @@ type AuthenticatedOriginPullsInitParameters struct {
 	// (Attributes List) (see below for nested schema)
 	Config []ConfigInitParameters `json:"config,omitempty" tf:"config,omitempty"`
 
-	// (String) The hostname on the origin for which the client certificate uploaded will be used.
-	// The hostname on the origin for which the client certificate uploaded will be used.
-	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
-
 	// (String) Identifier.
 	// Identifier.
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-upjet-cloudflare/apis/namespaced/zone/v1alpha1.Zone
@@ -115,11 +111,6 @@ type AuthenticatedOriginPullsParameters struct {
 	// (Attributes List) (see below for nested schema)
 	// +kubebuilder:validation:Optional
 	Config []ConfigParameters `json:"config,omitempty" tf:"config,omitempty"`
-
-	// (String) The hostname on the origin for which the client certificate uploaded will be used.
-	// The hostname on the origin for which the client certificate uploaded will be used.
-	// +kubebuilder:validation:Optional
-	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
 
 	// (String) Identifier.
 	// Identifier.

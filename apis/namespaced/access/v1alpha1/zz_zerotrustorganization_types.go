@@ -153,6 +153,12 @@ type ZeroTrustOrganizationInitParameters struct {
 	// (Attributes) (see below for nested schema)
 	CustomPages *CustomPagesInitParameters `json:"customPages,omitempty" tf:"custom_pages,omitempty"`
 
+	// Determines whether to deny all requests to Cloudflare-protected resources that lack an associated Access application. If enabled, you must explicitly configure an Access application and policy to allow traffic to your Cloudflare-protected resources. For domains you want to be public across all subdomains, add the domain to the `deny_unmatched_requests_exempted_zone_names` array.
+	DenyUnmatchedRequests *bool `json:"denyUnmatchedRequests,omitempty" tf:"deny_unmatched_requests,omitempty"`
+
+	// Contains zone names to exempt from the `deny_unmatched_requests` feature. Requests to a subdomain in an exempted zone will block unauthenticated traffic by default if there is a configured Access application and policy that matches the request.
+	DenyUnmatchedRequestsExemptedZoneNames []*string `json:"denyUnmatchedRequestsExemptedZoneNames,omitempty" tf:"deny_unmatched_requests_exempted_zone_names,omitempty"`
+
 	// Only in the Dashboard, regardless of user permission.
 	// Lock all settings as Read-Only in the Dashboard, regardless of user permission.
 	IsUIReadOnly *bool `json:"isUiReadOnly,omitempty" tf:"is_ui_read_only,omitempty"`
@@ -214,6 +220,12 @@ type ZeroTrustOrganizationObservation struct {
 
 	// (Attributes) (see below for nested schema)
 	CustomPages *CustomPagesObservation `json:"customPages,omitempty" tf:"custom_pages,omitempty"`
+
+	// Determines whether to deny all requests to Cloudflare-protected resources that lack an associated Access application. If enabled, you must explicitly configure an Access application and policy to allow traffic to your Cloudflare-protected resources. For domains you want to be public across all subdomains, add the domain to the `deny_unmatched_requests_exempted_zone_names` array.
+	DenyUnmatchedRequests *bool `json:"denyUnmatchedRequests,omitempty" tf:"deny_unmatched_requests,omitempty"`
+
+	// Contains zone names to exempt from the `deny_unmatched_requests` feature. Requests to a subdomain in an exempted zone will block unauthenticated traffic by default if there is a configured Access application and policy that matches the request.
+	DenyUnmatchedRequestsExemptedZoneNames []*string `json:"denyUnmatchedRequestsExemptedZoneNames,omitempty" tf:"deny_unmatched_requests_exempted_zone_names,omitempty"`
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
@@ -283,6 +295,14 @@ type ZeroTrustOrganizationParameters struct {
 	// (Attributes) (see below for nested schema)
 	// +kubebuilder:validation:Optional
 	CustomPages *CustomPagesParameters `json:"customPages,omitempty" tf:"custom_pages,omitempty"`
+
+	// Determines whether to deny all requests to Cloudflare-protected resources that lack an associated Access application. If enabled, you must explicitly configure an Access application and policy to allow traffic to your Cloudflare-protected resources. For domains you want to be public across all subdomains, add the domain to the `deny_unmatched_requests_exempted_zone_names` array.
+	// +kubebuilder:validation:Optional
+	DenyUnmatchedRequests *bool `json:"denyUnmatchedRequests,omitempty" tf:"deny_unmatched_requests,omitempty"`
+
+	// Contains zone names to exempt from the `deny_unmatched_requests` feature. Requests to a subdomain in an exempted zone will block unauthenticated traffic by default if there is a configured Access application and policy that matches the request.
+	// +kubebuilder:validation:Optional
+	DenyUnmatchedRequestsExemptedZoneNames []*string `json:"denyUnmatchedRequestsExemptedZoneNames,omitempty" tf:"deny_unmatched_requests_exempted_zone_names,omitempty"`
 
 	// Only in the Dashboard, regardless of user permission.
 	// Lock all settings as Read-Only in the Dashboard, regardless of user permission.

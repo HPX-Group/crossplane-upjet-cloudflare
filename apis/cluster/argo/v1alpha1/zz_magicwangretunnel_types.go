@@ -13,6 +13,115 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
 )
 
+type BGPInitParameters struct {
+
+	// ASN used on the customer end of the BGP session
+	CustomerAsn *float64 `json:"customerAsn,omitempty" tf:"customer_asn,omitempty"`
+
+	// Prefixes in this list will be advertised to the customer device, in addition to the routes in the Magic routing table.
+	ExtraPrefixes []*string `json:"extraPrefixes,omitempty" tf:"extra_prefixes,omitempty"`
+
+	// MD5 key to use for session authentication.
+	//
+	// Note that *this is not a security measure*. MD5 is not a valid security mechanism, and the
+	// key is not treated as a secret value. This is *only* supported for preventing
+	// misconfiguration, not for defending against malicious attacks.
+	//
+	// The MD5 key, if set, must be of non-zero length and consist only of the following types of
+	// character:
+	//
+	// * ASCII alphanumerics: `[a-zA-Z0-9]`
+	// * Special characters in the set `'!@#$%^&*()+[]{}<>/.,;:_-~`= \|`
+	//
+	// In other words, MD5 keys may contain any printable ASCII character aside from newline (0x0A),
+	// quotation mark (`"`), vertical tab (0x0B), carriage return (0x0D), tab (0x09), form feed
+	// (0x0C), and the question mark (`?`). Requests specifying an MD5 key with one or more of
+	// these disallowed characters will be rejected.
+	Md5Key *string `json:"md5Key,omitempty" tf:"md5_key,omitempty"`
+}
+
+type BGPObservation struct {
+
+	// ASN used on the customer end of the BGP session
+	CustomerAsn *float64 `json:"customerAsn,omitempty" tf:"customer_asn,omitempty"`
+
+	// Prefixes in this list will be advertised to the customer device, in addition to the routes in the Magic routing table.
+	ExtraPrefixes []*string `json:"extraPrefixes,omitempty" tf:"extra_prefixes,omitempty"`
+
+	// MD5 key to use for session authentication.
+	//
+	// Note that *this is not a security measure*. MD5 is not a valid security mechanism, and the
+	// key is not treated as a secret value. This is *only* supported for preventing
+	// misconfiguration, not for defending against malicious attacks.
+	//
+	// The MD5 key, if set, must be of non-zero length and consist only of the following types of
+	// character:
+	//
+	// * ASCII alphanumerics: `[a-zA-Z0-9]`
+	// * Special characters in the set `'!@#$%^&*()+[]{}<>/.,;:_-~`= \|`
+	//
+	// In other words, MD5 keys may contain any printable ASCII character aside from newline (0x0A),
+	// quotation mark (`"`), vertical tab (0x0B), carriage return (0x0D), tab (0x09), form feed
+	// (0x0C), and the question mark (`?`). Requests specifying an MD5 key with one or more of
+	// these disallowed characters will be rejected.
+	Md5Key *string `json:"md5Key,omitempty" tf:"md5_key,omitempty"`
+}
+
+type BGPParameters struct {
+
+	// ASN used on the customer end of the BGP session
+	// +kubebuilder:validation:Optional
+	CustomerAsn *float64 `json:"customerAsn" tf:"customer_asn,omitempty"`
+
+	// Prefixes in this list will be advertised to the customer device, in addition to the routes in the Magic routing table.
+	// +kubebuilder:validation:Optional
+	ExtraPrefixes []*string `json:"extraPrefixes,omitempty" tf:"extra_prefixes,omitempty"`
+
+	// MD5 key to use for session authentication.
+	//
+	// Note that *this is not a security measure*. MD5 is not a valid security mechanism, and the
+	// key is not treated as a secret value. This is *only* supported for preventing
+	// misconfiguration, not for defending against malicious attacks.
+	//
+	// The MD5 key, if set, must be of non-zero length and consist only of the following types of
+	// character:
+	//
+	// * ASCII alphanumerics: `[a-zA-Z0-9]`
+	// * Special characters in the set `'!@#$%^&*()+[]{}<>/.,;:_-~`= \|`
+	//
+	// In other words, MD5 keys may contain any printable ASCII character aside from newline (0x0A),
+	// quotation mark (`"`), vertical tab (0x0B), carriage return (0x0D), tab (0x09), form feed
+	// (0x0C), and the question mark (`?`). Requests specifying an MD5 key with one or more of
+	// these disallowed characters will be rejected.
+	// +kubebuilder:validation:Optional
+	Md5Key *string `json:"md5Key,omitempty" tf:"md5_key,omitempty"`
+}
+
+type BGPStatusInitParameters struct {
+}
+
+type BGPStatusObservation struct {
+	BGPState *string `json:"bgpState,omitempty" tf:"bgp_state,omitempty"`
+
+	CfSpeakerIP *string `json:"cfSpeakerIp,omitempty" tf:"cf_speaker_ip,omitempty"`
+
+	CfSpeakerPort *float64 `json:"cfSpeakerPort,omitempty" tf:"cf_speaker_port,omitempty"`
+
+	CustomerSpeakerIP *string `json:"customerSpeakerIp,omitempty" tf:"customer_speaker_ip,omitempty"`
+
+	CustomerSpeakerPort *float64 `json:"customerSpeakerPort,omitempty" tf:"customer_speaker_port,omitempty"`
+
+	// Available values: "BGP_DOWN", "BGP_UP", "BGP_ESTABLISHING".
+	State *string `json:"state,omitempty" tf:"state,omitempty"`
+
+	TCPEstablished *bool `json:"tcpEstablished,omitempty" tf:"tcp_established,omitempty"`
+
+	UpdatedAt *string `json:"updatedAt,omitempty" tf:"updated_at,omitempty"`
+}
+
+type BGPStatusParameters struct {
+}
+
 type HealthCheckInitParameters struct {
 
 	// (String) The direction of the flow of the healthcheck. Either unidirectional, where the probe comes to you via the tunnel and the result comes back to Cloudflare via the open Internet, or bidirectional where both the probe and result come and go via the tunnel.
@@ -117,6 +226,11 @@ type MagicWANGRETunnelInitParameters struct {
 	// +kubebuilder:validation:Optional
 	AccountIDSelector *v1.Selector `json:"accountIdSelector,omitempty" tf:"-"`
 
+	// True if automatic stateful return routing should be enabled for a tunnel, false otherwise.
+	AutomaticReturnRouting *bool `json:"automaticReturnRouting,omitempty" tf:"automatic_return_routing,omitempty"`
+
+	BGP *BGPInitParameters `json:"bgp,omitempty" tf:"bgp,omitempty"`
+
 	// (String) The IP address assigned to the Cloudflare side of the GRE tunnel.
 	// The IP address assigned to the Cloudflare side of the GRE tunnel.
 	CloudflareGreEndpoint *string `json:"cloudflareGreEndpoint,omitempty" tf:"cloudflare_gre_endpoint,omitempty"`
@@ -158,6 +272,13 @@ type MagicWANGRETunnelObservation struct {
 	// (String) Identifier
 	// Identifier
 	AccountID *string `json:"accountId,omitempty" tf:"account_id,omitempty"`
+
+	// True if automatic stateful return routing should be enabled for a tunnel, false otherwise.
+	AutomaticReturnRouting *bool `json:"automaticReturnRouting,omitempty" tf:"automatic_return_routing,omitempty"`
+
+	BGP *BGPObservation `json:"bgp,omitempty" tf:"bgp,omitempty"`
+
+	BGPStatus *BGPStatusObservation `json:"bgpStatus,omitempty" tf:"bgp_status,omitempty"`
 
 	// (String) The IP address assigned to the Cloudflare side of the GRE tunnel.
 	// The IP address assigned to the Cloudflare side of the GRE tunnel.
@@ -221,6 +342,13 @@ type MagicWANGRETunnelParameters struct {
 	// Selector for a Account in account to populate accountId.
 	// +kubebuilder:validation:Optional
 	AccountIDSelector *v1.Selector `json:"accountIdSelector,omitempty" tf:"-"`
+
+	// True if automatic stateful return routing should be enabled for a tunnel, false otherwise.
+	// +kubebuilder:validation:Optional
+	AutomaticReturnRouting *bool `json:"automaticReturnRouting,omitempty" tf:"automatic_return_routing,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	BGP *BGPParameters `json:"bgp,omitempty" tf:"bgp,omitempty"`
 
 	// (String) The IP address assigned to the Cloudflare side of the GRE tunnel.
 	// The IP address assigned to the Cloudflare side of the GRE tunnel.

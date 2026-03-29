@@ -146,7 +146,7 @@ type RatePlanObservation struct {
 	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
 	// (List of String) The list of sets this rate plan applies to.
-	// The list of sets this rate plan applies to.
+	// The list of sets this rate plan applies to. Returns array of strings.
 	Sets []*string `json:"sets,omitempty" tf:"sets,omitempty"`
 }
 

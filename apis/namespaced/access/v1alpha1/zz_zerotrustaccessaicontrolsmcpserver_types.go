@@ -75,6 +75,8 @@ type ZeroTrustAccessAIControlsMCPServerObservation struct {
 	// (String) server id
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	LastSuccessfulSync *string `json:"lastSuccessfulSync,omitempty" tf:"last_successful_sync,omitempty"`
+
 	// (String)
 	LastSynced *string `json:"lastSynced,omitempty" tf:"last_synced,omitempty"`
 

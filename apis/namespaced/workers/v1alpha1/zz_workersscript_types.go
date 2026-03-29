@@ -82,6 +82,35 @@ type BindingsOutboundWorkerParameters struct {
 	Service *string `json:"service,omitempty" tf:"service,omitempty"`
 }
 
+type BindingsSimpleInitParameters struct {
+
+	// The rate limit value.
+	Limit *float64 `json:"limit,omitempty" tf:"limit,omitempty"`
+
+	// The rate limit period in seconds.
+	Period *float64 `json:"period,omitempty" tf:"period,omitempty"`
+}
+
+type BindingsSimpleObservation struct {
+
+	// The rate limit value.
+	Limit *float64 `json:"limit,omitempty" tf:"limit,omitempty"`
+
+	// The rate limit period in seconds.
+	Period *float64 `json:"period,omitempty" tf:"period,omitempty"`
+}
+
+type BindingsSimpleParameters struct {
+
+	// The rate limit value.
+	// +kubebuilder:validation:Optional
+	Limit *float64 `json:"limit" tf:"limit,omitempty"`
+
+	// The rate limit period in seconds.
+	// +kubebuilder:validation:Optional
+	Period *float64 `json:"period" tf:"period,omitempty"`
+}
+
 type MigrationsRenamedClassesInitParameters struct {
 
 	// (String)
@@ -297,6 +326,25 @@ type ObservabilityLogsParameters struct {
 	// Whether log persistence is enabled for the Worker.
 	// +kubebuilder:validation:Optional
 	Persist *bool `json:"persist,omitempty" tf:"persist,omitempty"`
+}
+
+type PlacementTargetInitParameters struct {
+}
+
+type PlacementTargetObservation struct {
+
+	// TCP host:port for targeted placement.
+	Host *string `json:"host,omitempty" tf:"host,omitempty"`
+
+	// (String) A JavaScript variable name for the binding.
+	// HTTP hostname for targeted placement.
+	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
+
+	// Cloud region in format 'provider:region'.
+	Region *string `json:"region,omitempty" tf:"region,omitempty"`
+}
+
+type PlacementTargetParameters struct {
 }
 
 type StepsTransferredClassesInitParameters struct {
@@ -589,6 +637,8 @@ type WorkersScriptBindingsInitParameters struct {
 	// Name of Worker to bind to.
 	Service *string `json:"service,omitempty" tf:"service,omitempty"`
 
+	Simple *BindingsSimpleInitParameters `json:"simple,omitempty" tf:"simple,omitempty"`
+
 	// (String) ID of the store containing the secret.
 	// ID of the store containing the secret.
 	StoreID *string `json:"storeId,omitempty" tf:"store_id,omitempty"`
@@ -721,6 +771,8 @@ type WorkersScriptBindingsObservation struct {
 	// (String) Name of Worker to bind to.
 	// Name of Worker to bind to.
 	Service *string `json:"service,omitempty" tf:"service,omitempty"`
+
+	Simple *BindingsSimpleObservation `json:"simple,omitempty" tf:"simple,omitempty"`
 
 	// (String) ID of the store containing the secret.
 	// ID of the store containing the secret.
@@ -885,6 +937,9 @@ type WorkersScriptBindingsParameters struct {
 	// Name of Worker to bind to.
 	// +kubebuilder:validation:Optional
 	Service *string `json:"service,omitempty" tf:"service,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Simple *BindingsSimpleParameters `json:"simple,omitempty" tf:"simple,omitempty"`
 
 	// (String) ID of the store containing the secret.
 	// ID of the store containing the secret.
@@ -1331,6 +1386,16 @@ type WorkersScriptObservation struct {
 	// (Attributes) Configuration for Smart Placement. (see below for nested schema)
 	Placement *WorkersScriptPlacementObservation `json:"placement,omitempty" tf:"placement,omitempty"`
 
+	// (String) Enables Smart Placement.
+	// Available values: "smart".
+	// Available values: "smart", "targeted".
+	PlacementMode *string `json:"placementMode,omitempty" tf:"placement_mode,omitempty"`
+
+	// (String) Status of Smart Placement.
+	// Available values: "SUCCESS", "UNSUPPORTED_APPLICATION", "INSUFFICIENT_INVOCATIONS".
+	// Available values: "SUCCESS", "UNSUPPORTED_APPLICATION", "INSUFFICIENT_INVOCATIONS".
+	PlacementStatus *string `json:"placementStatus,omitempty" tf:"placement_status,omitempty"`
+
 	// (String) Name of the script, used in URLs and route configuration.
 	// Name of the script, used in URLs and route configuration.
 	ScriptName *string `json:"scriptName,omitempty" tf:"script_name,omitempty"`
@@ -1467,11 +1532,18 @@ type WorkersScriptPlacementInitParameters struct {
 	// (String) Enables Smart Placement.
 	// Available values: "smart".
 	// Enables [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
-	// Available values: "smart".
+	// Available values: "smart", "targeted".
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 }
 
 type WorkersScriptPlacementObservation struct {
+
+	// TCP host and port for targeted placement.
+	Host *string `json:"host,omitempty" tf:"host,omitempty"`
+
+	// (String) A JavaScript variable name for the binding.
+	// HTTP hostname for targeted placement.
+	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
 
 	// (String) The last time the script was analyzed for Smart Placement.
 	// The last time the script was analyzed for [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
@@ -1480,14 +1552,19 @@ type WorkersScriptPlacementObservation struct {
 	// (String) Enables Smart Placement.
 	// Available values: "smart".
 	// Enables [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
-	// Available values: "smart".
+	// Available values: "smart", "targeted".
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
+
+	// Cloud region for targeted placement in format 'provider:region'.
+	Region *string `json:"region,omitempty" tf:"region,omitempty"`
 
 	// (String) Status of Smart Placement.
 	// Available values: "SUCCESS", "UNSUPPORTED_APPLICATION", "INSUFFICIENT_INVOCATIONS".
 	// Status of [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
 	// Available values: "SUCCESS", "UNSUPPORTED_APPLICATION", "INSUFFICIENT_INVOCATIONS".
 	Status *string `json:"status,omitempty" tf:"status,omitempty"`
+
+	Target []PlacementTargetObservation `json:"target,omitempty" tf:"target,omitempty"`
 }
 
 type WorkersScriptPlacementParameters struct {
@@ -1495,7 +1572,7 @@ type WorkersScriptPlacementParameters struct {
 	// (String) Enables Smart Placement.
 	// Available values: "smart".
 	// Enables [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
-	// Available values: "smart".
+	// Available values: "smart", "targeted".
 	// +kubebuilder:validation:Optional
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 }

@@ -152,6 +152,9 @@ spec:
                             type: string
                         type: object
                     type: object
+                  bondId:
+                    description: (String) Identifier
+                    type: number
                   haLink:
                     description: |-
                       (Boolean) mark true to use this LAN for HA probing. only works for site with HA turned on. only one LAN can be set as the ha_link.
@@ -366,6 +369,9 @@ spec:
                             type: string
                         type: object
                     type: object
+                  bondId:
+                    description: (String) Identifier
+                    type: number
                   haLink:
                     description: |-
                       (Boolean) mark true to use this LAN for HA probing. only works for site with HA turned on. only one LAN can be set as the ha_link.
@@ -575,10 +581,6 @@ spec:
             - forProvider
             type: object
             x-kubernetes-validations:
-            - message: spec.forProvider.physport is a required parameter
-              rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
-                || ''Update'' in self.managementPolicies) || has(self.forProvider.physport)
-                || (has(self.initProvider) && has(self.initProvider.physport))'
             - message: spec.forProvider.siteId is a required parameter
               rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
                 || ''Update'' in self.managementPolicies) || has(self.forProvider.siteId)
@@ -593,6 +595,9 @@ spec:
                       (String) Identifier
                       Identifier
                     type: string
+                  bondId:
+                    description: (String) Identifier
+                    type: number
                   haLink:
                     description: |-
                       (Boolean) mark true to use this LAN for HA probing. only works for site with HA turned on. only one LAN can be set as the ha_link.

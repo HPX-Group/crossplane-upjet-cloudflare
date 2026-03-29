@@ -176,6 +176,9 @@ type ZeroTrustAccessAIControlsMCPPortalInitParameters struct {
 	// (String)
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// Route outbound MCP traffic through Zero Trust Secure Web Gateway
+	SecureWebGateway *bool `json:"secureWebGateway,omitempty" tf:"secure_web_gateway,omitempty"`
+
 	// (Attributes List) (see below for nested schema)
 	Servers []ServersInitParameters `json:"servers,omitempty" tf:"servers,omitempty"`
 }
@@ -209,6 +212,9 @@ type ZeroTrustAccessAIControlsMCPPortalObservation struct {
 	// (String)
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// Route outbound MCP traffic through Zero Trust Secure Web Gateway
+	SecureWebGateway *bool `json:"secureWebGateway,omitempty" tf:"secure_web_gateway,omitempty"`
+
 	// (Attributes List) (see below for nested schema)
 	Servers []ServersObservation `json:"servers,omitempty" tf:"servers,omitempty"`
 }
@@ -239,6 +245,10 @@ type ZeroTrustAccessAIControlsMCPPortalParameters struct {
 	// (String)
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+
+	// Route outbound MCP traffic through Zero Trust Secure Web Gateway
+	// +kubebuilder:validation:Optional
+	SecureWebGateway *bool `json:"secureWebGateway,omitempty" tf:"secure_web_gateway,omitempty"`
 
 	// (Attributes List) (see below for nested schema)
 	// +kubebuilder:validation:Optional

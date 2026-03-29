@@ -215,6 +215,10 @@ type ActionParametersInitParameters struct {
 	// A timeout value between two successive read operations to use for your origin server. Historically, the timeout value between two read options from Cloudflare to an origin server is 100 seconds. If you are attempting to reduce HTTP 524 errors because of timeouts from an origin server, try increasing this timeout value.
 	ReadTimeout *float64 `json:"readTimeout,omitempty" tf:"read_timeout,omitempty"`
 
+	// The request body buffering mode to configure.
+	// Available values: "none", "standard", "full".
+	RequestBodyBuffering *string `json:"requestBodyBuffering,omitempty" tf:"request_body_buffering,omitempty"`
+
 	// (Attributes List) The raw request fields to log. (see below for nested schema)
 	RequestFields []RequestFieldsInitParameters `json:"requestFields,omitempty" tf:"request_fields,omitempty"`
 
@@ -224,6 +228,10 @@ type ActionParametersInitParameters struct {
 
 	// (Attributes) The response to show when the block is applied. (see below for nested schema)
 	Response *ActionParametersResponseInitParameters `json:"response,omitempty" tf:"response,omitempty"`
+
+	// The response body buffering mode to configure.
+	// Available values: "none", "standard".
+	ResponseBodyBuffering *string `json:"responseBodyBuffering,omitempty" tf:"response_body_buffering,omitempty"`
 
 	// (Attributes List) The transformed response fields to log. (see below for nested schema)
 	ResponseFields []ResponseFieldsInitParameters `json:"responseFields,omitempty" tf:"response_fields,omitempty"`
@@ -431,6 +439,10 @@ type ActionParametersObservation struct {
 	// A timeout value between two successive read operations to use for your origin server. Historically, the timeout value between two read options from Cloudflare to an origin server is 100 seconds. If you are attempting to reduce HTTP 524 errors because of timeouts from an origin server, try increasing this timeout value.
 	ReadTimeout *float64 `json:"readTimeout,omitempty" tf:"read_timeout,omitempty"`
 
+	// The request body buffering mode to configure.
+	// Available values: "none", "standard", "full".
+	RequestBodyBuffering *string `json:"requestBodyBuffering,omitempty" tf:"request_body_buffering,omitempty"`
+
 	// (Attributes List) The raw request fields to log. (see below for nested schema)
 	RequestFields []RequestFieldsObservation `json:"requestFields,omitempty" tf:"request_fields,omitempty"`
 
@@ -440,6 +452,10 @@ type ActionParametersObservation struct {
 
 	// (Attributes) The response to show when the block is applied. (see below for nested schema)
 	Response *ActionParametersResponseObservation `json:"response,omitempty" tf:"response,omitempty"`
+
+	// The response body buffering mode to configure.
+	// Available values: "none", "standard".
+	ResponseBodyBuffering *string `json:"responseBodyBuffering,omitempty" tf:"response_body_buffering,omitempty"`
 
 	// (Attributes List) The transformed response fields to log. (see below for nested schema)
 	ResponseFields []ResponseFieldsObservation `json:"responseFields,omitempty" tf:"response_fields,omitempty"`
@@ -685,6 +701,11 @@ type ActionParametersParameters struct {
 	// +kubebuilder:validation:Optional
 	ReadTimeout *float64 `json:"readTimeout,omitempty" tf:"read_timeout,omitempty"`
 
+	// The request body buffering mode to configure.
+	// Available values: "none", "standard", "full".
+	// +kubebuilder:validation:Optional
+	RequestBodyBuffering *string `json:"requestBodyBuffering,omitempty" tf:"request_body_buffering,omitempty"`
+
 	// (Attributes List) The raw request fields to log. (see below for nested schema)
 	// +kubebuilder:validation:Optional
 	RequestFields []RequestFieldsParameters `json:"requestFields,omitempty" tf:"request_fields,omitempty"`
@@ -697,6 +718,11 @@ type ActionParametersParameters struct {
 	// (Attributes) The response to show when the block is applied. (see below for nested schema)
 	// +kubebuilder:validation:Optional
 	Response *ActionParametersResponseParameters `json:"response,omitempty" tf:"response,omitempty"`
+
+	// The response body buffering mode to configure.
+	// Available values: "none", "standard".
+	// +kubebuilder:validation:Optional
+	ResponseBodyBuffering *string `json:"responseBodyBuffering,omitempty" tf:"response_body_buffering,omitempty"`
 
 	// (Attributes List) The transformed response fields to log. (see below for nested schema)
 	// +kubebuilder:validation:Optional

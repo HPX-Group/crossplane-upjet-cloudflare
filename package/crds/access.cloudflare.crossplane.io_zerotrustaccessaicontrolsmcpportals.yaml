@@ -160,6 +160,10 @@ spec:
                   name:
                     description: (String)
                     type: string
+                  secureWebGateway:
+                    description: Route outbound MCP traffic through Zero Trust Secure
+                      Web Gateway
+                    type: boolean
                   servers:
                     description: (Attributes List) (see below for nested schema)
                     items:
@@ -307,6 +311,10 @@ spec:
                   name:
                     description: (String)
                     type: string
+                  secureWebGateway:
+                    description: Route outbound MCP traffic through Zero Trust Secure
+                      Web Gateway
+                    type: boolean
                   servers:
                     description: (Attributes List) (see below for nested schema)
                     items:
@@ -483,6 +491,10 @@ spec:
                   name:
                     description: (String)
                     type: string
+                  secureWebGateway:
+                    description: Route outbound MCP traffic through Zero Trust Secure
+                      Web Gateway
+                    type: boolean
                   servers:
                     description: (Attributes List) (see below for nested schema)
                     items:

@@ -54,7 +54,7 @@ type RatePlanObservation struct {
 	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
 	// (List of String) The list of sets this rate plan applies to.
-	// The list of sets this rate plan applies to.
+	// The list of sets this rate plan applies to. Returns array of strings.
 	Sets []*string `json:"sets,omitempty" tf:"sets,omitempty"`
 }
 
@@ -84,7 +84,7 @@ type ZoneSubscriptionInitParameters struct {
 	RatePlan *RatePlanInitParameters `json:"ratePlan,omitempty" tf:"rate_plan,omitempty"`
 
 	// (String) Subscription identifier tag.
-	// Subscription identifier tag.
+	// Identifier
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-upjet-cloudflare/apis/namespaced/zone/v1alpha1.Zone
 	ZoneID *string `json:"zoneId,omitempty" tf:"zone_id,omitempty"`
 
@@ -134,7 +134,7 @@ type ZoneSubscriptionObservation struct {
 	State *string `json:"state,omitempty" tf:"state,omitempty"`
 
 	// (String) Subscription identifier tag.
-	// Subscription identifier tag.
+	// Identifier
 	ZoneID *string `json:"zoneId,omitempty" tf:"zone_id,omitempty"`
 }
 
@@ -152,7 +152,7 @@ type ZoneSubscriptionParameters struct {
 	RatePlan *RatePlanParameters `json:"ratePlan,omitempty" tf:"rate_plan,omitempty"`
 
 	// (String) Subscription identifier tag.
-	// Subscription identifier tag.
+	// Identifier
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-upjet-cloudflare/apis/namespaced/zone/v1alpha1.Zone
 	// +kubebuilder:validation:Optional
 	ZoneID *string `json:"zoneId,omitempty" tf:"zone_id,omitempty"`

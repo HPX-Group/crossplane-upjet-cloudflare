@@ -70,7 +70,7 @@ type APIShieldParameters struct {
 type AuthIDCharacteristicsInitParameters struct {
 
 	// (String) The name of the characteristic field, i.e., the header or cookie name.
-	// The name of the characteristic field, i.e., the header or cookie name.
+	// The name of the characteristic field, i.e., the header or cookie name. When using type "jwt", this must be a claim location expressed as `$(token_config_id):$(json_path)`, where `token_config_id` is the ID of the token configuration used in validating the JWT, and `json_path` is a RFC 9535 JSONPath expression.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// (String) The type of characteristic.
@@ -83,7 +83,7 @@ type AuthIDCharacteristicsInitParameters struct {
 type AuthIDCharacteristicsObservation struct {
 
 	// (String) The name of the characteristic field, i.e., the header or cookie name.
-	// The name of the characteristic field, i.e., the header or cookie name.
+	// The name of the characteristic field, i.e., the header or cookie name. When using type "jwt", this must be a claim location expressed as `$(token_config_id):$(json_path)`, where `token_config_id` is the ID of the token configuration used in validating the JWT, and `json_path` is a RFC 9535 JSONPath expression.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// (String) The type of characteristic.
@@ -96,7 +96,7 @@ type AuthIDCharacteristicsObservation struct {
 type AuthIDCharacteristicsParameters struct {
 
 	// (String) The name of the characteristic field, i.e., the header or cookie name.
-	// The name of the characteristic field, i.e., the header or cookie name.
+	// The name of the characteristic field, i.e., the header or cookie name. When using type "jwt", this must be a claim location expressed as `$(token_config_id):$(json_path)`, where `token_config_id` is the ID of the token configuration used in validating the JWT, and `json_path` is a RFC 9535 JSONPath expression.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name" tf:"name,omitempty"`
 

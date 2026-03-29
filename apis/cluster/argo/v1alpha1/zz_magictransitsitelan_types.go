@@ -124,6 +124,9 @@ type MagicTransitSiteLANInitParameters struct {
 	// +kubebuilder:validation:Optional
 	AccountIDSelector *v1.Selector `json:"accountIdSelector,omitempty" tf:"-"`
 
+	// (String) Identifier
+	BondID *float64 `json:"bondId,omitempty" tf:"bond_id,omitempty"`
+
 	// (Boolean) mark true to use this LAN for HA probing. only works for site with HA turned on. only one LAN can be set as the ha_link.
 	// mark true to use this LAN for HA probing. only works for site with HA turned on. only one LAN can be set as the ha_link.
 	HaLink *bool `json:"haLink,omitempty" tf:"ha_link,omitempty"`
@@ -157,6 +160,9 @@ type MagicTransitSiteLANObservation struct {
 	// (String) Identifier
 	// Identifier
 	AccountID *string `json:"accountId,omitempty" tf:"account_id,omitempty"`
+
+	// (String) Identifier
+	BondID *float64 `json:"bondId,omitempty" tf:"bond_id,omitempty"`
 
 	// (Boolean) mark true to use this LAN for HA probing. only works for site with HA turned on. only one LAN can be set as the ha_link.
 	// mark true to use this LAN for HA probing. only works for site with HA turned on. only one LAN can be set as the ha_link.
@@ -204,6 +210,10 @@ type MagicTransitSiteLANParameters struct {
 	// Selector for a Account in account to populate accountId.
 	// +kubebuilder:validation:Optional
 	AccountIDSelector *v1.Selector `json:"accountIdSelector,omitempty" tf:"-"`
+
+	// (String) Identifier
+	// +kubebuilder:validation:Optional
+	BondID *float64 `json:"bondId,omitempty" tf:"bond_id,omitempty"`
 
 	// (Boolean) mark true to use this LAN for HA probing. only works for site with HA turned on. only one LAN can be set as the ha_link.
 	// mark true to use this LAN for HA probing. only works for site with HA turned on. only one LAN can be set as the ha_link.
@@ -434,7 +444,6 @@ type MagicTransitSiteLANStatus struct {
 type MagicTransitSiteLAN struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.physport) || (has(self.initProvider) && has(self.initProvider.physport))",message="spec.forProvider.physport is a required parameter"
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.siteId) || (has(self.initProvider) && has(self.initProvider.siteId))",message="spec.forProvider.siteId is a required parameter"
 	Spec   MagicTransitSiteLANSpec   `json:"spec"`
 	Status MagicTransitSiteLANStatus `json:"status,omitempty"`

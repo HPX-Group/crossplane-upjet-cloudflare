@@ -125,5 +125,5 @@ func (tr *LogpullRetention) LateInitialize(attrs []byte) (bool, error) {
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
 func (tr *LogpullRetention) GetTerraformSchemaVersion() int {
-	return 0
+	return 1
 }

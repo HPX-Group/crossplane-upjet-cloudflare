@@ -266,6 +266,8 @@ type BindingsInitParameters struct {
 	// Name of Worker to bind to.
 	Service *string `json:"service,omitempty" tf:"service,omitempty"`
 
+	Simple *SimpleInitParameters `json:"simple,omitempty" tf:"simple,omitempty"`
+
 	// (String) ID of the store containing the secret.
 	// ID of the store containing the secret.
 	StoreID *string `json:"storeId,omitempty" tf:"store_id,omitempty"`
@@ -277,7 +279,7 @@ type BindingsInitParameters struct {
 	// (String) The kind of resource that the binding provides.
 	// Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
 	// The kind of resource that the binding provides.
-	// Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
+	// Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "ratelimit", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
 	// (Set of String) Allowed operations with the key. Learn more.
@@ -399,6 +401,8 @@ type BindingsObservation struct {
 	// Name of Worker to bind to.
 	Service *string `json:"service,omitempty" tf:"service,omitempty"`
 
+	Simple *SimpleObservation `json:"simple,omitempty" tf:"simple,omitempty"`
+
 	// (String) ID of the store containing the secret.
 	// ID of the store containing the secret.
 	StoreID *string `json:"storeId,omitempty" tf:"store_id,omitempty"`
@@ -406,7 +410,7 @@ type BindingsObservation struct {
 	// (String) The kind of resource that the binding provides.
 	// Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
 	// The kind of resource that the binding provides.
-	// Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
+	// Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "ratelimit", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
 	// (Set of String) Allowed operations with the key. Learn more.
@@ -563,6 +567,9 @@ type BindingsParameters struct {
 	// +kubebuilder:validation:Optional
 	Service *string `json:"service,omitempty" tf:"service,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	Simple *SimpleParameters `json:"simple,omitempty" tf:"simple,omitempty"`
+
 	// (String) ID of the store containing the secret.
 	// ID of the store containing the secret.
 	// +kubebuilder:validation:Optional
@@ -576,7 +583,7 @@ type BindingsParameters struct {
 	// (String) The kind of resource that the binding provides.
 	// Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
 	// The kind of resource that the binding provides.
-	// Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
+	// Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "ratelimit", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type" tf:"type,omitempty"`
 
@@ -901,6 +908,35 @@ type RenamedClassesParameters struct {
 	To *string `json:"to,omitempty" tf:"to,omitempty"`
 }
 
+type SimpleInitParameters struct {
+
+	// The limit (requests per period).
+	Limit *float64 `json:"limit,omitempty" tf:"limit,omitempty"`
+
+	// The period in seconds.
+	Period *float64 `json:"period,omitempty" tf:"period,omitempty"`
+}
+
+type SimpleObservation struct {
+
+	// The limit (requests per period).
+	Limit *float64 `json:"limit,omitempty" tf:"limit,omitempty"`
+
+	// The period in seconds.
+	Period *float64 `json:"period,omitempty" tf:"period,omitempty"`
+}
+
+type SimpleParameters struct {
+
+	// The limit (requests per period).
+	// +kubebuilder:validation:Optional
+	Limit *float64 `json:"limit" tf:"limit,omitempty"`
+
+	// The period in seconds.
+	// +kubebuilder:validation:Optional
+	Period *float64 `json:"period" tf:"period,omitempty"`
+}
+
 type StepsInitParameters struct {
 
 	// (List of String) A list of classes to delete Durable Object namespaces from.
@@ -996,6 +1032,48 @@ type StepsRenamedClassesParameters struct {
 	// (String)
 	// +kubebuilder:validation:Optional
 	To *string `json:"to,omitempty" tf:"to,omitempty"`
+}
+
+type TargetInitParameters struct {
+
+	// TCP host:port for targeted placement.
+	Host *string `json:"host,omitempty" tf:"host,omitempty"`
+
+	// (String) A JavaScript variable name for the binding.
+	// HTTP hostname for targeted placement.
+	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
+
+	// Cloud region in format 'provider:region'.
+	Region *string `json:"region,omitempty" tf:"region,omitempty"`
+}
+
+type TargetObservation struct {
+
+	// TCP host:port for targeted placement.
+	Host *string `json:"host,omitempty" tf:"host,omitempty"`
+
+	// (String) A JavaScript variable name for the binding.
+	// HTTP hostname for targeted placement.
+	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
+
+	// Cloud region in format 'provider:region'.
+	Region *string `json:"region,omitempty" tf:"region,omitempty"`
+}
+
+type TargetParameters struct {
+
+	// TCP host:port for targeted placement.
+	// +kubebuilder:validation:Optional
+	Host *string `json:"host,omitempty" tf:"host,omitempty"`
+
+	// (String) A JavaScript variable name for the binding.
+	// HTTP hostname for targeted placement.
+	// +kubebuilder:validation:Optional
+	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
+
+	// Cloud region in format 'provider:region'.
+	// +kubebuilder:validation:Optional
+	Region *string `json:"region,omitempty" tf:"region,omitempty"`
 }
 
 type TransferredClassesInitParameters struct {
@@ -1157,6 +1235,9 @@ type WorkerVersionObservation struct {
 	// The name of the main module in the `modules` array (e.g. the name of the module that exports a `fetch` handler).
 	MainModule *string `json:"mainModule,omitempty" tf:"main_module,omitempty"`
 
+	// The base64-encoded main script content. This is only returned for service worker syntax workers (not ES modules). Used when importing existing workers that use the older service worker syntax.
+	MainScriptBase64 *string `json:"mainScriptBase64,omitempty" tf:"main_script_base64,omitempty"`
+
 	// (Attributes) Migrations for Durable Objects associated with the version. Migrations are applied when the version is deployed. (see below for nested schema)
 	Migrations *MigrationsObservation `json:"migrations,omitempty" tf:"migrations,omitempty"`
 
@@ -1264,30 +1345,70 @@ type WorkerVersionParameters struct {
 
 type WorkerVersionPlacementInitParameters struct {
 
+	// TCP host and port for targeted placement.
+	Host *string `json:"host,omitempty" tf:"host,omitempty"`
+
+	// (String) A JavaScript variable name for the binding.
+	// HTTP hostname for targeted placement.
+	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
+
 	// (String) Placement mode for the version.
 	// Available values: "smart".
-	// Placement mode for the version.
-	// Available values: "smart".
+	// Enables [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
+	// Available values: "smart", "targeted".
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
+
+	// Cloud region for targeted placement in format 'provider:region'.
+	Region *string `json:"region,omitempty" tf:"region,omitempty"`
+
+	Target []TargetInitParameters `json:"target,omitempty" tf:"target,omitempty"`
 }
 
 type WorkerVersionPlacementObservation struct {
 
+	// TCP host and port for targeted placement.
+	Host *string `json:"host,omitempty" tf:"host,omitempty"`
+
+	// (String) A JavaScript variable name for the binding.
+	// HTTP hostname for targeted placement.
+	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
+
 	// (String) Placement mode for the version.
 	// Available values: "smart".
-	// Placement mode for the version.
-	// Available values: "smart".
+	// Enables [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
+	// Available values: "smart", "targeted".
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
+
+	// Cloud region for targeted placement in format 'provider:region'.
+	Region *string `json:"region,omitempty" tf:"region,omitempty"`
+
+	Target []TargetObservation `json:"target,omitempty" tf:"target,omitempty"`
 }
 
 type WorkerVersionPlacementParameters struct {
 
+	// TCP host and port for targeted placement.
+	// +kubebuilder:validation:Optional
+	Host *string `json:"host,omitempty" tf:"host,omitempty"`
+
+	// (String) A JavaScript variable name for the binding.
+	// HTTP hostname for targeted placement.
+	// +kubebuilder:validation:Optional
+	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
+
 	// (String) Placement mode for the version.
 	// Available values: "smart".
-	// Placement mode for the version.
-	// Available values: "smart".
+	// Enables [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
+	// Available values: "smart", "targeted".
 	// +kubebuilder:validation:Optional
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
+
+	// Cloud region for targeted placement in format 'provider:region'.
+	// +kubebuilder:validation:Optional
+	Region *string `json:"region,omitempty" tf:"region,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Target []TargetParameters `json:"target,omitempty" tf:"target,omitempty"`
 }
 
 // WorkerVersionSpec defines the desired state of WorkerVersion

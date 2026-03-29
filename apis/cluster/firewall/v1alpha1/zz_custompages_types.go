@@ -31,7 +31,7 @@ type CustomPagesInitParameters struct {
 	// (String) Error Page Types
 	// Available values: "1000_errors", "500_errors", "basic_challenge", "country_challenge", "ip_block", "managed_challenge", "ratelimit_block", "under_attack", "waf_block".
 	// Error Page Types
-	// Available values: "1000_errors", "500_errors", "basic_challenge", "country_challenge", "ip_block", "managed_challenge", "ratelimit_block", "under_attack", "waf_block".
+	// Available values: "1000_errors", "500_errors", "basic_challenge", "country_challenge", "ip_block", "managed_challenge", "ratelimit_block", "under_attack", "waf_block", "waf_challenge".
 	Identifier *string `json:"identifier,omitempty" tf:"identifier,omitempty"`
 
 	// (String) The custom page state.
@@ -68,7 +68,7 @@ type CustomPagesObservation struct {
 	// (String) Error Page Types
 	// Available values: "1000_errors", "500_errors", "basic_challenge", "country_challenge", "ip_block", "managed_challenge", "ratelimit_block", "under_attack", "waf_block".
 	// Error Page Types
-	// Available values: "1000_errors", "500_errors", "basic_challenge", "country_challenge", "ip_block", "managed_challenge", "ratelimit_block", "under_attack", "waf_block".
+	// Available values: "1000_errors", "500_errors", "basic_challenge", "country_challenge", "ip_block", "managed_challenge", "ratelimit_block", "under_attack", "waf_block", "waf_challenge".
 	Identifier *string `json:"identifier,omitempty" tf:"identifier,omitempty"`
 
 	// (String)
@@ -114,7 +114,7 @@ type CustomPagesParameters struct {
 	// (String) Error Page Types
 	// Available values: "1000_errors", "500_errors", "basic_challenge", "country_challenge", "ip_block", "managed_challenge", "ratelimit_block", "under_attack", "waf_block".
 	// Error Page Types
-	// Available values: "1000_errors", "500_errors", "basic_challenge", "country_challenge", "ip_block", "managed_challenge", "ratelimit_block", "under_attack", "waf_block".
+	// Available values: "1000_errors", "500_errors", "basic_challenge", "country_challenge", "ip_block", "managed_challenge", "ratelimit_block", "under_attack", "waf_block", "waf_challenge".
 	// +kubebuilder:validation:Optional
 	Identifier *string `json:"identifier,omitempty" tf:"identifier,omitempty"`
 

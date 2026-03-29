@@ -125,5 +125,5 @@ func (tr *EmailRoutingSettings) LateInitialize(attrs []byte) (bool, error) {
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
 func (tr *EmailRoutingSettings) GetTerraformSchemaVersion() int {
-	return 0
+	return 1
 }

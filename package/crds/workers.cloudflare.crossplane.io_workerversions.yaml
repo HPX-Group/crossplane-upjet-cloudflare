@@ -414,6 +414,15 @@ spec:
                             (String) Name of Worker to bind to.
                             Name of Worker to bind to.
                           type: string
+                        simple:
+                          properties:
+                            limit:
+                              description: The limit (requests per period).
+                              type: number
+                            period:
+                              description: The period in seconds.
+                              type: number
+                          type: object
                         storeId:
                           description: |-
                             (String) ID of the store containing the secret.
@@ -443,7 +452,7 @@ spec:
                             (String) The kind of resource that the binding provides.
                             Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
                             The kind of resource that the binding provides.
-                            Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
+                            Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "ratelimit", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
                           type: string
                         usages:
                           description: |-
@@ -652,13 +661,41 @@ spec:
                     description: (Attributes) Placement settings for the version.
                       (see below for nested schema)
                     properties:
+                      host:
+                        description: TCP host and port for targeted placement.
+                        type: string
+                      hostname:
+                        description: |-
+                          (String) A JavaScript variable name for the binding.
+                          HTTP hostname for targeted placement.
+                        type: string
                       mode:
                         description: |-
                           (String) Placement mode for the version.
                           Available values: "smart".
-                          Placement mode for the version.
-                          Available values: "smart".
+                          Enables [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
+                          Available values: "smart", "targeted".
                         type: string
+                      region:
+                        description: Cloud region for targeted placement in format
+                          'provider:region'.
+                        type: string
+                      target:
+                        items:
+                          properties:
+                            host:
+                              description: TCP host:port for targeted placement.
+                              type: string
+                            hostname:
+                              description: |-
+                                (String) A JavaScript variable name for the binding.
+                                HTTP hostname for targeted placement.
+                              type: string
+                            region:
+                              description: Cloud region in format 'provider:region'.
+                              type: string
+                          type: object
+                        type: array
                     type: object
                   usageModel:
                     description: |-
@@ -1028,6 +1065,15 @@ spec:
                             (String) Name of Worker to bind to.
                             Name of Worker to bind to.
                           type: string
+                        simple:
+                          properties:
+                            limit:
+                              description: The limit (requests per period).
+                              type: number
+                            period:
+                              description: The period in seconds.
+                              type: number
+                          type: object
                         storeId:
                           description: |-
                             (String) ID of the store containing the secret.
@@ -1057,7 +1103,7 @@ spec:
                             (String) The kind of resource that the binding provides.
                             Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
                             The kind of resource that the binding provides.
-                            Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
+                            Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "ratelimit", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
                           type: string
                         usages:
                           description: |-
@@ -1266,13 +1312,41 @@ spec:
                     description: (Attributes) Placement settings for the version.
                       (see below for nested schema)
                     properties:
+                      host:
+                        description: TCP host and port for targeted placement.
+                        type: string
+                      hostname:
+                        description: |-
+                          (String) A JavaScript variable name for the binding.
+                          HTTP hostname for targeted placement.
+                        type: string
                       mode:
                         description: |-
                           (String) Placement mode for the version.
                           Available values: "smart".
-                          Placement mode for the version.
-                          Available values: "smart".
+                          Enables [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
+                          Available values: "smart", "targeted".
                         type: string
+                      region:
+                        description: Cloud region for targeted placement in format
+                          'provider:region'.
+                        type: string
+                      target:
+                        items:
+                          properties:
+                            host:
+                              description: TCP host:port for targeted placement.
+                              type: string
+                            hostname:
+                              description: |-
+                                (String) A JavaScript variable name for the binding.
+                                HTTP hostname for targeted placement.
+                              type: string
+                            region:
+                              description: Cloud region in format 'provider:region'.
+                              type: string
+                          type: object
+                        type: array
                     type: object
                   usageModel:
                     description: |-
@@ -1604,6 +1678,15 @@ spec:
                             (String) Name of Worker to bind to.
                             Name of Worker to bind to.
                           type: string
+                        simple:
+                          properties:
+                            limit:
+                              description: The limit (requests per period).
+                              type: number
+                            period:
+                              description: The period in seconds.
+                              type: number
+                          type: object
                         storeId:
                           description: |-
                             (String) ID of the store containing the secret.
@@ -1614,7 +1697,7 @@ spec:
                             (String) The kind of resource that the binding provides.
                             Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
                             The kind of resource that the binding provides.
-                            Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
+                            Available values: "ai", "analytics_engine", "assets", "browser", "d1", "data_blob", "dispatch_namespace", "durable_object_namespace", "hyperdrive", "inherit", "images", "json", "kv_namespace", "mtls_certificate", "plain_text", "pipelines", "queue", "ratelimit", "r2_bucket", "secret_text", "send_email", "service", "text_blob", "vectorize", "version_metadata", "secrets_store_secret", "secret_key", "workflow", "wasm_module".
                           type: string
                         usages:
                           description: |-
@@ -1671,6 +1754,12 @@ spec:
                     description: |-
                       (String) The name of the main module in the modules array (e.g. the name of the module that exports a fetch handler).
                       The name of the main module in the `modules` array (e.g. the name of the module that exports a `fetch` handler).
+                    type: string
+                  mainScriptBase64:
+                    description: The base64-encoded main script content. This is only
+                      returned for service worker syntax workers (not ES modules).
+                      Used when importing existing workers that use the older service
+                      worker syntax.
                     type: string
                   migrations:
                     description: (Attributes) Migrations for Durable Objects associated
@@ -1841,13 +1930,41 @@ spec:
                     description: (Attributes) Placement settings for the version.
                       (see below for nested schema)
                     properties:
+                      host:
+                        description: TCP host and port for targeted placement.
+                        type: string
+                      hostname:
+                        description: |-
+                          (String) A JavaScript variable name for the binding.
+                          HTTP hostname for targeted placement.
+                        type: string
                       mode:
                         description: |-
                           (String) Placement mode for the version.
                           Available values: "smart".
-                          Placement mode for the version.
-                          Available values: "smart".
+                          Enables [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
+                          Available values: "smart", "targeted".
                         type: string
+                      region:
+                        description: Cloud region for targeted placement in format
+                          'provider:region'.
+                        type: string
+                      target:
+                        items:
+                          properties:
+                            host:
+                              description: TCP host:port for targeted placement.
+                              type: string
+                            hostname:
+                              description: |-
+                                (String) A JavaScript variable name for the binding.
+                                HTTP hostname for targeted placement.
+                              type: string
+                            region:
+                              description: Cloud region in format 'provider:region'.
+                              type: string
+                          type: object
+                        type: array
                     type: object
                   source:
                     description: |-

@@ -282,11 +282,6 @@ func (in *AuthenticatedOriginPullsInitParameters) DeepCopyInto(out *Authenticate
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
 	}
-	if in.Hostname != nil {
-		in, out := &in.Hostname, &out.Hostname
-		*out = new(string)
-		**out = **in
-	}
 	if in.ZoneID != nil {
 		in, out := &in.ZoneID, &out.ZoneID
 		*out = new(string)
@@ -457,11 +452,6 @@ func (in *AuthenticatedOriginPullsParameters) DeepCopyInto(out *AuthenticatedOri
 		for i := range *in {
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
-	}
-	if in.Hostname != nil {
-		in, out := &in.Hostname, &out.Hostname
-		*out = new(string)
-		**out = **in
 	}
 	if in.ZoneID != nil {
 		in, out := &in.ZoneID, &out.ZoneID

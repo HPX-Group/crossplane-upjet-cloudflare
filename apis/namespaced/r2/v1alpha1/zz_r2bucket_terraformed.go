@@ -125,5 +125,5 @@ func (tr *R2Bucket) LateInitialize(attrs []byte) (bool, error) {
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
 func (tr *R2Bucket) GetTerraformSchemaVersion() int {
-	return 0
+	return 1
 }

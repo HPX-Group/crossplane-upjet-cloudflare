@@ -36,7 +36,8 @@ type MemberInitParameters struct {
 	Policies []PoliciesInitParameters `json:"policies,omitempty" tf:"policies,omitempty"`
 
 	// (List of String) Array of roles associated with this member.
-	// Array of roles associated with this member.
+	// Set of roles associated with this member.
+	// +listType=set
 	Roles []*string `json:"roles,omitempty" tf:"roles,omitempty"`
 
 	// (String) Available values: "accepted", "pending".
@@ -61,7 +62,8 @@ type MemberObservation struct {
 	Policies []PoliciesObservation `json:"policies,omitempty" tf:"policies,omitempty"`
 
 	// (List of String) Array of roles associated with this member.
-	// Array of roles associated with this member.
+	// Set of roles associated with this member.
+	// +listType=set
 	Roles []*string `json:"roles,omitempty" tf:"roles,omitempty"`
 
 	// (String) Available values: "accepted", "pending".
@@ -98,8 +100,9 @@ type MemberParameters struct {
 	Policies []PoliciesParameters `json:"policies,omitempty" tf:"policies,omitempty"`
 
 	// (List of String) Array of roles associated with this member.
-	// Array of roles associated with this member.
+	// Set of roles associated with this member.
 	// +kubebuilder:validation:Optional
+	// +listType=set
 	Roles []*string `json:"roles,omitempty" tf:"roles,omitempty"`
 
 	// (String) Available values: "accepted", "pending".

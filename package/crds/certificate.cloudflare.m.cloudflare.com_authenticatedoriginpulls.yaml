@@ -81,11 +81,6 @@ spec:
                           type: string
                       type: object
                     type: array
-                  hostname:
-                    description: |-
-                      (String) The hostname on the origin for which the client certificate uploaded will be used.
-                      The hostname on the origin for which the client certificate uploaded will be used.
-                    type: string
                   zoneId:
                     description: |-
                       (String) Identifier.
@@ -206,11 +201,6 @@ spec:
                           type: string
                       type: object
                     type: array
-                  hostname:
-                    description: |-
-                      (String) The hostname on the origin for which the client certificate uploaded will be used.
-                      The hostname on the origin for which the client certificate uploaded will be used.
-                    type: string
                   zoneId:
                     description: |-
                       (String) Identifier.

@@ -12116,6 +12116,11 @@ func (in *ZeroTrustAccessAIControlsMCPPortalInitParameters) DeepCopyInto(out *Ze
 		*out = new(string)
 		**out = **in
 	}
+	if in.SecureWebGateway != nil {
+		in, out := &in.SecureWebGateway, &out.SecureWebGateway
+		*out = new(bool)
+		**out = **in
+	}
 	if in.Servers != nil {
 		in, out := &in.Servers, &out.Servers
 		*out = make([]ServersInitParameters, len(*in))
@@ -12215,6 +12220,11 @@ func (in *ZeroTrustAccessAIControlsMCPPortalObservation) DeepCopyInto(out *ZeroT
 		*out = new(string)
 		**out = **in
 	}
+	if in.SecureWebGateway != nil {
+		in, out := &in.SecureWebGateway, &out.SecureWebGateway
+		*out = new(bool)
+		**out = **in
+	}
 	if in.Servers != nil {
 		in, out := &in.Servers, &out.Servers
 		*out = make([]ServersObservation, len(*in))
@@ -12265,6 +12275,11 @@ func (in *ZeroTrustAccessAIControlsMCPPortalParameters) DeepCopyInto(out *ZeroTr
 	if in.Name != nil {
 		in, out := &in.Name, &out.Name
 		*out = new(string)
+		**out = **in
+	}
+	if in.SecureWebGateway != nil {
+		in, out := &in.SecureWebGateway, &out.SecureWebGateway
+		*out = new(bool)
 		**out = **in
 	}
 	if in.Servers != nil {
@@ -12480,6 +12495,11 @@ func (in *ZeroTrustAccessAIControlsMCPServerObservation) DeepCopyInto(out *ZeroT
 	}
 	if in.ID != nil {
 		in, out := &in.ID, &out.ID
+		*out = new(string)
+		**out = **in
+	}
+	if in.LastSuccessfulSync != nil {
+		in, out := &in.LastSuccessfulSync, &out.LastSuccessfulSync
 		*out = new(string)
 		**out = **in
 	}
@@ -26919,6 +26939,22 @@ func (in *ZeroTrustOrganizationInitParameters) DeepCopyInto(out *ZeroTrustOrgani
 		*out = new(CustomPagesInitParameters)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.DenyUnmatchedRequests != nil {
+		in, out := &in.DenyUnmatchedRequests, &out.DenyUnmatchedRequests
+		*out = new(bool)
+		**out = **in
+	}
+	if in.DenyUnmatchedRequestsExemptedZoneNames != nil {
+		in, out := &in.DenyUnmatchedRequestsExemptedZoneNames, &out.DenyUnmatchedRequestsExemptedZoneNames
+		*out = make([]*string, len(*in))
+		for i := range *in {
+			if (*in)[i] != nil {
+				in, out := &(*in)[i], &(*out)[i]
+				*out = new(string)
+				**out = **in
+			}
+		}
+	}
 	if in.IsUIReadOnly != nil {
 		in, out := &in.IsUIReadOnly, &out.IsUIReadOnly
 		*out = new(bool)
@@ -27041,6 +27077,22 @@ func (in *ZeroTrustOrganizationObservation) DeepCopyInto(out *ZeroTrustOrganizat
 		*out = new(CustomPagesObservation)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.DenyUnmatchedRequests != nil {
+		in, out := &in.DenyUnmatchedRequests, &out.DenyUnmatchedRequests
+		*out = new(bool)
+		**out = **in
+	}
+	if in.DenyUnmatchedRequestsExemptedZoneNames != nil {
+		in, out := &in.DenyUnmatchedRequestsExemptedZoneNames, &out.DenyUnmatchedRequestsExemptedZoneNames
+		*out = make([]*string, len(*in))
+		for i := range *in {
+			if (*in)[i] != nil {
+				in, out := &(*in)[i], &(*out)[i]
+				*out = new(string)
+				**out = **in
+			}
+		}
+	}
 	if in.ID != nil {
 		in, out := &in.ID, &out.ID
 		*out = new(string)
@@ -27135,6 +27187,22 @@ func (in *ZeroTrustOrganizationParameters) DeepCopyInto(out *ZeroTrustOrganizati
 		in, out := &in.CustomPages, &out.CustomPages
 		*out = new(CustomPagesParameters)
 		(*in).DeepCopyInto(*out)
+	}
+	if in.DenyUnmatchedRequests != nil {
+		in, out := &in.DenyUnmatchedRequests, &out.DenyUnmatchedRequests
+		*out = new(bool)
+		**out = **in
+	}
+	if in.DenyUnmatchedRequestsExemptedZoneNames != nil {
+		in, out := &in.DenyUnmatchedRequestsExemptedZoneNames, &out.DenyUnmatchedRequestsExemptedZoneNames
+		*out = make([]*string, len(*in))
+		for i := range *in {
+			if (*in)[i] != nil {
+				in, out := &(*in)[i], &(*out)[i]
+				*out = new(string)
+				**out = **in
+			}
+		}
 	}
 	if in.IsUIReadOnly != nil {
 		in, out := &in.IsUIReadOnly, &out.IsUIReadOnly

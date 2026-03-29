@@ -13,6 +13,49 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
 )
 
+type CustomRemoteIdentitiesInitParameters struct {
+
+	// (String) Identifier
+	// A custom IKE ID of type FQDN that may be used to identity the IPsec tunnel. The
+	// generated IKE IDs can still be used even if this custom value is specified.
+	//
+	// Must be of the form `<custom label>.<account ID>.custom.ipsec.cloudflare.com`.
+	//
+	// This custom ID does not need to be unique. Two IPsec tunnels may have the same custom
+	// fqdn_id. However, if another IPsec tunnel has the same value then the two tunnels
+	// cannot have the same cloudflare_endpoint.
+	FqdnID *string `json:"fqdnId,omitempty" tf:"fqdn_id,omitempty"`
+}
+
+type CustomRemoteIdentitiesObservation struct {
+
+	// (String) Identifier
+	// A custom IKE ID of type FQDN that may be used to identity the IPsec tunnel. The
+	// generated IKE IDs can still be used even if this custom value is specified.
+	//
+	// Must be of the form `<custom label>.<account ID>.custom.ipsec.cloudflare.com`.
+	//
+	// This custom ID does not need to be unique. Two IPsec tunnels may have the same custom
+	// fqdn_id. However, if another IPsec tunnel has the same value then the two tunnels
+	// cannot have the same cloudflare_endpoint.
+	FqdnID *string `json:"fqdnId,omitempty" tf:"fqdn_id,omitempty"`
+}
+
+type CustomRemoteIdentitiesParameters struct {
+
+	// (String) Identifier
+	// A custom IKE ID of type FQDN that may be used to identity the IPsec tunnel. The
+	// generated IKE IDs can still be used even if this custom value is specified.
+	//
+	// Must be of the form `<custom label>.<account ID>.custom.ipsec.cloudflare.com`.
+	//
+	// This custom ID does not need to be unique. Two IPsec tunnels may have the same custom
+	// fqdn_id. However, if another IPsec tunnel has the same value then the two tunnels
+	// cannot have the same cloudflare_endpoint.
+	// +kubebuilder:validation:Optional
+	FqdnID *string `json:"fqdnId,omitempty" tf:"fqdn_id,omitempty"`
+}
+
 type HealthCheckTargetInitParameters struct {
 
 	// (String) The saved health check target. Setting the value to the empty string indicates that the calculated default value will be used.
@@ -37,6 +80,115 @@ type HealthCheckTargetParameters struct {
 	// The saved health check target. Setting the value to the empty string indicates that the calculated default value will be used.
 	// +kubebuilder:validation:Optional
 	Saved *string `json:"saved,omitempty" tf:"saved,omitempty"`
+}
+
+type MagicWANIPSecTunnelBGPInitParameters struct {
+
+	// ASN used on the customer end of the BGP session
+	CustomerAsn *float64 `json:"customerAsn,omitempty" tf:"customer_asn,omitempty"`
+
+	// Prefixes in this list will be advertised to the customer device, in addition to the routes in the Magic routing table.
+	ExtraPrefixes []*string `json:"extraPrefixes,omitempty" tf:"extra_prefixes,omitempty"`
+
+	// MD5 key to use for session authentication.
+	//
+	// Note that *this is not a security measure*. MD5 is not a valid security mechanism, and the
+	// key is not treated as a secret value. This is *only* supported for preventing
+	// misconfiguration, not for defending against malicious attacks.
+	//
+	// The MD5 key, if set, must be of non-zero length and consist only of the following types of
+	// character:
+	//
+	// * ASCII alphanumerics: `[a-zA-Z0-9]`
+	// * Special characters in the set `'!@#$%^&*()+[]{}<>/.,;:_-~`= \|`
+	//
+	// In other words, MD5 keys may contain any printable ASCII character aside from newline (0x0A),
+	// quotation mark (`"`), vertical tab (0x0B), carriage return (0x0D), tab (0x09), form feed
+	// (0x0C), and the question mark (`?`). Requests specifying an MD5 key with one or more of
+	// these disallowed characters will be rejected.
+	Md5Key *string `json:"md5Key,omitempty" tf:"md5_key,omitempty"`
+}
+
+type MagicWANIPSecTunnelBGPObservation struct {
+
+	// ASN used on the customer end of the BGP session
+	CustomerAsn *float64 `json:"customerAsn,omitempty" tf:"customer_asn,omitempty"`
+
+	// Prefixes in this list will be advertised to the customer device, in addition to the routes in the Magic routing table.
+	ExtraPrefixes []*string `json:"extraPrefixes,omitempty" tf:"extra_prefixes,omitempty"`
+
+	// MD5 key to use for session authentication.
+	//
+	// Note that *this is not a security measure*. MD5 is not a valid security mechanism, and the
+	// key is not treated as a secret value. This is *only* supported for preventing
+	// misconfiguration, not for defending against malicious attacks.
+	//
+	// The MD5 key, if set, must be of non-zero length and consist only of the following types of
+	// character:
+	//
+	// * ASCII alphanumerics: `[a-zA-Z0-9]`
+	// * Special characters in the set `'!@#$%^&*()+[]{}<>/.,;:_-~`= \|`
+	//
+	// In other words, MD5 keys may contain any printable ASCII character aside from newline (0x0A),
+	// quotation mark (`"`), vertical tab (0x0B), carriage return (0x0D), tab (0x09), form feed
+	// (0x0C), and the question mark (`?`). Requests specifying an MD5 key with one or more of
+	// these disallowed characters will be rejected.
+	Md5Key *string `json:"md5Key,omitempty" tf:"md5_key,omitempty"`
+}
+
+type MagicWANIPSecTunnelBGPParameters struct {
+
+	// ASN used on the customer end of the BGP session
+	// +kubebuilder:validation:Optional
+	CustomerAsn *float64 `json:"customerAsn" tf:"customer_asn,omitempty"`
+
+	// Prefixes in this list will be advertised to the customer device, in addition to the routes in the Magic routing table.
+	// +kubebuilder:validation:Optional
+	ExtraPrefixes []*string `json:"extraPrefixes,omitempty" tf:"extra_prefixes,omitempty"`
+
+	// MD5 key to use for session authentication.
+	//
+	// Note that *this is not a security measure*. MD5 is not a valid security mechanism, and the
+	// key is not treated as a secret value. This is *only* supported for preventing
+	// misconfiguration, not for defending against malicious attacks.
+	//
+	// The MD5 key, if set, must be of non-zero length and consist only of the following types of
+	// character:
+	//
+	// * ASCII alphanumerics: `[a-zA-Z0-9]`
+	// * Special characters in the set `'!@#$%^&*()+[]{}<>/.,;:_-~`= \|`
+	//
+	// In other words, MD5 keys may contain any printable ASCII character aside from newline (0x0A),
+	// quotation mark (`"`), vertical tab (0x0B), carriage return (0x0D), tab (0x09), form feed
+	// (0x0C), and the question mark (`?`). Requests specifying an MD5 key with one or more of
+	// these disallowed characters will be rejected.
+	// +kubebuilder:validation:Optional
+	Md5Key *string `json:"md5Key,omitempty" tf:"md5_key,omitempty"`
+}
+
+type MagicWANIPSecTunnelBGPStatusInitParameters struct {
+}
+
+type MagicWANIPSecTunnelBGPStatusObservation struct {
+	BGPState *string `json:"bgpState,omitempty" tf:"bgp_state,omitempty"`
+
+	CfSpeakerIP *string `json:"cfSpeakerIp,omitempty" tf:"cf_speaker_ip,omitempty"`
+
+	CfSpeakerPort *float64 `json:"cfSpeakerPort,omitempty" tf:"cf_speaker_port,omitempty"`
+
+	CustomerSpeakerIP *string `json:"customerSpeakerIp,omitempty" tf:"customer_speaker_ip,omitempty"`
+
+	CustomerSpeakerPort *float64 `json:"customerSpeakerPort,omitempty" tf:"customer_speaker_port,omitempty"`
+
+	// Available values: "BGP_DOWN", "BGP_UP", "BGP_ESTABLISHING".
+	State *string `json:"state,omitempty" tf:"state,omitempty"`
+
+	TCPEstablished *bool `json:"tcpEstablished,omitempty" tf:"tcp_established,omitempty"`
+
+	UpdatedAt *string `json:"updatedAt,omitempty" tf:"updated_at,omitempty"`
+}
+
+type MagicWANIPSecTunnelBGPStatusParameters struct {
 }
 
 type MagicWANIPSecTunnelHealthCheckInitParameters struct {
@@ -143,9 +295,16 @@ type MagicWANIPSecTunnelInitParameters struct {
 	// +kubebuilder:validation:Optional
 	AccountIDSelector *v1.Selector `json:"accountIdSelector,omitempty" tf:"-"`
 
+	// True if automatic stateful return routing should be enabled for a tunnel, false otherwise.
+	AutomaticReturnRouting *bool `json:"automaticReturnRouting,omitempty" tf:"automatic_return_routing,omitempty"`
+
+	BGP *MagicWANIPSecTunnelBGPInitParameters `json:"bgp,omitempty" tf:"bgp,omitempty"`
+
 	// (String) The IP address assigned to the Cloudflare side of the IPsec tunnel.
 	// The IP address assigned to the Cloudflare side of the IPsec tunnel.
 	CloudflareEndpoint *string `json:"cloudflareEndpoint,omitempty" tf:"cloudflare_endpoint,omitempty"`
+
+	CustomRemoteIdentities *CustomRemoteIdentitiesInitParameters `json:"customRemoteIdentities,omitempty" tf:"custom_remote_identities,omitempty"`
 
 	// (String) The IP address assigned to the customer side of the IPsec tunnel. Not required, but must be set for proactive traceroutes to work.
 	// The IP address assigned to the customer side of the IPsec tunnel. Not required, but must be set for proactive traceroutes to work.
@@ -189,6 +348,13 @@ type MagicWANIPSecTunnelObservation struct {
 	// When `true`, the tunnel can use a null-cipher (`ENCR_NULL`) in the ESP tunnel (Phase 2).
 	AllowNullCipher *bool `json:"allowNullCipher,omitempty" tf:"allow_null_cipher,omitempty"`
 
+	// True if automatic stateful return routing should be enabled for a tunnel, false otherwise.
+	AutomaticReturnRouting *bool `json:"automaticReturnRouting,omitempty" tf:"automatic_return_routing,omitempty"`
+
+	BGP *MagicWANIPSecTunnelBGPObservation `json:"bgp,omitempty" tf:"bgp,omitempty"`
+
+	BGPStatus *MagicWANIPSecTunnelBGPStatusObservation `json:"bgpStatus,omitempty" tf:"bgp_status,omitempty"`
+
 	// (String) The IP address assigned to the Cloudflare side of the IPsec tunnel.
 	// The IP address assigned to the Cloudflare side of the IPsec tunnel.
 	CloudflareEndpoint *string `json:"cloudflareEndpoint,omitempty" tf:"cloudflare_endpoint,omitempty"`
@@ -196,6 +362,8 @@ type MagicWANIPSecTunnelObservation struct {
 	// (String) The date and time the tunnel was created.
 	// The date and time the tunnel was created.
 	CreatedOn *string `json:"createdOn,omitempty" tf:"created_on,omitempty"`
+
+	CustomRemoteIdentities *CustomRemoteIdentitiesObservation `json:"customRemoteIdentities,omitempty" tf:"custom_remote_identities,omitempty"`
 
 	// (String) The IP address assigned to the customer side of the IPsec tunnel. Not required, but must be set for proactive traceroutes to work.
 	// The IP address assigned to the customer side of the IPsec tunnel. Not required, but must be set for proactive traceroutes to work.
@@ -251,10 +419,20 @@ type MagicWANIPSecTunnelParameters struct {
 	// +kubebuilder:validation:Optional
 	AccountIDSelector *v1.Selector `json:"accountIdSelector,omitempty" tf:"-"`
 
+	// True if automatic stateful return routing should be enabled for a tunnel, false otherwise.
+	// +kubebuilder:validation:Optional
+	AutomaticReturnRouting *bool `json:"automaticReturnRouting,omitempty" tf:"automatic_return_routing,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	BGP *MagicWANIPSecTunnelBGPParameters `json:"bgp,omitempty" tf:"bgp,omitempty"`
+
 	// (String) The IP address assigned to the Cloudflare side of the IPsec tunnel.
 	// The IP address assigned to the Cloudflare side of the IPsec tunnel.
 	// +kubebuilder:validation:Optional
 	CloudflareEndpoint *string `json:"cloudflareEndpoint,omitempty" tf:"cloudflare_endpoint,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	CustomRemoteIdentities *CustomRemoteIdentitiesParameters `json:"customRemoteIdentities,omitempty" tf:"custom_remote_identities,omitempty"`
 
 	// (String) The IP address assigned to the customer side of the IPsec tunnel. Not required, but must be set for proactive traceroutes to work.
 	// The IP address assigned to the customer side of the IPsec tunnel. Not required, but must be set for proactive traceroutes to work.

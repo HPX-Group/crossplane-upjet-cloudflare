@@ -11,15 +11,15 @@ spec:
     accountIdSelector:
       matchLabels:
         testing.upbound.io/example-name: example
-    automatic_return_routing: true
+    automaticReturnRouting: true
     bgp:
-      customer_asn: 0
-      extra_prefixes:
+      customerAsn: 0
+      extraPrefixes:
       - string
-      md5_key: md5_key
+      md5Key: md5_key
     cloudflareEndpoint: 203.0.113.1
-    custom_remote_identities:
-      fqdn_id: fqdn_id
+    customRemoteIdentities:
+      fqdnId: fqdn_id
     customerEndpoint: 203.0.113.1
     description: Tunnel for ISP X
     healthCheck:

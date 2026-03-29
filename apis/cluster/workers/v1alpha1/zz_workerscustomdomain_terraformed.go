@@ -125,5 +125,5 @@ func (tr *WorkersCustomDomain) LateInitialize(attrs []byte) (bool, error) {
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
 func (tr *WorkersCustomDomain) GetTerraformSchemaVersion() int {
-	return 0
+	return 1
 }

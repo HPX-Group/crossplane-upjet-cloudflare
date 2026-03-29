@@ -125,5 +125,5 @@ func (tr *ZeroTrustTunnelCloudflaredVirtualNetwork) LateInitialize(attrs []byte)
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
 func (tr *ZeroTrustTunnelCloudflaredVirtualNetwork) GetTerraformSchemaVersion() int {
-	return 0
+	return 1
 }

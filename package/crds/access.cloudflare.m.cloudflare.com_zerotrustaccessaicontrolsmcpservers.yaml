@@ -381,6 +381,8 @@ spec:
                   id:
                     description: (String) server id
                     type: string
+                  lastSuccessfulSync:
+                    type: string
                   lastSynced:
                     description: (String)
                     type: string

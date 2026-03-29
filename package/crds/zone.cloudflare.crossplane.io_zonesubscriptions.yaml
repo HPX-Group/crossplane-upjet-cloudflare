@@ -98,7 +98,7 @@ spec:
                   zoneId:
                     description: |-
                       (String) Subscription identifier tag.
-                      Subscription identifier tag.
+                      Identifier
                     type: string
                   zoneIdRef:
                     description: Reference to a Zone in zone to populate zoneId.
@@ -214,7 +214,7 @@ spec:
                   zoneId:
                     description: |-
                       (String) Subscription identifier tag.
-                      Subscription identifier tag.
+                      Identifier
                     type: string
                   zoneIdRef:
                     description: Reference to a Zone in zone to populate zoneId.
@@ -450,7 +450,7 @@ spec:
                       sets:
                         description: |-
                           (List of String) The list of sets this rate plan applies to.
-                          The list of sets this rate plan applies to.
+                          The list of sets this rate plan applies to. Returns array of strings.
                         items:
                           type: string
                         type: array
@@ -465,7 +465,7 @@ spec:
                   zoneId:
                     description: |-
                       (String) Subscription identifier tag.
-                      Subscription identifier tag.
+                      Identifier
                     type: string
                 type: object
               conditions:

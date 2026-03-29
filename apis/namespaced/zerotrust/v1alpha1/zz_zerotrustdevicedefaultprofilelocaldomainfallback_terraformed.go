@@ -125,5 +125,5 @@ func (tr *ZeroTrustDeviceDefaultProfileLocalDomainFallback) LateInitialize(attrs
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
 func (tr *ZeroTrustDeviceDefaultProfileLocalDomainFallback) GetTerraformSchemaVersion() int {
-	return 0
+	return 1
 }

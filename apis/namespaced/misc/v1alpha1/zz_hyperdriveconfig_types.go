@@ -21,11 +21,11 @@ type CachingInitParameters struct {
 	Disabled *bool `json:"disabled,omitempty" tf:"disabled,omitempty"`
 
 	// (Number) Specify the maximum duration items should persist in the cache. Not returned if set to the default (60).
-	// Specify the maximum duration items should persist in the cache. Not returned if set to the default (60).
+	// Specify the maximum duration (in seconds) items should persist in the cache. Defaults to 60 seconds if not specified.
 	MaxAge *float64 `json:"maxAge,omitempty" tf:"max_age,omitempty"`
 
 	// (Number) Specify the number of seconds the cache may serve a stale response. Omitted if set to the default (15).
-	// Specify the number of seconds the cache may serve a stale response. Omitted if set to the default (15).
+	// Specify the number of seconds the cache may serve a stale response. Defaults to 15 seconds if not specified.
 	StaleWhileRevalidate *float64 `json:"staleWhileRevalidate,omitempty" tf:"stale_while_revalidate,omitempty"`
 }
 
@@ -36,11 +36,11 @@ type CachingObservation struct {
 	Disabled *bool `json:"disabled,omitempty" tf:"disabled,omitempty"`
 
 	// (Number) Specify the maximum duration items should persist in the cache. Not returned if set to the default (60).
-	// Specify the maximum duration items should persist in the cache. Not returned if set to the default (60).
+	// Specify the maximum duration (in seconds) items should persist in the cache. Defaults to 60 seconds if not specified.
 	MaxAge *float64 `json:"maxAge,omitempty" tf:"max_age,omitempty"`
 
 	// (Number) Specify the number of seconds the cache may serve a stale response. Omitted if set to the default (15).
-	// Specify the number of seconds the cache may serve a stale response. Omitted if set to the default (15).
+	// Specify the number of seconds the cache may serve a stale response. Defaults to 15 seconds if not specified.
 	StaleWhileRevalidate *float64 `json:"staleWhileRevalidate,omitempty" tf:"stale_while_revalidate,omitempty"`
 }
 
@@ -52,12 +52,12 @@ type CachingParameters struct {
 	Disabled *bool `json:"disabled,omitempty" tf:"disabled,omitempty"`
 
 	// (Number) Specify the maximum duration items should persist in the cache. Not returned if set to the default (60).
-	// Specify the maximum duration items should persist in the cache. Not returned if set to the default (60).
+	// Specify the maximum duration (in seconds) items should persist in the cache. Defaults to 60 seconds if not specified.
 	// +kubebuilder:validation:Optional
 	MaxAge *float64 `json:"maxAge,omitempty" tf:"max_age,omitempty"`
 
 	// (Number) Specify the number of seconds the cache may serve a stale response. Omitted if set to the default (15).
-	// Specify the number of seconds the cache may serve a stale response. Omitted if set to the default (15).
+	// Specify the number of seconds the cache may serve a stale response. Defaults to 15 seconds if not specified.
 	// +kubebuilder:validation:Optional
 	StaleWhileRevalidate *float64 `json:"staleWhileRevalidate,omitempty" tf:"stale_while_revalidate,omitempty"`
 }
@@ -227,7 +227,7 @@ type OriginInitParameters struct {
 	PasswordSecretRef v1.LocalSecretKeySelector `json:"passwordSecretRef" tf:"-"`
 
 	// (Number) Defines the port (default: 5432 for Postgres) of your origin database.
-	// Defines the port (default: 5432 for Postgres) of your origin database.
+	// Defines the port of your origin database. Defaults to 5432 for PostgreSQL or 3306 for MySQL if not specified.
 	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// (String) Specifies the URL scheme used to connect to your origin database.
@@ -256,7 +256,7 @@ type OriginObservation struct {
 	Host *string `json:"host,omitempty" tf:"host,omitempty"`
 
 	// (Number) Defines the port (default: 5432 for Postgres) of your origin database.
-	// Defines the port (default: 5432 for Postgres) of your origin database.
+	// Defines the port of your origin database. Defaults to 5432 for PostgreSQL or 3306 for MySQL if not specified.
 	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// (String) Specifies the URL scheme used to connect to your origin database.
@@ -298,7 +298,7 @@ type OriginParameters struct {
 	PasswordSecretRef v1.LocalSecretKeySelector `json:"passwordSecretRef" tf:"-"`
 
 	// (Number) Defines the port (default: 5432 for Postgres) of your origin database.
-	// Defines the port (default: 5432 for Postgres) of your origin database.
+	// Defines the port of your origin database. Defaults to 5432 for PostgreSQL or 3306 for MySQL if not specified.
 	// +kubebuilder:validation:Optional
 	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 

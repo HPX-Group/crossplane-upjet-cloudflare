@@ -415,6 +415,15 @@ spec:
                             (String) Name of Worker to bind to.
                             Name of Worker to bind to.
                           type: string
+                        simple:
+                          properties:
+                            limit:
+                              description: The rate limit value.
+                              type: number
+                            period:
+                              description: The rate limit period in seconds.
+                              type: number
+                          type: object
                         storeId:
                           description: |-
                             (String) ID of the store containing the secret.
@@ -720,7 +729,7 @@ spec:
                           (String) Enables Smart Placement.
                           Available values: "smart".
                           Enables [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
-                          Available values: "smart".
+                          Available values: "smart", "targeted".
                         type: string
                     type: object
                   scriptName:
@@ -1114,6 +1123,15 @@ spec:
                             (String) Name of Worker to bind to.
                             Name of Worker to bind to.
                           type: string
+                        simple:
+                          properties:
+                            limit:
+                              description: The rate limit value.
+                              type: number
+                            period:
+                              description: The rate limit period in seconds.
+                              type: number
+                          type: object
                         storeId:
                           description: |-
                             (String) ID of the store containing the secret.
@@ -1419,7 +1437,7 @@ spec:
                           (String) Enables Smart Placement.
                           Available values: "smart".
                           Enables [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
-                          Available values: "smart".
+                          Available values: "smart", "targeted".
                         type: string
                     type: object
                   scriptName:
@@ -1770,6 +1788,15 @@ spec:
                             (String) Name of Worker to bind to.
                             Name of Worker to bind to.
                           type: string
+                        simple:
+                          properties:
+                            limit:
+                              description: The rate limit value.
+                              type: number
+                            period:
+                              description: The rate limit period in seconds.
+                              type: number
+                          type: object
                         storeId:
                           description: |-
                             (String) ID of the store containing the secret.
@@ -2117,6 +2144,14 @@ spec:
                     description: (Attributes) Configuration for Smart Placement. (see
                       below for nested schema)
                     properties:
+                      host:
+                        description: TCP host and port for targeted placement.
+                        type: string
+                      hostname:
+                        description: |-
+                          (String) A JavaScript variable name for the binding.
+                          HTTP hostname for targeted placement.
+                        type: string
                       lastAnalyzedAt:
                         description: |-
                           (String) The last time the script was analyzed for Smart Placement.
@@ -2127,7 +2162,11 @@ spec:
                           (String) Enables Smart Placement.
                           Available values: "smart".
                           Enables [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
-                          Available values: "smart".
+                          Available values: "smart", "targeted".
+                        type: string
+                      region:
+                        description: Cloud region for targeted placement in format
+                          'provider:region'.
                         type: string
                       status:
                         description: |-
@@ -2136,7 +2175,35 @@ spec:
                           Status of [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
                           Available values: "SUCCESS", "UNSUPPORTED_APPLICATION", "INSUFFICIENT_INVOCATIONS".
                         type: string
+                      target:
+                        items:
+                          properties:
+                            host:
+                              description: TCP host:port for targeted placement.
+                              type: string
+                            hostname:
+                              description: |-
+                                (String) A JavaScript variable name for the binding.
+                                HTTP hostname for targeted placement.
+                              type: string
+                            region:
+                              description: Cloud region in format 'provider:region'.
+                              type: string
+                          type: object
+                        type: array
                     type: object
+                  placementMode:
+                    description: |-
+                      (String) Enables Smart Placement.
+                      Available values: "smart".
+                      Available values: "smart", "targeted".
+                    type: string
+                  placementStatus:
+                    description: |-
+                      (String) Status of Smart Placement.
+                      Available values: "SUCCESS", "UNSUPPORTED_APPLICATION", "INSUFFICIENT_INVOCATIONS".
+                      Available values: "SUCCESS", "UNSUPPORTED_APPLICATION", "INSUFFICIENT_INVOCATIONS".
+                    type: string
                   scriptName:
                     description: |-
                       (String) Name of the script, used in URLs and route configuration.
