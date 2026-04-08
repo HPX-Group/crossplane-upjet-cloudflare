@@ -1,0 +1,10 @@
+# This directory contains a shallow clone of the Cloudflare Terraform provider.
+# Only the shim/ directory (which re-exports the internal provider factory) is
+# tracked in version control. The rest is populated at build time via:
+#   git clone --depth 1 --branch v5.17.0 https://github.com/cloudflare/terraform-provider-cloudflare.git hack/provider-cloudflare/
+#
+# Ignore everything except shim/ and this .gitignore
+*
+!.gitignore
+!shim/
+!shim/**

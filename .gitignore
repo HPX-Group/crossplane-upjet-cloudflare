@@ -10,3 +10,8 @@ cover.out
 # ignore IDE folders
 .vscode/
 .idea/
+
+# Cloudflare provider clone (only shim/ is tracked)
+/hack/provider-cloudflare/*
+!/hack/provider-cloudflare/shim/
+!/hack/provider-cloudflare/.gitignore
