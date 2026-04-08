@@ -4,18 +4,12 @@
 PROJECT_NAME ?= provider-upjet-cloudflare
 PROJECT_REPO ?= github.com/crossplane-contrib/$(PROJECT_NAME)
 
-export TERRAFORM_VERSION ?= 1.5.7
-
-# Do not allow a version of terraform greater than 1.5.x, due to versions 1.6+ being
-# licensed under BSL, which is not permitted.
-TERRAFORM_VERSION_VALID := $(shell [ "$(TERRAFORM_VERSION)" = "`printf "$(TERRAFORM_VERSION)\n1.6" | sort -V | head -n1`" ] && echo 1 || echo 0)
-
+# Terraform provider metadata — used for pull-docs and schema-version-diff.
+# The provider itself runs in no-fork mode (embedded via Go module), so no
+# Terraform CLI or provider binary is needed at runtime.
 export TERRAFORM_PROVIDER_SOURCE ?= cloudflare/cloudflare
 export TERRAFORM_PROVIDER_REPO ?= https://github.com/cloudflare/terraform-provider-cloudflare
 export TERRAFORM_PROVIDER_VERSION ?= 5.17.0
-export TERRAFORM_PROVIDER_DOWNLOAD_NAME ?= terraform-provider-cloudflare
-export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX ?= https://github.com/cloudflare/$(TERRAFORM_PROVIDER_DOWNLOAD_NAME)/releases/download/v$(TERRAFORM_PROVIDER_VERSION)
-export TERRAFORM_NATIVE_PROVIDER_BINARY ?= terraform-provider-cloudflare_v$(TERRAFORM_PROVIDER_VERSION)
 export TERRAFORM_DOCS_PATH ?= docs/resources
 
 
@@ -99,35 +93,10 @@ xpkg.build.provider-upjet-cloudflare: do.build.images
 
 # NOTE(hasheddan): we ensure up is installed prior to running platform-specific
 # build steps in parallel to avoid encountering an installation race condition.
-build.init: $(UP) $(CROSSPLANE_CLI) check-terraform-version
+build.init: $(UP) $(CROSSPLANE_CLI)
 
 # ====================================================================================
-# Setup Terraform for fetching provider schema
-TERRAFORM := $(TOOLS_HOST_DIR)/terraform-$(TERRAFORM_VERSION)
-TERRAFORM_WORKDIR := $(WORK_DIR)/terraform
-TERRAFORM_PROVIDER_SCHEMA := config/schema.json
-
-check-terraform-version:
-ifneq ($(TERRAFORM_VERSION_VALID),1)
-	$(error invalid TERRAFORM_VERSION $(TERRAFORM_VERSION), must be less than 1.6.0 since that version introduced a not permitted BSL license))
-endif
-
-$(TERRAFORM): check-terraform-version
-	@$(INFO) installing terraform $(HOSTOS)-$(HOSTARCH)
-	@mkdir -p $(TOOLS_HOST_DIR)/tmp-terraform
-	@curl -fsSL https://releases.hashicorp.com/terraform/$(TERRAFORM_VERSION)/terraform_$(TERRAFORM_VERSION)_$(SAFEHOST_PLATFORM).zip -o $(TOOLS_HOST_DIR)/tmp-terraform/terraform.zip
-	@unzip $(TOOLS_HOST_DIR)/tmp-terraform/terraform.zip -d $(TOOLS_HOST_DIR)/tmp-terraform
-	@mv $(TOOLS_HOST_DIR)/tmp-terraform/terraform $(TERRAFORM)
-	@rm -fr $(TOOLS_HOST_DIR)/tmp-terraform
-	@$(OK) installing terraform $(HOSTOS)-$(HOSTARCH)
-
-$(TERRAFORM_PROVIDER_SCHEMA): $(TERRAFORM)
-	@$(INFO) generating provider schema for $(TERRAFORM_PROVIDER_SOURCE) $(TERRAFORM_PROVIDER_VERSION)
-	@mkdir -p $(TERRAFORM_WORKDIR)
-	@echo '{"terraform":[{"required_providers":[{"provider":{"source":"'"$(TERRAFORM_PROVIDER_SOURCE)"'","version":"'"$(TERRAFORM_PROVIDER_VERSION)"'"}}],"required_version":"'"$(TERRAFORM_VERSION)"'"}]}' > $(TERRAFORM_WORKDIR)/main.tf.json
-	@$(TERRAFORM) -chdir=$(TERRAFORM_WORKDIR) init > $(TERRAFORM_WORKDIR)/terraform-logs.txt 2>&1
-	@$(TERRAFORM) -chdir=$(TERRAFORM_WORKDIR) providers schema -json=true > $(TERRAFORM_PROVIDER_SCHEMA) 2>> $(TERRAFORM_WORKDIR)/terraform-logs.txt
-	@$(OK) generating provider schema for $(TERRAFORM_PROVIDER_SOURCE) $(TERRAFORM_PROVIDER_VERSION)
+# Setup provider documentation
 
 pull-docs:
 	@if [ ! -d "$(WORK_DIR)/$(TERRAFORM_PROVIDER_SOURCE)" ]; then \
@@ -136,9 +105,9 @@ pull-docs:
 	fi
 	@git -C "$(WORK_DIR)/$(TERRAFORM_PROVIDER_SOURCE)" sparse-checkout set "$(TERRAFORM_DOCS_PATH)"
 
-generate.init: $(TERRAFORM_PROVIDER_SCHEMA) pull-docs
+generate.init: pull-docs
 
-.PHONY: $(TERRAFORM_PROVIDER_SCHEMA) pull-docs check-terraform-version
+.PHONY: pull-docs
 # ====================================================================================
 # Targets
 

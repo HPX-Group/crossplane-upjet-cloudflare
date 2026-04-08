@@ -6,6 +6,8 @@ import (
 
 	ujconfig "github.com/crossplane/upjet/v2/pkg/config"
 
+	"github.com/cloudflare/terraform-provider-cloudflare/shim"
+
 	// Cluster-scoped resource configurations
 	accessCluster "github.com/crossplane-contrib/provider-upjet-cloudflare/config/cluster/access"
 	accountCluster "github.com/crossplane-contrib/provider-upjet-cloudflare/config/cluster/account"
@@ -68,7 +70,9 @@ var providerMetadata string
 func GetProvider() *ujconfig.Provider {
 	pc := ujconfig.NewProvider([]byte(providerSchema), resourcePrefix, modulePath, []byte(providerMetadata),
 		ujconfig.WithRootGroup("cloudflare.crossplane.io"),
-		ujconfig.WithIncludeList(ExternalNameConfigured()),
+		ujconfig.WithIncludeList([]string{}),
+		ujconfig.WithTerraformPluginFrameworkIncludeList(ExternalNameConfigured()),
+		ujconfig.WithTerraformPluginFrameworkProvider(shim.NewProvider("dev")()),
 		ujconfig.WithFeaturesPackage("internal/features"),
 		ujconfig.WithDefaultResourceOptions(
 			ExternalNameConfigurations(),
@@ -109,7 +113,9 @@ func GetProvider() *ujconfig.Provider {
 func GetProviderNamespaced() *ujconfig.Provider {
 	pc := ujconfig.NewProvider([]byte(providerSchema), resourcePrefix, modulePath, []byte(providerMetadata),
 		ujconfig.WithRootGroup("cloudflare.m.cloudflare.com"),
-		ujconfig.WithIncludeList(ExternalNameConfigured()),
+		ujconfig.WithIncludeList([]string{}),
+		ujconfig.WithTerraformPluginFrameworkIncludeList(ExternalNameConfigured()),
+		ujconfig.WithTerraformPluginFrameworkProvider(shim.NewProvider("dev")()),
 		ujconfig.WithFeaturesPackage("internal/features"),
 		ujconfig.WithDefaultResourceOptions(
 			ExternalNameConfigurations(),

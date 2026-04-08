@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 
 	"github.com/crossplane/crossplane-runtime/v2/pkg/resource"
+	fwprovider "github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/pkg/errors"
 	"k8s.io/apimachinery/pkg/types"
 	"sigs.k8s.io/controller-runtime/pkg/client"
@@ -33,16 +34,15 @@ const (
 	keyUserAgentOperatorSuffix = "user_agent_operator_suffix"
 )
 
-// TerraformSetupBuilder builds Terraform a terraform.SetupFn function which
-// returns Terraform provider setup configuration
-func TerraformSetupBuilder(version, providerSource, providerVersion string) terraform.SetupFn {
+// TerraformSetupBuilder builds a terraform.SetupFn that returns provider setup
+// configuration for the no-fork (in-process) execution mode. The provided
+// frameworkProvider is set on terraform.Setup.FrameworkProvider so that the
+// TerraformPluginFrameworkConnector uses it directly instead of spawning
+// a Terraform CLI subprocess.
+func TerraformSetupBuilder(frameworkProvider fwprovider.Provider) terraform.SetupFn {
 	return func(ctx context.Context, client client.Client, mg resource.Managed) (terraform.Setup, error) {
 		ps := terraform.Setup{
-			Version: version,
-			Requirement: terraform.ProviderRequirement{
-				Source:  providerSource,
-				Version: providerVersion,
-			},
+			FrameworkProvider: frameworkProvider,
 		}
 
 		pcSpec, err := resolveProviderConfig(ctx, client, mg)

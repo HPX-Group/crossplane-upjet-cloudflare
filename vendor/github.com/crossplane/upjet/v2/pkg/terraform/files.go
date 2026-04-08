@@ -233,14 +233,6 @@ func (fp *FileProducer) WriteMainTF() (ProviderHandle, error) {
 func (fp *FileProducer) EnsureTFState(_ context.Context, tfID string) error { //nolint:gocyclo // easier to follow as a unit
 	// TODO(muvaf): Reduce the cyclomatic complexity by separating the attributes
 	// generation into its own function/interface.
-	//
-	// Don't write state when no ID has been assigned yet. Writing id="" causes
-	// providers that validate the ID before making API calls to return an error
-	// instead of "not found", preventing the resource from ever proceeding to
-	// Create. See: https://github.com/crossplane/upjet/issues/XXX
-	if fp.hasTFID && tfID == "" {
-		return nil
-	}
 	empty, err := fp.isStateEmpty()
 	if err != nil {
 		return errors.Wrap(err, errCheckIfStateEmpty)
