@@ -1,0 +1,51 @@
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+package zero_trust_organization
+
+import (
+	"github.com/cloudflare/terraform-provider-cloudflare/internal/apijson"
+	"github.com/hashicorp/terraform-plugin-framework/types"
+)
+
+type ZeroTrustOrganizationResultEnvelope struct {
+	Result ZeroTrustOrganizationModel `json:"result"`
+}
+
+type ZeroTrustOrganizationModel struct {
+	AccountID                              types.String                           `tfsdk:"account_id" path:"account_id,optional"`
+	ZoneID                                 types.String                           `tfsdk:"zone_id" path:"zone_id,optional"`
+	AuthDomain                             types.String                           `tfsdk:"auth_domain" json:"auth_domain,optional"`
+	DenyUnmatchedRequests                  types.Bool                             `tfsdk:"deny_unmatched_requests" json:"deny_unmatched_requests,optional"`
+	Name                                   types.String                           `tfsdk:"name" json:"name,optional"`
+	SessionDuration                        types.String                           `tfsdk:"session_duration" json:"session_duration,optional"`
+	UserSeatExpirationInactiveTime         types.String                           `tfsdk:"user_seat_expiration_inactive_time" json:"user_seat_expiration_inactive_time,optional"`
+	WARPAuthSessionDuration                types.String                           `tfsdk:"warp_auth_session_duration" json:"warp_auth_session_duration,optional"`
+	DenyUnmatchedRequestsExemptedZoneNames *[]types.String                        `tfsdk:"deny_unmatched_requests_exempted_zone_names" json:"deny_unmatched_requests_exempted_zone_names,optional"`
+	CustomPages                            *ZeroTrustOrganizationCustomPagesModel `tfsdk:"custom_pages" json:"custom_pages,optional"`
+	LoginDesign                            *ZeroTrustOrganizationLoginDesignModel `tfsdk:"login_design" json:"login_design,optional"`
+	AllowAuthenticateViaWARP               types.Bool                             `tfsdk:"allow_authenticate_via_warp" json:"allow_authenticate_via_warp,computed_optional"`
+	AutoRedirectToIdentity                 types.Bool                             `tfsdk:"auto_redirect_to_identity" json:"auto_redirect_to_identity,computed_optional"`
+	IsUIReadOnly                           types.Bool                             `tfsdk:"is_ui_read_only" json:"is_ui_read_only,computed_optional"`
+	UIReadOnlyToggleReason                 types.String                           `tfsdk:"ui_read_only_toggle_reason" json:"ui_read_only_toggle_reason,computed_optional"`
+}
+
+func (m ZeroTrustOrganizationModel) MarshalJSON() (data []byte, err error) {
+	return apijson.MarshalRoot(m)
+}
+
+func (m ZeroTrustOrganizationModel) MarshalJSONForUpdate(state ZeroTrustOrganizationModel) (data []byte, err error) {
+	return apijson.MarshalForUpdate(m, state)
+}
+
+type ZeroTrustOrganizationCustomPagesModel struct {
+	Forbidden      types.String `tfsdk:"forbidden" json:"forbidden,optional"`
+	IdentityDenied types.String `tfsdk:"identity_denied" json:"identity_denied,optional"`
+}
+
+type ZeroTrustOrganizationLoginDesignModel struct {
+	BackgroundColor types.String `tfsdk:"background_color" json:"background_color,optional"`
+	FooterText      types.String `tfsdk:"footer_text" json:"footer_text,optional"`
+	HeaderText      types.String `tfsdk:"header_text" json:"header_text,optional"`
+	LogoPath        types.String `tfsdk:"logo_path" json:"logo_path,optional"`
+	TextColor       types.String `tfsdk:"text_color" json:"text_color,optional"`
+}

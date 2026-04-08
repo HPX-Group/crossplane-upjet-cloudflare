@@ -96,29 +96,6 @@ xpkg.build.provider-upjet-cloudflare: do.build.images
 build.init: $(UP) $(CROSSPLANE_CLI)
 
 # ====================================================================================
-# Setup provider shim (clone CF v5 source for internal/ access)
-# The shim/ package re-exports the provider factory from internal/.
-# The full CF source must be present for the Go replace directive to resolve.
-
-PROVIDER_CLOUDFLARE_DIR := hack/provider-cloudflare
-
-$(PROVIDER_CLOUDFLARE_DIR)/go.mod:
-	@$(INFO) cloning cloudflare terraform provider v$(TERRAFORM_PROVIDER_VERSION) for shim
-	@if [ ! -f "$(PROVIDER_CLOUDFLARE_DIR)/go.mod" ]; then \
-		rm -rf $(PROVIDER_CLOUDFLARE_DIR)/.git $(PROVIDER_CLOUDFLARE_DIR)/internal $(PROVIDER_CLOUDFLARE_DIR)/go.mod $(PROVIDER_CLOUDFLARE_DIR)/go.sum; \
-		cd $(PROVIDER_CLOUDFLARE_DIR) && \
-		git init -q && \
-		git remote add origin $(TERRAFORM_PROVIDER_REPO) && \
-		git fetch --depth 1 origin v$(TERRAFORM_PROVIDER_VERSION) -q && \
-		git checkout FETCH_HEAD -q && \
-		rm -rf .git; \
-	fi
-	@$(OK) cloning cloudflare terraform provider v$(TERRAFORM_PROVIDER_VERSION) for shim
-
-.PHONY: provider-shim
-provider-shim: $(PROVIDER_CLOUDFLARE_DIR)/go.mod
-
-# ====================================================================================
 # Setup provider documentation
 
 pull-docs:
@@ -128,11 +105,9 @@ pull-docs:
 	fi
 	@git -C "$(WORK_DIR)/$(TERRAFORM_PROVIDER_SOURCE)" sparse-checkout set "$(TERRAFORM_DOCS_PATH)"
 
-# Ensure the provider shim clone exists before any Go operation
-build.init: provider-shim
-generate.init: provider-shim pull-docs
+generate.init: pull-docs
 
-.PHONY: pull-docs provider-shim
+.PHONY: pull-docs
 # ====================================================================================
 # Targets
 
@@ -252,6 +227,5 @@ help-special: crossplane.help
 .PHONY: crossplane.help help-special
 
 # TODO(negz): Update CI to use these targets.
-# provider-shim must run before vendor to ensure the replace directive resolves
-vendor: provider-shim modules.download
+vendor: modules.download
 vendor.check: modules.check

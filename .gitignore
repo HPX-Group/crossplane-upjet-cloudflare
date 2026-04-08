@@ -11,7 +11,5 @@ cover.out
 .vscode/
 .idea/
 
-# Cloudflare provider clone (only shim/ is tracked)
-/hack/provider-cloudflare/*
-!/hack/provider-cloudflare/shim/
-!/hack/provider-cloudflare/.gitignore
+# Cloudflare provider partial copy (go.mod, internal/, shim/ tracked; rest ignored)
+# See hack/provider-cloudflare/.gitignore for details

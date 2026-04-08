@@ -1,10 +1,16 @@
-# This directory contains a shallow clone of the Cloudflare Terraform provider.
-# Only the shim/ directory (which re-exports the internal provider factory) is
-# tracked in version control. The rest is populated at build time via:
-#   git clone --depth 1 --branch v5.17.0 https://github.com/cloudflare/terraform-provider-cloudflare.git hack/provider-cloudflare/
+# This directory contains a partial copy of the Cloudflare Terraform provider v5.
+# We track go.mod, go.sum, internal/, and shim/ — the minimum needed for Go to
+# resolve the replace directive and for the shim to import internal.NewProvider().
 #
-# Ignore everything except shim/ and this .gitignore
+# To update: bump TERRAFORM_PROVIDER_VERSION in Makefile, run `make provider-shim`,
+# then commit the changes to this directory.
+#
+# Ignore everything except what Go needs
 *
 !.gitignore
+!go.mod
+!go.sum
+!internal/
+!internal/**
 !shim/
 !shim/**
