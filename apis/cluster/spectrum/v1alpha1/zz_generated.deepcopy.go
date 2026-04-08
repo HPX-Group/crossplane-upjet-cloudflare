@@ -10,7 +10,7 @@ package v1alpha1
 
 import (
 	commonv1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
-	"k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"
+	v1 "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 )
 
