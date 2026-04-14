@@ -161,9 +161,10 @@ func main() {
 				MRStateMetrics:          stateMetrics,
 			},
 		},
-		Provider:      config.GetProvider(),
-		SetupFn:       clients.TerraformSetupBuilder(cfProvider),
-		StartWebhooks: *certsDir != "",
+		Provider:              config.GetProvider(),
+		SetupFn:               clients.TerraformSetupBuilder(cfProvider),
+		OperationTrackerStore: tjcontroller.NewOperationStore(log),
+		StartWebhooks:         *certsDir != "",
 	}
 
 	namespacedOpts := tjcontroller.Options{
@@ -179,9 +180,10 @@ func main() {
 				MRStateMetrics:          stateMetrics,
 			},
 		},
-		Provider:      config.GetProviderNamespaced(),
-		SetupFn:       clients.TerraformSetupBuilder(cfProvider),
-		StartWebhooks: *certsDir != "",
+		Provider:              config.GetProviderNamespaced(),
+		SetupFn:               clients.TerraformSetupBuilder(cfProvider),
+		OperationTrackerStore: tjcontroller.NewOperationStore(log),
+		StartWebhooks:         *certsDir != "",
 	}
 
 	if *enableManagementPolicies {
