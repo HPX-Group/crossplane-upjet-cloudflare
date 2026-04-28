@@ -137,7 +137,9 @@ func getFrameworkExtendedParameters(ctx context.Context, tr resource.Terraformed
 		if err != nil {
 			return nil, errors.Wrap(err, "cannot get ID")
 		}
-		params["id"] = tfID
+		if tfID != "" {
+			params["id"] = tfID
+		}
 	}
 
 	// we need to parameterize the following for a provider
@@ -213,13 +215,24 @@ func (c *TerraformPluginFrameworkConnector) Connect(ctx context.Context, mg xpre
 		if id, ok := params["id"]; ok && id != nil && id.(string) != "" && hasIDInSchema {
 			tfState["id"] = params["id"]
 		}
-		if copyParams {
+		providerAssignedIDPending := copyParams && externalName == "" && c.config.ExternalName.DisableNameInitializer
+		if copyParams && !providerAssignedIDPending {
 			tfState = copyParameters(tfState, params)
 		}
 
-		tfStateDynamicValue, err := protov6DynamicValueFromMap(tfState, resourceTfValueType)
-		if err != nil {
-			return nil, errors.Wrap(err, "cannot construct dynamic value for TF state")
+		var tfStateDynamicValue *tfprotov6.DynamicValue
+		if providerAssignedIDPending {
+			nilStateValue := tftypes.NewValue(resourceTfValueType, nil)
+			nilDynamicValue, err := tfprotov6.NewDynamicValue(resourceTfValueType, nilStateValue)
+			if err != nil {
+				return nil, errors.Wrap(err, "cannot construct nil dynamic value for TF state")
+			}
+			tfStateDynamicValue = &nilDynamicValue
+		} else {
+			tfStateDynamicValue, err = protov6DynamicValueFromMap(tfState, resourceTfValueType)
+			if err != nil {
+				return nil, errors.Wrap(err, "cannot construct dynamic value for TF state")
+			}
 		}
 		opTracker.SetFrameworkTFState(tfStateDynamicValue)
 	}
@@ -445,6 +458,23 @@ func (n *terraformPluginFrameworkExternalClient) Observe(ctx context.Context, mg
 		return managed.ExternalObservation{
 			ResourceExists: false,
 		}, nil
+	}
+
+	if meta.GetExternalName(mg) == "" && n.config.ExternalName.DisableNameInitializer {
+		tfStateValue, err := n.opTracker.GetFrameworkTFState().Unmarshal(n.resourceValueTerraformType)
+		if err != nil {
+			return managed.ExternalObservation{}, errors.Wrap(err, "cannot unmarshal state value")
+		}
+		if tfStateValue.IsNull() {
+			n.planResponse, _, err = n.getDiffPlanResponse(ctx, tfStateValue)
+			if err != nil {
+				return managed.ExternalObservation{}, errors.Wrap(err, "cannot calculate diff")
+			}
+			return managed.ExternalObservation{
+				ResourceExists:   false,
+				ResourceUpToDate: false,
+			}, nil
+		}
 	}
 
 	readRequest := &tfprotov6.ReadResourceRequest{
